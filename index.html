@@ -238,6 +238,225 @@ h1{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:clamp(36px,6vw,6
 
 footer{text-align:center;font-size:13px;color:#5a6480;padding:10px 16px 20px;line-height:1.6}
 footer b{color:var(--navy)}
+
+/* room tabs */
+.room-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px}
+.room-tabs button{flex:1 1 220px;border:2px solid var(--navy);background:#fff;color:var(--navy);border-radius:14px;padding:12px 14px;font-weight:800;font-size:17px}
+.room-tabs button.on{background:var(--navy);color:#fff}
+/* on-screen experiment tools */
+.sim-tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:6px 0 0}
+.btn.watch{background:var(--green);box-shadow:0 4px 0 #1d5c39}
+.selfnote{margin:0;font-size:14px}
+.scen{margin:0 0 14px}
+.scen-head{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.scen-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+.scen-card{text-align:left;background:#fff;border:2px solid var(--line);border-radius:12px;padding:10px;font-size:13px;line-height:1.4;color:var(--ink)}
+.scen-card b{display:block;font-size:15px;color:var(--navy);margin-bottom:4px}
+.scen-card.on,.scen-card:hover{border-color:var(--gold);background:#fffaf0}
+.scen-panel{border:2px solid var(--gold);background:#fffaf0;border-radius:12px;padding:12px 14px;margin-top:10px}
+.scen-panel h4{margin:4px 0;font-size:19px;color:var(--navy)}
+.scen-panel p{margin:4px 0 8px;line-height:1.5}
+.scen-panel .kick{font-size:11px}
+@media (max-width:900px){.scen-cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.scen-cards{grid-template-columns:1fr}}
+/* shared sim pieces */
+.svgbox svg{display:block;max-width:480px;margin:0 auto}
+.svgbox.tall svg{max-width:300px}
+.sim-stage{position:relative;border-radius:12px;background:#f4f8fc;overflow:hidden}
+.sim-res{color:var(--navy);font-weight:700;font-size:16px;line-height:1.45}
+.simnote{font-size:13px !important;margin:8px 0 0 !important}
+.sl{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;align-items:center;margin:10px 0;font-size:15px}
+.sl input{grid-column:1/-1;width:100%;accent-color:var(--navy)}
+.parts{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 10px}
+.parts.col{flex-direction:column;align-items:stretch}
+.part{display:inline-flex;align-items:center;gap:6px;background:#fff;border:2px solid var(--navy);border-radius:999px;padding:7px 12px;font-weight:700;font-size:14px;color:var(--navy);cursor:grab;touch-action:none;user-select:none}
+.part .pe{font-size:18px}
+.part.step{border-radius:10px;text-align:left}
+.part.used{opacity:.35;pointer-events:none}
+.part.right{border-color:var(--green);background:#eaf7ef}
+.part.wrong{border-color:var(--red);background:#fdeaea}
+.dg-sel{outline:3px solid var(--gold);outline-offset:2px}
+.dg-ghost{position:fixed;transform:translate(-50%,-50%) scale(1.08);pointer-events:none;z-index:9999;box-shadow:0 8px 20px rgba(0,0,0,.25);opacity:.95}
+.dg-slot{cursor:pointer}
+.dg-over{outline:3px dashed var(--gold) !important;outline-offset:2px}
+.drop-target{border-radius:12px}
+.small-btn.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+/* coin & card */
+.cc{height:240px}
+.cc-cup{position:absolute;left:50%;bottom:20px;width:90px;height:90px;margin-left:-45px;background:linear-gradient(#cfe4ff,#9cc3f0);clip-path:polygon(0 0,100% 0,85% 100%,15% 100%);border-top:4px solid #5b6470}
+.cc-card{position:absolute;left:50%;bottom:110px;width:150px;height:14px;margin-left:-75px;background:#e0a526;border-radius:3px;font-size:9px;font-weight:800;color:#5a3d00;text-align:center;line-height:14px;cursor:grab;touch-action:none}
+.cc-coin{position:absolute;left:50%;bottom:124px;width:30px;height:9px;margin-left:-15px;background:#c27b3a;border-radius:50%;box-shadow:inset 0 -2px 0 #8a5323}
+/* paper drop */
+.pd-stage{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pd-lane{position:relative;height:250px;background:linear-gradient(#eef6ff,#eef6ff 88%,#c9b48a 88%);border:2px dashed #c9d3dc;border-radius:12px;text-align:center}
+.pd-obj{position:absolute;top:30px;left:0;right:0;font-size:34px}
+.pd-lab{position:absolute;top:6px;left:0;right:0;font-weight:700;font-size:13px;color:#4a5470}
+/* milk */
+.mk-cv{display:block;width:100%;max-width:480px;margin:0 auto;border-radius:50%/40%;border:6px solid #e8edf2;touch-action:none}
+/* greenhouse */
+.gh-row,.er-row,.qk-row,.yt-row,.ct-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.yt-row{grid-template-columns:repeat(3,1fr);padding-top:50px}
+.gh-jar{position:relative;text-align:center;padding-top:16px;border-radius:12px}
+.gh-lid{height:12px;width:70%;margin:0 auto;border:2px dashed #c9d3dc;border-radius:4px}
+.gh-lid.on{background:#5b6470;border:2px solid #5b6470}
+.gh-glass{height:150px;width:70%;margin:0 auto;border:3px solid #5b6470;border-top:0;border-radius:0 0 18px 18px;background:#f2f8ff;position:relative}
+.gh-th{position:absolute;left:50%;bottom:12px;width:12px;height:110px;margin-left:-6px;background:#fff;border:2px solid #9aa0a6;border-radius:8px;overflow:hidden}
+.gh-th i{position:absolute;left:0;right:0;bottom:0;background:#d1495b;transition:height .2s}
+.gh-t{font-weight:800;font-size:20px;color:var(--navy);margin-top:6px}
+.gh-lab{font-size:13px;color:#4a5470;font-weight:700}
+/* erosion */
+.er-hill{position:relative;height:200px;border-radius:12px;background:#eef6ff;overflow:hidden}
+.er-slope{position:absolute;left:0;right:0;bottom:50px;height:110px;background:#8b5a2b;clip-path:polygon(0 0,100% 70%,100% 100%,0 100%);display:flex;gap:4%;padding:6px 8% 0 4%;align-items:flex-start}
+.er-spot{width:34px;height:34px;border:2px dashed #f2e6d0;border-radius:50%;font-size:24px;text-align:center;line-height:30px;margin-top:calc(var(--i,0)*1px)}
+.er-spot:nth-child(2){margin-top:12px}.er-spot:nth-child(3){margin-top:24px}.er-spot:nth-child(4){margin-top:38px}.er-spot:nth-child(5){margin-top:50px}
+.er-cup{position:absolute;right:8px;bottom:6px;width:60px;height:46px;border:3px solid #5b6470;border-top:0;border-radius:0 0 10px 10px;background:#fff;overflow:hidden}
+.er-cup i{position:absolute;left:0;right:0;bottom:0;background:#6b4a2b;height:0}
+.er-lab{position:absolute;left:8px;top:6px;font-weight:800;font-size:13px;color:var(--navy)}
+.er-rain{position:absolute;inset:0;background:repeating-linear-gradient(100deg,transparent 0 9px,rgba(47,111,208,.45) 9px 11px);animation:rain .3s linear infinite}
+@keyframes rain{to{background-position:0 22px}}
+/* quake */
+.qk-site{position:relative;height:240px;border-radius:12px;background:#eef6ff;overflow:hidden}
+.qk-bld{position:absolute;left:50%;bottom:62px;width:70px;margin-left:-35px;transform-origin:bottom center}
+.qk-top{height:14px;background:#d1495b;border-radius:4px 4px 0 0}
+.qk-floors{height:120px;background:repeating-linear-gradient(#f4c97a 0 22px,#5b6470 22px 24px)}
+.qk-base{position:absolute;left:12%;right:12%;bottom:34px;height:28px;border:2px dashed #9aa0a6;border-radius:6px;font-size:11px;font-weight:800;text-align:center;line-height:24px;background:#fff;color:#4a5470;overflow:hidden;white-space:nowrap}
+.qk-base.set{border-style:solid;border-color:var(--navy);color:var(--navy)}
+.qk-ground{position:absolute;left:-20px;right:-20px;bottom:0;height:34px;background:#8b5a2b}
+/* moon */
+.mp-box{touch-action:none;cursor:grab}
+/* craters */
+.cr-tray{position:relative;height:190px;border-radius:12px;background:linear-gradient(#eef6ff 0 50%,#8b5a2b 50%);overflow:hidden}
+.cr-tray::after{content:"";position:absolute;left:6%;right:6%;top:50%;height:12px;background:#f3ead6}
+.cr-rock{position:absolute;left:50%;top:60px;transform:translate(-50%,0);font-size:28px;z-index:2}
+.cr-hole{position:absolute;left:50%;top:50%;transform:translate(-50%,-10%);background:radial-gradient(ellipse,#5a3a1e 40%,#b88a5b 72%,transparent 74%);border-radius:50%;z-index:1;opacity:0;transition:all .3s}
+.cr-hole.on{opacity:1}
+/* scale strip */
+.ss-strip{position:relative;height:90px;margin:14px 0 6px;background:#fffdf3;border:2px solid #e0d6b8;border-radius:6px}
+.ss-sun{position:absolute;left:2px;top:4px;font-size:12px;font-weight:800}
+.ss-pluto{position:absolute;right:4px;top:4px;font-size:12px;font-weight:800;color:#6b5a44}
+.ss-crease{position:absolute;top:0;bottom:0;border-left:2px dashed #b9a77a}
+.ss-crease span{position:absolute;bottom:2px;left:3px;font-size:11px;color:#8a7a50;font-weight:700}
+.ss-pl{position:absolute;top:22px;transform:translateX(-50%);text-align:center}
+.ss-pl i{display:block;width:12px;height:12px;border-radius:50%;background:var(--c);margin:0 auto}
+.ss-pl span{display:block;font-size:10px;font-weight:700;writing-mode:vertical-rl;margin:2px auto 0;color:#1f2a44}
+/* celery etc */
+.bm-hole{display:inline-flex;align-items:center;border:2px dashed var(--gold);border-radius:999px;padding:7px 12px;font-weight:700;font-size:14px;background:#fffaf0}
+.yt-b{text-align:center;border-radius:12px;padding:6px}
+.yt-ball{width:60px;height:60px;margin:0 auto -6px;border-radius:50%;background:#d1495b;transform:scale(.3);transform-origin:bottom center;transition:transform .1s}
+.yt-glass{height:110px;border:3px solid #5b6470;border-radius:10px 10px 14px 14px;background:#fdf3d8;display:flex;align-items:center;justify-content:center;padding:4px;font-size:12px;font-weight:700}
+.ct-cup{position:relative;height:170px;border:3px solid #5b6470;border-top:0;border-radius:0 0 16px 16px;background:#f2f8ff;overflow:hidden}
+.ct-liq{position:absolute;left:0;right:0;bottom:0;height:45%;background:#cfe4ff}
+.ct-foam{position:absolute;left:0;right:0;bottom:0;height:0;background:radial-gradient(circle at 20% 30%,#fff 0 6px,transparent 7px) 0 0/22px 22px,#f7fbff;z-index:1;border-top:2px solid #e6eef6}
+.ct-in{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);font-size:28px;z-index:2}
+/* water glasses */
+.wg-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:end;margin-top:30px}
+.wg-row+.wg-row{margin-top:8px}
+.wg-g{position:relative;height:150px;border:3px solid #9fb3c8;border-top:0;border-radius:0 0 14px 14px;background:#f7fbff;touch-action:none;cursor:ns-resize}
+.wg-w{position:absolute;left:0;right:0;bottom:0;background:#7fb3f0;border-radius:0 0 10px 10px}
+.wg-n{position:absolute;top:-22px;left:-10px;right:-10px;text-align:center;font-size:11px;font-weight:800;color:var(--navy)}
+.wg-tap{width:100%;padding:6px 4px}
+/* lemon battery */
+.lb-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.lb-cell{width:62px;height:62px;border:2px dashed var(--gold);border-radius:50%;font-size:30px;display:flex;align-items:center;justify-content:center;background:#fffaf0;color:#c9a64a;position:relative}
+.lb-cell:not(:last-child)::after{content:"";position:absolute;right:-10px;top:50%;width:10px;border-top:3px solid #b87333}
+.lb-cell.full{border-style:solid;background:#fff8d6}
+.lb-out{display:flex;align-items:center;gap:12px;margin:12px 0;font-weight:700}
+.lb-meter{font-family:ui-monospace,monospace;background:#1f2a44;color:#7dff9a;padding:6px 12px;border-radius:8px;font-size:20px}
+.lb-led{width:26px;height:26px;border-radius:50% 50% 6px 6px;background:#5a1d24;border:2px solid #3a0f15}
+.lb-led.on{background:#ff3b30;box-shadow:0 0 18px 6px rgba(255,59,48,.6)}
+/* electromagnet */
+.em-row{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0}
+.em-core,.em-bat{border:2px dashed #9aa0a6;border-radius:10px;padding:12px 14px;font-weight:700;background:#fff;min-width:120px;text-align:center}
+.em-bat.full{border-style:solid;border-color:var(--green)}
+.em-clips{font-size:24px;min-height:32px;letter-spacing:-4px}
+/* compass */
+.cn-needle{position:relative;height:16px;margin:24px 30px 10px;background:linear-gradient(90deg,#9aa0a6,#e6e9ec);border-radius:8px;touch-action:none;cursor:grab}
+.cn-mag{position:absolute;left:0;top:-22px;font-size:30px;transform:translateX(-50%);transition:none}
+.cn-bowl{position:relative;width:200px;height:200px;margin:8px auto;border-radius:50%;background:radial-gradient(#cfe4ff,#7fb3f0);border:4px solid #5b6470}
+.cn-n{position:absolute;top:4px;left:50%;transform:translateX(-50%);font-weight:900;color:#d1495b}
+.cn-float{position:absolute;left:50%;top:50%;width:40px;height:40px;margin:-20px;border-radius:50%;background:#d9b382;opacity:0;transform:rotate(70deg)}
+.cn-float i{position:absolute;left:50%;top:-40px;width:4px;height:120px;margin-left:-2px;background:linear-gradient(#d1495b 50%,#9aa0a6 50%);border-radius:2px}
+.cn-bowl.on .cn-float{opacity:1}
+/* circuit */
+.ci-board{position:relative;height:240px;max-width:460px;margin:0 auto;border-radius:12px;background:#f4f8fc}
+.ci-loop{position:absolute;left:14%;right:14%;top:20%;bottom:20%;border:5px solid #b87333;border-radius:10px}
+.ci-board.lit .ci-loop{border-color:#ffb703;box-shadow:0 0 12px #ffd166}
+.ci-slot{position:absolute;width:118px;height:44px;margin:-22px 0 0 -59px;border:2px dashed #9aa0a6;border-radius:10px;background:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center;z-index:2}
+.ci-slot.full{border-style:solid;border-color:var(--navy)}
+.ci-slot.s0{left:50%;top:20%}.ci-slot.s1{left:86%;top:50%}.ci-slot.s2{left:50%;top:80%}.ci-slot.s3{left:14%;top:50%}
+.ci-slot.glow{background:#fff3b0;box-shadow:0 0 20px 8px #ffd166}
+.ci-slot.buzz{animation:buzz .1s infinite}
+@keyframes buzz{50%{transform:translateX(2px)}}
+/* bridge */
+.br-stage{position:relative;height:200px;border-radius:12px;background:#eef6ff;overflow:hidden}
+.br-bank{position:absolute;bottom:0;width:12%;height:110px;background:#8b5a2b}
+.br-bank.l{left:0}.br-bank.r{right:0}
+.br-water{position:absolute;left:12%;right:12%;bottom:0;height:40px;background:#7fb3f0}
+.br-deck{position:absolute;left:12%;right:12%;bottom:110px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;transition:transform .4s}
+.br-deck.sag{transform:translateY(var(--sag))}
+.br-sec{height:30px;border:2px dashed #9aa0a6;background:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;color:#4a5470}
+.br-sec.t-flat{background:#fff;border:2px solid #9aa0a6}
+.br-sec.t-fold{background:repeating-linear-gradient(135deg,#fff 0 6px,#d6dee6 6px 8px);border:2px solid #5b6470}
+.br-sec.t-tube{background:repeating-linear-gradient(90deg,#fff 0 10px,#c9d3dc 10px 12px);border:2px solid #5b6470}
+.br-sec.t-truss{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 30'%3E%3Cpath d='M0 30 L20 0 L40 30' fill='none' stroke='%231f2a44' stroke-width='3'/%3E%3C/svg%3E") 0 0/30px 100%;border:2px solid #1f2a44}
+.br-sec.weak{background:#ffb3b8 !important;border-color:var(--red) !important}
+.br-stage.broke .br-deck{transform:translateY(60px) rotate(3deg)}
+.br-pier{position:absolute;bottom:40px;width:22px;height:70px;margin-left:-11px;border:2px dashed #9aa0a6;background:rgba(255,255,255,.6)}
+.br-pier.p0{left:37.3%}.br-pier.p1{left:62.7%}
+.br-pier.on{background:#5b6470;border-style:solid}
+.br-load{position:absolute;left:50%;bottom:142px;transform:translateX(-50%);font-weight:800;font-size:15px;white-space:nowrap}
+/* rocket */
+.rk-rocket{display:flex;align-items:center;justify-content:center;gap:0;margin:6px 0 10px}
+.rk-nose,.rk-fins{border:2px dashed #9aa0a6;border-radius:10px;padding:8px 10px;font-weight:800;background:#fff;min-width:64px;text-align:center}
+.rk-body{background:#e6eef6;border:2px solid #5b6470;padding:8px 14px;font-weight:700;font-size:13px}
+/* lander */
+.ld-stage{position:relative;height:230px;border-radius:12px;background:linear-gradient(#eaf4ff,#fff);overflow:hidden}
+.ld-cap{position:absolute;left:50%;bottom:24px;width:180px;margin-left:-90px;text-align:center;border:2px dashed var(--gold);border-radius:14px;background:#fffaf0;padding:8px}
+.ld-gear{font-size:13px;font-weight:700;min-height:20px}
+.ld-egg{font-size:42px}
+.ld-floor{position:absolute;left:0;right:0;bottom:0;height:24px;background:#9aa0a6}
+/* robot */
+.rp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;max-width:320px;margin:6px auto}
+.rp-c{aspect-ratio:1;background:#eef3f7;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:24px;position:relative}
+.rp-c.wall{background:#5b6470}
+.rp-bot{position:absolute;transition:transform .2s}
+.rp-lab{font-weight:800;margin-top:8px}
+.rp-bar{display:flex;flex-wrap:wrap;gap:6px;min-height:46px;padding:6px;border:2px dashed #c9d3dc;border-radius:10px}
+.rp-t{width:42px;height:42px;border-radius:8px;border:2px solid var(--navy);background:#fff;font-size:20px}
+.rp-t.empty{border-style:dashed;color:#9aa0a6;display:flex;align-items:center;justify-content:center}
+.rp-t.now{background:#fff3b0}
+.rp-t.bug{background:#ffb3b8;border-color:var(--red)}
+/* engines */
+.eg-lane{display:grid;grid-template-columns:36px 150px 1fr 110px;align-items:center;gap:8px;padding:8px;border:2px dashed #c9d3dc;border-radius:10px;margin:6px 0}
+.eg-lane.picked{border-color:var(--gold);background:#fffaf0}
+.eg-em{font-size:26px;text-align:center}
+.eg-em.big{font-size:34px;position:absolute;bottom:-4px;left:50%;transform:translateX(-50%)}
+.eg-track{height:18px;background:#eef3f7;border-radius:9px;overflow:hidden}
+.eg-track i{display:block;height:100%;width:0;background:var(--navy);border-radius:9px}
+.eg-val{font-weight:800;font-size:14px;text-align:right}
+.eg-sl{display:grid;grid-template-columns:90px 1fr;gap:16px;align-items:end}
+.eg-gauge{position:relative;height:180px;border:3px solid var(--navy);border-radius:12px;background:#fff;overflow:hidden}
+.eg-gauge i{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(#5bc0be,#2f6fd0);transition:height .15s}
+.eg-bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.eg-bin{border:2px dashed var(--navy);border-radius:12px;padding:10px;min-height:120px;background:#fbfdff}
+.eg-bin>b{display:block;margin-bottom:6px;color:var(--navy)}
+.eg-in{display:flex;flex-wrap:wrap;gap:6px}
+.eg-slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:8px 0}
+.eg-slot{border:2px dashed #9aa0a6;border-radius:12px;padding:10px;background:#fff;text-align:center;min-height:70px}
+.eg-slot small{display:block;font-weight:800;color:#4a5470;margin-bottom:4px}
+.eg-slot.full{border-style:solid;border-color:var(--navy)}
+.eg-slot.bad,.eg-ord.bad{border-color:var(--red);background:#fdeaea}
+.eg-ords{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.eg-ord{display:flex;gap:10px;align-items:center;border:2px dashed #9aa0a6;border-radius:10px;padding:8px 10px;background:#fff;min-height:44px}
+.eg-ord.full{border-style:solid;border-color:var(--navy)}
+.eg-num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+@media (max-width:600px){
+  .eg-lane{grid-template-columns:30px 1fr 80px}.eg-lane .eg-track{grid-column:1/-1}
+  .yt-row{grid-template-columns:1fr 1fr 1fr;gap:6px}
+  .wg-row{gap:5px}.wg-n{font-size:9px}
+  .ci-slot{width:84px;margin-left:-42px;font-size:11px;padding:0 2px}.ci-loop{left:22%;right:22%}.ci-slot.s1{left:76%}.ci-slot.s3{left:24%}
+  .pd-lane{height:220px}
+}
 </style>
 </head>
 <body>
@@ -286,6 +505,10 @@ footer b{color:var(--navy)}
       <div class="room-head">
         <h2 id="roomTitle"></h2>
         <button class="linkish" id="toLobby" type="button">← Back to all doors</button>
+      </div>
+      <div class="room-tabs" id="roomTabs">
+        <button type="button" id="tabScreen">🔬 Do It On Screen</button>
+        <button type="button" id="tabHome">🏠 Home Experiments</button>
       </div>
       <div id="roomNote" class="intro" style="margin-top:8px"></div>
       <div id="expView" class="hidden"></div>
@@ -472,13 +695,16 @@ function el(tag, attrs, ...kids){
   for (const k of kids.flat()) if (k != null && k !== false) e.append(k.nodeType ? k : document.createTextNode(k));
   return e;
 }
+// Strip citation tags or stray markup the AI sometimes writes into its text, everywhere in a response.
+const cleanAI = v => typeof v === "string" ? v.replace(/<\/?cite\b[^>]*>/gi, "").replace(/<\/?[a-z_]+:[a-z_]+\b[^>]*>/gi, "").replace(/\*\*/g, "").replace(/[ \t]{2,}/g, " ").trim()
+  : Array.isArray(v) ? v.map(cleanAI) : (v && typeof v === "object") ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, cleanAI(x)])) : v;
 const store = {
   get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } },
   set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
 };
 const state = {
   data: null, level: store.get("lab_level", "grown"), room: null, current: null,
-  done: store.get("lab_done", {}), saved: store.get("lab_saved", []), liveHeads: store.get("lab_live_heads", {}), live: {}, queue: {}, shownBuilt: {}, reports: {}
+  done: store.get("lab_done", {}), saved: store.get("lab_saved", []), liveHeads: store.get("lab_live_heads", {}), live: {}, queue: {}, shownBuilt: {}, reports: {}, tab: "screen", scen: {}
 };
 const ANGLES = {
   physics: ["Gravity & falling", "Forces & motion", "Energy", "Magnets", "Air pressure", "Spinning & balance"],
@@ -508,8 +734,9 @@ async function api(body){
   const r = await fetch("/api/lab", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
   let j = {}; try { j = await r.json(); } catch(e){}
   if (!r.ok) throw new Error(j.message || j.error || "Something went wrong. Please try again.");
-  return j;
+  return cleanAI(j);
 }
+
 const loadingEl = msg => el("div", { class: "loading" }, el("span", { class: "spin" }), msg);
 
 /* ---------- Photos (Wikipedia / Wikimedia Commons, free + credited) ---------- */
@@ -555,17 +782,17 @@ const roomInfo = id => state.data.rooms.find(r => r.id === id);
 function renderDoors(){
   const d = $("#doors"); d.innerHTML = "";
   state.data.rooms.forEach(r => {
-    const n = state.data.experiments.filter(e => e.room === r.id).length;
+    const n = state.data.experiments.filter(e => e.room === r.id && isOnline(e)).length, h = state.data.experiments.filter(e => e.room === r.id && e.home).length;
     const btn = el("button", { class: "door", type: "button", style: "--c:" + r.color },
       el("div", { class: "frame" }, el("div", { class: "win", text: r.icon }), el("div", { class: "knob" }), el("div", { class: "panel" })),
       el("span", { class: "plate", text: r.name }),
-      el("span", { class: "count", text: n ? n + " experiments + new ideas" : "New ideas from Mr. Paul" }));
+      el("span", { class: "count", text: n + " on screen · " + h + " at home + more" }));
     btn.onclick = () => openRoom(r.id, true);
     d.append(btn);
   });
 }
 function renderFeatured(){
-  const feats = state.data.experiments.filter(e => e.featured);
+  const feats = state.data.experiments.filter(e => e.featured && isOnline(e));
   const day = Math.floor((Date.now() - new Date().getTimezoneOffset() * 6e4) / 864e5);
   const f = feats.length ? feats[day % feats.length] : state.data.experiments[0];
   const r = roomInfo(f.room);
@@ -574,7 +801,7 @@ function renderFeatured(){
   wikiPhoto(r.photo).then(p => { if (p){ const im = el("img", { src: p.url, alt: "" }); im.onerror = () => im.remove(); art.prepend(im); } });
   $("#featTitle").textContent = f.title;
   $("#featHook").textContent = f.hook;
-  $("#featGo").onclick = () => { openRoom(f.room, false); openExp(f, true); };
+  $("#featGo").onclick = () => { openRoom(f.room, false, isOnline(f) ? "screen" : "home"); openExp(f, true); };
 }
 function showLobby(){
   $("#room").classList.add("hidden"); $("#lobby").classList.remove("hidden");
@@ -584,33 +811,43 @@ function showLobby(){
 }
 
 /* ---------- Room ---------- */
-function openRoom(id, scroll){
+const isOnline = e => e.machine && e.machine !== "steps";
+const tabKey = () => state.room + ":" + state.tab;
+const builtFor = (room, tab) => state.data.experiments.filter(e => e.room === room && (tab === "screen" ? isOnline(e) : !!e.home));
+function openRoom(id, scroll, tab){
   const r = roomInfo(id); if (!r) return;
   state.room = id; state.current = null;
+  state.tab = tab || (builtFor(id, "screen").length ? "screen" : "home");
   $("#lobby").classList.add("hidden"); $("#room").classList.remove("hidden");
   $("#roomTitle").textContent = r.icon + " " + r.name;
+  history.replaceState(null, "", location.pathname + "?room=" + id);
+  showTab(state.tab);
+  if (scroll) $("#room").scrollIntoView({ behavior: "smooth", block: "start" });
+  say(state.tab === "screen" ? "Welcome to " + r.name + "! These experiments work right here on screen. Drag, slide, test, or tap Watch Mr. Paul Do It." : "Welcome to " + r.name + "! Pick an experiment to try at home.");
+}
+function showTab(tab){
+  state.tab = tab;
+  $("#tabScreen").classList.toggle("on", tab === "screen"); $("#tabHome").classList.toggle("on", tab === "home");
   $("#expView").classList.add("hidden"); $("#expView").innerHTML = "";
   $("#reportBlock").classList.add("hidden"); $("#reportBlock").innerHTML = "";
   $("#moreMsg").textContent = "";
-  const builtIns = state.data.experiments.filter(e => e.room === id);
-  $("#roomNote").textContent = id === "stem"
-    ? "Build it, test it, improve it. Real engineering projects with things you already have at home."
-    : builtIns.length ? "Pick an experiment. Try it here, then try it at home."
-    : "Mr. Paul's built-in experiments for this room are being set up. Tap \"Show Me 4 More\" and he'll find real, safe experiments for you right now.";
-  if (!state.shownBuilt[id]){ state.shownBuilt[id] = builtIns.slice(0, 4); state.queue[id] = builtIns.slice(4); }
+  $("#createBlock").classList.toggle("hidden", tab !== "home");
+  const list = builtFor(state.room, tab), k = tabKey();
+  $("#roomNote").textContent = tab === "screen"
+    ? "Do it right here: drag, slide and test. Every experiment shows you the science, with sources. \"Show Me 4 More\" builds brand-new on-screen experiments."
+    : "Real experiments to try at home with things you already have. Follow the safety notes, and kids should work with a grown-up nearby.";
+  $("#moreBtn").textContent = tab === "screen" ? "Show Me 4 More On-Screen Experiments" : "Show Me 4 More Home Experiments";
+  if (!state.shownBuilt[k]){ state.shownBuilt[k] = list.slice(0, 4); state.queue[k] = list.slice(4); }
   renderGrid(); renderChips();
-  history.replaceState(null, "", location.pathname + "?room=" + id);
-  if (scroll) $("#room").scrollIntoView({ behavior: "smooth", block: "start" });
-  say(builtIns.length ? "Welcome to " + r.name + "! Pick an experiment and let's find out." : "Welcome to " + r.name + "! Tap Show Me 4 More and I'll find brand-new experiments, checked against real sources.");
 }
 function renderGrid(){
   const g = $("#expGrid"); g.innerHTML = "";
-  const r = roomInfo(state.room);
-  const list = [...(state.shownBuilt[state.room] || []), ...(state.live[state.room] || [])];
+  const r = roomInfo(state.room), k = tabKey();
+  const list = [...(state.shownBuilt[k] || []), ...(state.live[k] || [])];
   list.forEach(e => {
     const t = el("button", { class: "tile", type: "button", style: "--c:" + r.color },
       state.done[e.id] ? el("span", { class: "done", text: "✓ Done" }) : e.live ? el("span", { class: "new", text: "NEW" }) : null,
-      el("span", { class: "tag", style: "background:" + r.color, text: e.live ? "Fresh idea" : "Experiment" }),
+      el("span", { class: "tag", style: "background:" + r.color, text: state.tab === "screen" ? (e.live ? "Fresh · on screen" : "🔬 On screen") : (e.live ? "Fresh · at home" : "🏠 At home") }),
       el("div", { class: "tt", text: e.title }), el("p", { class: "th", text: e.hook }));
     t.onclick = () => openExp(e, true);
     g.append(t);
@@ -627,27 +864,28 @@ async function fetchIdeas(angle, chip){
   document.querySelectorAll("#ideaChips .idea-chip").forEach(c => c.classList.toggle("on", c === chip));
   const msg = $("#moreMsg"); msg.innerHTML = "";
   let need = 4;
-  if (!angle && (state.queue[state.room] || []).length){
-    const take = state.queue[state.room].splice(0, 4);
-    state.shownBuilt[state.room] = [...state.shownBuilt[state.room], ...take];
+  const K = tabKey(), onScreen = state.tab === "screen";
+  if (!angle && (state.queue[K] || []).length){
+    const take = state.queue[K].splice(0, 4);
+    state.shownBuilt[K] = [...state.shownBuilt[K], ...take];
     need = 4 - take.length; renderGrid();
     if (!need){ say("Here are 4 more experiments. Pick one!"); return; }
   }
   setBusy(true);
-  msg.append(loadingEl(angle ? "Mr. Paul is finding experiments about " + angle + " and checking the science…" : "Mr. Paul is finding " + need + " brand-new experiment" + (need > 1 ? "s" : "") + " and checking the science…"));
+  msg.append(loadingEl((onScreen ? "Mr. Paul is building " : "Mr. Paul is finding ") + (angle ? "experiments about " + angle : need + " brand-new " + (onScreen ? "on-screen " : "") + "experiment" + (need > 1 ? "s" : "")) + " and checking the science… (about a minute)"));
   say("Give me a moment. I'm hunting for real experiments and checking every one against the sources.");
   try {
     const room = state.room;
-    const built = state.data.experiments.filter(e => e.room === room).map(e => e.title);
-    const prev = state.liveHeads[room] || [];
-    const exclude = [...new Set([...built, ...prev, ...(state.live[room] || []).map(e => e.title)])];
-    const r = await api({ mode: "ideas", room, angle, count: need, level: state.level, exclude });
+    const built = builtFor(room, state.tab).map(e => e.title);
+    const prev = state.liveHeads[K] || [];
+    const exclude = [...new Set([...built, ...prev, ...(state.live[K] || []).map(e => e.title)])];
+    const r = await api({ mode: onScreen ? "sims" : "ideas", room, angle, count: need, level: state.level, exclude });
     msg.textContent = "";
     const got = (r.experiments || []).map(e => Object.assign(e, { room }));
     if (!got.length){ msg.textContent = "Mr. Paul couldn't confirm new experiments with strong enough sources this time, so he won't guess. Try again or pick another direction."; say("I couldn't confirm any with strong sources that time. Try again, or pick a direction!"); }
     else { say("Here " + (got.length === 1 ? "is 1 new experiment" : "are " + got.length + " new experiments") + "! Each one comes with its sources.", "wow"); }
-    state.live[room] = [...(state.live[room] || []), ...got];
-    state.liveHeads[room] = [...prev, ...got.map(e => e.title)].slice(-400);
+    state.live[K] = [...(state.live[K] || []), ...got];
+    state.liveHeads[K] = [...prev, ...got.map(e => e.title)].slice(-400);
     store.set("lab_live_heads", state.liveHeads);
     renderGrid();
   } catch(e){ msg.textContent = e.message; }
@@ -668,20 +906,30 @@ function markDone(e, result){
   const sw = $("#showWhy"); if (sw) sw.remove();
   say("Wow...who knew? " + (state.level === "kids" ? "Check out why it happened!" : "Scroll down for the science behind it."), "wow");
 }
+const PARAMS = {
+  bridge: "load (pennies, 1-100)", boat: "foil (square side in cm, 10-30), liquid ('fresh' or 'salt')", rocket: "target (meters, 2-15), power (puff strength 1-10)",
+  lander: "height (meters, 1-20)", crystalgrow: "temp (water temperature in Celsius, 20-100)", bucketswing: "rope (rope length in meters, 0.4-1.2)",
+  craterdrop: "height (drop height in meters, 0.3-3)", quakebase: "shake (shaking strength 1-10)", erosion: "rain ('light', 'medium' or 'heavy')",
+  balloongas: "vinegar (milliliters, 25-250)", electromagnet: "wraps (turns of wire, 5-60)"
+};
+const SELF_TESTS = ["blindspot", "contrast", "reaction", "stroop", "afterimage", "tone"];
 function openExp(e, scroll){
   state.current = e;
-  if (!e.live && state.shownBuilt[e.room] && !state.shownBuilt[e.room].includes(e)){
-    state.shownBuilt[e.room].push(e); state.queue[e.room] = (state.queue[e.room] || []).filter(x => x !== e); renderGrid();
+  const K = tabKey();
+  if (!e.live && state.shownBuilt[K] && !state.shownBuilt[K].includes(e) && builtFor(e.room, state.tab).includes(e)){
+    state.shownBuilt[K].push(e); state.queue[K] = (state.queue[K] || []).filter(x => x !== e); renderGrid();
   }
+  const homeMode = state.tab === "home" || !isOnline(e) || !MACHINES[e.machine];
   const r = roomInfo(e.room) || roomInfo(state.room);
   const v = $("#expView"); v.innerHTML = ""; v.classList.remove("hidden");
   const lv = L(e);
+  const whyText = (!homeMode && e.screen && (state.level === "kids" ? e.screen.kids : e.screen.grown)) || lv.why;
   const whyBox = el("div", { id: "whyBox", class: state.done[e.id] ? "" : "hidden" },
-    el("div", { class: "why" }, el("h4", { text: "🔬 What just happened?" }), lv.why),
+    el("div", { class: "why" }, el("h4", { text: "🔬 What just happened?" }), whyText),
     e.realworld ? el("div", { class: "real" }, el("h4", { text: "🌎 In the real world" }), e.realworld) : null);
   const showWhy = el("button", { class: "small-btn", id: "showWhy", type: "button", text: "Show me the science" });
   showWhy.onclick = () => { whyBox.classList.remove("hidden"); showWhy.remove(); };
-  const home = e.home ? el("div", { class: "home" },
+  const homeCard = e.home ? el("div", { class: "home" },
     el("h4", { text: e.live ? "🧪 Try it at home" : "🏠 Try it at home" }),
     e.grownup ? el("span", { class: "helper", text: "👩‍🔬 Grown-up helper needed" }) : null,
     e.home.needs && e.home.needs.length ? el("div", {}, el("b", { text: "You need: " }), e.home.needs.join(", ")) : null,
@@ -697,19 +945,95 @@ function openExp(e, scroll){
     sv.onclick = () => { if (!state.saved.some(s => s.id === e.id)){ state.saved = [e, ...state.saved].slice(0, 60); store.set("lab_saved", state.saved); updateNb(); } sv.textContent = "📓 Saved"; };
     actions.append(sv);
   }
+
+  // The experiment itself
+  const mbox = el("div", { class: "machine" });
+  const tools = el("div", { class: "sim-tools" });
+  let node = null;
+  const watch = el("button", { class: "btn watch", type: "button", text: "▶ Watch Mr. Paul Do It" });
+  const mount = set => {
+    mbox.innerHTML = "";
+    try { node = homeMode ? MACHINES.steps(e) : MACHINES[e.machine](e, set || null); }
+    catch(err){ console.error(err); node = el("p", { class: "intro", text: "This experiment couldn't load. Please try another one." }); }
+    mbox.append(node);
+    watch.classList.toggle("hidden", !(node && node.auto)); watch.disabled = false;
+  };
+  watch.onclick = async () => {
+    if (!node || !node.auto) return;
+    watch.disabled = true; say(state.level === "kids" ? "Watch me! I'll do it step by step." : "Watch closely. I'll run it for you, step by step.");
+    try { await node.auto(); } catch(err){ console.error(err); }
+    watch.disabled = false;
+  };
+  if (!homeMode){
+    tools.append(watch);
+    if (SELF_TESTS.includes(e.machine)) tools.append(el("span", { class: "intro selfnote", text: "👀 This one tests YOUR senses, so you have to do it yourself!" }));
+  }
+  mount(null);
+
+  // Let's See 4 More: new scenarios for this same on-screen experiment
+  const scenWrap = el("div", { class: "scen" });
+  if (!homeMode){
+    const scBtn = el("button", { class: "btn alt", type: "button", text: "🎲 Let's See 4 More" });
+    const scMsg = el("div", { class: "msg", style: "text-align:left" });
+    const scCards = el("div", { class: "scen-cards" });
+    const scPanel = el("div", { class: "scen-panel hidden" });
+    const showScen = sc => {
+      scPanel.classList.remove("hidden"); scPanel.innerHTML = "";
+      const lvS = state.level === "kids" ? sc.kids : sc.grown;
+      const why = el("div", { class: "hidden" }, el("div", { class: "why" }, el("h4", { text: "🔬 The science" }), (lvS && lvS.why) || ""), footnotes(sc.sources));
+      const sb = el("button", { class: "small-btn", type: "button", text: "Show me the science" }); sb.onclick = () => { why.classList.remove("hidden"); sb.remove(); };
+      const gd = el("button", { class: "small-btn", type: "button", text: "📘 Go Deeper on this one" });
+      gd.onclick = () => openReport({ id: sc.id, live: true, title: sc.title, hook: sc.challenge, grown: sc.grown, kids: sc.kids, room: e.room });
+      const back = el("button", { class: "linkish", type: "button", text: "↺ Back to the original" }); back.onclick = () => { scPanel.classList.add("hidden"); scCards.querySelectorAll(".scen-card").forEach(c => c.classList.remove("on")); mount(null); };
+      scPanel.append(el("span", { class: "kick", text: "SCENARIO" }), el("h4", { text: sc.title }), el("p", { text: sc.challenge }), sc.predict ? el("p", { class: "pred", text: "🤔 Predict first: " + sc.predict }) : null, el("div", { class: "mrow" }, sb, gd, back), why);
+      mount(sc.set);
+      scPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      say("New scenario: " + sc.title + ". Give it a try!");
+    };
+    const addCards = list => list.forEach(sc => { const c = el("button", { class: "scen-card", type: "button" }, el("b", { text: sc.title }), el("span", { text: sc.challenge })); c.onclick = () => { scCards.querySelectorAll(".scen-card").forEach(x => x.classList.toggle("on", x === c)); showScen(sc); }; scCards.append(c); });
+    addCards(state.scen[e.id] || []);
+    scBtn.onclick = async () => {
+      scBtn.disabled = true; scMsg.innerHTML = ""; scMsg.append(loadingEl("Mr. Paul is dreaming up 4 new scenarios and checking the science… (about a minute)"));
+      say("Let me find 4 new twists on this one, each checked against real sources.");
+      try {
+        const prev = state.scen[e.id] || [];
+        const res = await api({ mode: "scenarios", level: state.level, exp: { id: e.id, title: e.title, hook: e.hook, why: L(e).why }, params: PARAMS[e.machine] || "", exclude: prev.map(x => x.title) });
+        const got = res.scenarios || [];
+        state.scen[e.id] = [...prev, ...got]; addCards(got);
+        scMsg.textContent = got.length ? "" : "Mr. Paul couldn't confirm new scenarios with strong enough sources this time, so he won't guess. Try again!";
+        if (got.length) say("Here " + (got.length === 1 ? "is a new scenario" : "are " + got.length + " new scenarios") + "! Tap one to load it.", "wow");
+      } catch(err){ scMsg.textContent = err.message; }
+      scBtn.disabled = false;
+    };
+    scenWrap.append(el("div", { class: "scen-head" }, scBtn, el("span", { class: "intro", style: "margin:0;font-size:14px", text: "New twists on this experiment: different places, sizes and conditions, each with sources." })), scMsg, scCards, scPanel);
+  }
+
+  // Home version: shown directly in Home mode, behind a button in On Screen mode
+  let homeBlock = null;
+  if (homeCard && !homeMode){
+    const hb = el("button", { class: "small-btn", type: "button", text: "🏠 Want to try it for real? Show the home version" });
+    homeCard.classList.add("hidden");
+    hb.onclick = () => { homeCard.classList.toggle("hidden"); hb.textContent = homeCard.classList.contains("hidden") ? "🏠 Want to try it for real? Show the home version" : "🏠 Hide the home version"; };
+    homeBlock = el("div", { style: "margin:0 0 12px" }, hb, homeCard);
+  } else homeBlock = homeCard;
+  const toScreen = homeMode && isOnline(e) && MACHINES[e.machine] ? el("button", { class: "small-btn", type: "button", text: "🔬 Do this one on screen" }) : null;
+  if (toScreen) toScreen.onclick = () => { openRoom(e.room, false, "screen"); openExp(e, true); };
+
   v.append(el("div", { class: "exp" },
     el("button", { class: "linkish back", type: "button", text: "✕ Close experiment", onclick: () => { v.classList.add("hidden"); v.innerHTML = ""; } }),
-    el("div", {}, el("span", { class: "tag", style: "background:" + r.color, text: r.name }), e.live ? el("span", { class: "livenote", text: "🔎 Freshly found and checked against the sources below" }) : null),
+    el("div", {}, el("span", { class: "tag", style: "background:" + r.color, text: r.name + (homeMode ? " · at home" : " · on screen") }), e.live ? el("span", { class: "livenote", text: "🔎 Freshly made and checked against the sources below" }) : null),
     el("h3", { text: e.title }),
     el("div", { class: "didyou" }, el("b", { text: "Did you know? " }), e.hook),
-    lv.try ? el("p", { class: "try" }, el("b", { text: "Try this: " }), lv.try) : null,
-    el("div", { class: "machine" }, MACHINES[e.machine] ? MACHINES[e.machine](e) : MACHINES.steps(e)),
+    homeMode && lv.try ? el("p", { class: "try" }, el("b", { text: "Try this: " }), lv.try) : null,
+    !homeMode && e.predict && e.machine && e.machine.startsWith("engine_") ? el("p", { class: "pred", text: "🤔 Predict first: " + e.predict }) : null,
+    tools, mbox, scenWrap,
     state.done[e.id] ? null : showWhy,
     whyBox, el("div", { class: "mrow", style: "margin:0 0 14px" }, deeper, el("span", { class: "intro", style: "margin:0;font-size:14px", text: "The full science: key facts, timeline, scientists, terms and diagrams." })),
-    home, footnotes(e.sources), actions));
+    homeBlock, toScreen ? el("div", { class: "mrow", style: "margin:0 0 12px" }, toScreen) : null, footnotes(e.sources), actions));
   if (scroll) v.scrollIntoView({ behavior: "smooth", block: "start" });
-  history.replaceState(null, "", location.pathname + (e.live ? "?room=" + e.room : "?x=" + e.id));
-  say(state.level === "kids" ? "Ooh, a good one! Follow the steps and see what happens." : "Try this one. Then I'll show you the science behind it.");
+  history.replaceState(null, "", location.pathname + (e.live ? "?room=" + e.room : "?x=" + e.id + (homeMode ? "&home=1" : "")));
+  say(homeMode ? (state.level === "kids" ? "Ooh, a good one! Follow the steps with a grown-up and see what happens." : "Try this one at home. Then I'll show you the science behind it.")
+    : (state.level === "kids" ? "Try it! Or tap Watch Mr. Paul Do It and I'll show you." : "Give it a try, or tap Watch Mr. Paul Do It. Then we'll look at the science."));
 }
 function shareExp(e, btn){
   const base = CONFIG.shareBase || (location.origin + location.pathname);
@@ -989,6 +1313,1052 @@ const MACHINES = {
   }
 };
 
+/* ---------- Shared helpers for on-screen experiments ---------- */
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const P = (o, k, d, lo, hi) => { if (!o || o[k] == null) return d; if (typeof d === "number"){ const v = parseFloat(o[k]); return isFinite(v) ? Math.min(hi, Math.max(lo, v)) : d; } return String(o[k]); };
+const RES = () => el("div", { class: "result sim-res" });
+const NOTE = t => el("p", { class: "intro simnote", text: t });
+const svgEl = (w, h, inner, cls) => el("div", { class: "svgbox " + (cls || ""), html: '<svg viewBox="0 0 ' + w + " " + h + '" xmlns="http://www.w3.org/2000/svg" width="100%">' + inner + "</svg>" });
+function slider(label, min, max, step, val, fmt, on){
+  const out = el("b"); const i = el("input", { type: "range", min: String(min), max: String(max), step: String(step), value: String(val), "aria-label": label });
+  const upd = () => { out.textContent = fmt(+i.value); if (on) on(+i.value); };
+  i.oninput = upd;
+  const w = el("label", { class: "sl" }, el("span", { text: label + ": " }), out, i);
+  setTimeout(upd, 0);
+  return { el: w, input: i, get v(){ return +i.value; }, set(v){ i.value = String(v); upd(); } };
+}
+async function glide(sl, to, ms){
+  const from = sl.v, t0 = performance.now(), dur = ms || 900;
+  for (;;){ const t = Math.min(1, (performance.now() - t0) / dur); sl.set(from + (to - from) * t); if (t >= 1) break; await sleep(16); }
+}
+// Fly a copy of an element to a target (used by "Watch Mr. Paul do it").
+async function flyTo(node, target, ms){
+  const a = node.getBoundingClientRect(), b = target.getBoundingClientRect();
+  const g = node.cloneNode(true); g.classList.add("dg-ghost"); g.classList.remove("dg-sel"); document.body.append(g);
+  const x0 = a.left + a.width / 2, y0 = a.top + a.height / 2, x1 = b.left + b.width / 2, y1 = b.top + b.height / 2, t0 = performance.now(), d = ms || 650;
+  for (;;){ const t = Math.min(1, (performance.now() - t0) / d), k = t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    g.style.left = (x0 + (x1 - x0) * k) + "px"; g.style.top = (y0 + (y1 - y0) * k - Math.sin(t * Math.PI) * 40) + "px"; if (t >= 1) break; await sleep(16); }
+  g.remove();
+}
+// Drag-and-drop with tap fallback: drag a piece onto a slot, or tap a piece then tap a slot.
+function dnd(onDrop){
+  let sel = null; const api = {};
+  const clear = () => { if (sel) sel.classList.remove("dg-sel"); sel = null; };
+  api.item = (data, node) => {
+    node.classList.add("dg-item"); node._data = data; node._dnd = api;
+    node.addEventListener("pointerdown", ev => {
+      if (node.classList.contains("used")) return;
+      ev.preventDefault();
+      const sx = ev.clientX, sy = ev.clientY; let ghost = null, over = null;
+      const mv = m => {
+        if (!ghost && Math.hypot(m.clientX - sx, m.clientY - sy) < 7) return;
+        if (!ghost){ ghost = node.cloneNode(true); ghost.classList.add("dg-ghost"); document.body.append(ghost); }
+        ghost.style.left = m.clientX + "px"; ghost.style.top = m.clientY + "px";
+        const t = document.elementFromPoint(m.clientX, m.clientY), s = t && t.closest(".dg-slot");
+        if (over && over !== s) over.classList.remove("dg-over");
+        over = s && s._dnd === api ? s : null; if (over) over.classList.add("dg-over");
+      };
+      const up = u => {
+        window.removeEventListener("pointermove", mv);
+        if (over) over.classList.remove("dg-over");
+        if (ghost){ ghost.remove(); if (over){ clear(); onDrop(node._data, over, node); } }
+        else if (sel === node) clear();
+        else { clear(); sel = node; node.classList.add("dg-sel"); }
+      };
+      window.addEventListener("pointermove", mv); window.addEventListener("pointerup", up, { once: true });
+    });
+    return node;
+  };
+  api.slot = (node, onTapEmpty) => {
+    node.classList.add("dg-slot"); node._dnd = api;
+    node.addEventListener("click", () => { if (sel){ const s = sel; clear(); onDrop(s._data, node, s); } else if (onTapEmpty) onTapEmpty(node); });
+    return node;
+  };
+  api.auto = async (node, slot) => { await flyTo(node, slot); await Promise.resolve(onDrop(node._data, slot, node)); await sleep(250); };
+  return api;
+}
+// Point-drag inside an area (returns 0-1 coordinates).
+function dragArea(area, onMove){
+  area.style.touchAction = "none";
+  area.addEventListener("pointerdown", ev => {
+    const f = m => { const r = area.getBoundingClientRect(); onMove(Math.min(1, Math.max(0, (m.clientX - r.left) / r.width)), Math.min(1, Math.max(0, (m.clientY - r.top) / r.height))); };
+    f(ev); try { area.setPointerCapture(ev.pointerId); } catch(x){}
+    area.onpointermove = f; area.onpointerup = area.onpointercancel = () => { area.onpointermove = null; };
+  });
+}
+const chip = (emoji, label) => el("button", { class: "part", type: "button" }, el("span", { class: "pe", text: emoji }), el("span", { text: label }));
+
+const SIMS = {
+  /* ===== PHYSICS ===== */
+  coincard(e){
+    const st = el("div", { class: "sim-stage cc" });
+    const cup = el("div", { class: "cc-cup" }), card = el("div", { class: "cc-card", title: "Drag me fast or slow" }, "DRAG ME →"), coin = el("div", { class: "cc-coin" });
+    st.append(cup, card, coin); const res = RES(); let busy = false;
+    const reset = () => [card, coin].forEach(n => n.getAnimations().forEach(a => a.cancel()));
+    const run = async fast => {
+      if (busy) return; busy = true; reset(); await sleep(60);
+      if (fast){
+        card.animate([{ transform: "translateX(0)" }, { transform: "translateX(460px) rotate(25deg)", opacity: 0 }], { duration: 230, fill: "forwards", easing: "ease-out" });
+        await coin.animate([{ transform: "translateY(0)" }, { transform: "translateY(74px)" }], { duration: 360, delay: 110, fill: "forwards", easing: "cubic-bezier(.5,0,1,1)" }).finished;
+        res.textContent = "Plop! The coin dropped straight into the cup. The card zipped away so fast that friction never had time to drag the coin with it.";
+        markDone(e, "Flicked the card and the coin dropped in");
+      } else {
+        card.animate([{ transform: "translateX(0)" }, { transform: "translateX(170px)" }], { duration: 1500, fill: "forwards", easing: "linear" });
+        await coin.animate([{ transform: "translate(0,0)" }, { transform: "translate(150px,0)", offset: .82 }, { transform: "translate(185px,150px)" }], { duration: 1800, fill: "forwards" }).finished;
+        res.textContent = "A slow push gives friction time to drag the coin along with the card, so it misses the cup. Now try a fast flick!";
+      }
+      busy = false;
+    };
+    card.addEventListener("pointerdown", ev => {
+      if (busy) return; ev.preventDefault(); const x0 = ev.clientX, t0 = performance.now(); let fired = false;
+      const mv = m => { const dx = m.clientX - x0; if (dx > 28 && !fired){ fired = true; window.removeEventListener("pointermove", mv); run(dx / Math.max(1, performance.now() - t0) > 0.55); } };
+      window.addEventListener("pointermove", mv); window.addEventListener("pointerup", () => window.removeEventListener("pointermove", mv), { once: true });
+    });
+    const bF = el("button", { class: "btn", type: "button", text: "⚡ Flick it fast" }); bF.onclick = () => run(true);
+    const bS = el("button", { class: "btn alt", type: "button", text: "🐢 Push it slowly" }); bS.onclick = () => run(false);
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag the card to the right: a quick flick, or a slow push. Where does the coin go?" }), st, el("div", { class: "mrow" }, bF, bS), res);
+    root.auto = async () => { await run(false); await sleep(900); await run(true); };
+    return root;
+  },
+  bucketswing(e, o){
+    const g = 9.8; let rope = P(o, "rope", 0.8, 0.4, 1.2), rps = 0.35;
+    const box = svgEl(300, 300, "", "bk");
+    const svg = () => box.querySelector("svg");
+    const info = el("div", { class: "pred" }), res = RES();
+    const sR = slider("Rope length", 0.4, 1.2, 0.05, rope, v => v.toFixed(2) + " m", v => { rope = v; upd(); });
+    const sS = slider("Swing speed", 0.1, 1.5, 0.05, rps, v => v.toFixed(2) + " turns per second", v => { rps = v; upd(); });
+    const need = () => Math.sqrt(g * rope), vtop = () => 2 * Math.PI * rope * rps;
+    const upd = () => { info.textContent = "Speed at the top: " + vtop().toFixed(1) + " m/s · Needed to keep the water in: " + need().toFixed(1) + " m/s"; };
+    let ang = 0, water = 1, raf = 0, drops = [];
+    const draw = () => {
+      const R = 60 + rope * 70, cx = 150, cy = 150;
+      const x = cx + R * Math.sin(ang), y = cy + R * Math.cos(ang);
+      let s = '<circle cx="150" cy="150" r="' + R + '" fill="none" stroke="#d6dee6" stroke-dasharray="4 6"/><circle cx="150" cy="150" r="7" fill="#1f2a44"/>';
+      s += '<line x1="150" y1="150" x2="' + x + '" y2="' + y + '" stroke="#8b5a2b" stroke-width="3"/>';
+      s += '<g transform="rotate(' + (-ang * 180 / Math.PI) + " " + x + " " + y + ')"><path d="M' + (x - 16) + " " + (y - 4) + " L" + (x + 16) + " " + (y - 4) + " L" + (x + 12) + " " + (y + 22) + " L" + (x - 12) + " " + (y + 22) + ' Z" fill="#9aa0a6" stroke="#5b6470" stroke-width="2"/>';
+      if (water > 0) s += '<rect x="' + (x - 13) + '" y="' + (y + 22 - 18 * water) + '" width="26" height="' + (18 * water) + '" fill="#2f6fd0" opacity=".8"/>';
+      s += "</g>";
+      drops.forEach(d => s += '<circle cx="' + d.x + '" cy="' + d.y + '" r="3" fill="#2f6fd0"/>');
+      s += '<text x="150" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2a44">Top of the swing</text>';
+      svg().innerHTML = s;
+    };
+    const swing = () => new Promise(done => {
+      cancelAnimationFrame(raf); water = 1; drops = []; ang = 0; let spilled = false, last = performance.now(); const total = 3 * 2 * Math.PI;
+      const ok = vtop() >= need();
+      const step = now => {
+        const dt = (now - last) / 1000; last = now; ang += 2 * Math.PI * rps * dt * 1.0;
+        const top = Math.abs(((ang % (2 * Math.PI)) - Math.PI)) < 0.5;
+        if (!ok && top && water > 0){
+          const R = 60 + rope * 70; water = Math.max(0, water - 0.08); spilled = true;
+          drops.push({ x: 150 + R * Math.sin(ang) + (Math.random() - .5) * 14, y: 150 + R * Math.cos(ang) + 6, v: 0 });
+        }
+        drops.forEach(d => { d.v += 600 * dt; d.y += d.v * dt; }); drops = drops.filter(d => d.y < 310);
+        draw();
+        if (ang < total || drops.length) raf = requestAnimationFrame(step);
+        else {
+          ang = 0; draw();
+          res.textContent = ok ? "The water stayed in, even upside down! At the top the bucket was moving fast enough that the water was always \"falling\" around the circle with it." : "Splash! Too slow. At the top, gravity pulled the water down faster than the bucket curved around. Speed it up or shorten the rope.";
+          if (ok) markDone(e, "Kept the water in at " + vtop().toFixed(1) + " m/s");
+          done();
+        }
+      };
+      raf = requestAnimationFrame(step);
+    });
+    const go = el("button", { class: "btn", type: "button", text: "🪣 Swing it!" }); go.onclick = () => swing();
+    draw(); upd();
+    const root = el("div", {}, box, info, sR.el, sS.el, el("div", { class: "mrow" }, go), res, NOTE("Simplified model: the water stays in when the speed at the top is at least √(g × rope length)."));
+    root.auto = async () => { await glide(sS, 0.3); await swing(); await sleep(500); await glide(sS, 1.0); await swing(); };
+    return root;
+  },
+  paperdrop(e){
+    const OPT = { flat: ["📄", "Flat paper", 2.1], ball: ["🗞️", "Crumpled paper", 0.75], book: ["📕", "Book", 0.56], onbook: ["📕📄", "Paper on top of a book", 0.56] };
+    const lanes = [null, null]; const res = RES();
+    const D = dnd((k, slot) => { const i = +slot.dataset.i; lanes[i] = k; paint(); });
+    const pal = el("div", { class: "parts" }, Object.entries(OPT).map(([k, [em, lab]]) => D.item(k, chip(em, lab))));
+    const laneEls = [0, 1].map(i => D.slot(el("div", { class: "pd-lane", "data-i": String(i) }, el("div", { class: "pd-obj" }), el("div", { class: "pd-lab", text: "Drop something here" }))));
+    const paint = () => laneEls.forEach((L, i) => { const k = lanes[i]; L.querySelector(".pd-obj").textContent = k ? OPT[k][0] : ""; L.querySelector(".pd-lab").textContent = k ? OPT[k][1] : "Drag something here"; L.querySelector(".pd-obj").style.transform = ""; });
+    const drop = async () => {
+      if (!lanes[0] || !lanes[1]){ res.textContent = "Drag something into both lanes first."; return; }
+      paint(); await sleep(50);
+      const anims = laneEls.map((L, i) => { const t = OPT[lanes[i]][2], flutter = lanes[i] === "flat"; const o = L.querySelector(".pd-obj");
+        return o.animate(flutter ? [{ transform: "translate(0,0) rotate(0)" }, { transform: "translate(18px,50px) rotate(25deg)" }, { transform: "translate(-16px,100px) rotate(-20deg)" }, { transform: "translate(14px,150px) rotate(15deg)" }, { transform: "translate(0,190px) rotate(0)" }]
+          : [{ transform: "translateY(0)" }, { transform: "translateY(190px)" }], { duration: t * 1000, easing: flutter ? "linear" : "cubic-bezier(.45,0,1,1)", fill: "forwards" }).finished; });
+      await Promise.all(anims);
+      const [a, b] = lanes.map(k => OPT[k][2]);
+      const names = lanes.map(k => OPT[k][1]);
+      res.textContent = a === b ? names[0] + " and " + names[1] + " hit the floor together (about " + a.toFixed(2) + " s for a 1.5 m drop)." : (a < b ? names[0] : names[1]) + " landed first. Times for a 1.5 m drop: " + names[0] + " " + a.toFixed(2) + " s, " + names[1] + " " + b.toFixed(2) + " s.";
+      if (lanes.includes("onbook")) { res.textContent += " The book pushes the air out of the way, so the paper riding on top falls just as fast. Gravity pulls them equally; air was the difference."; markDone(e, "Paper on a book fell as fast as the book"); }
+    };
+    const go = el("button", { class: "btn", type: "button", text: "⬇ Drop them!" }); go.onclick = drop;
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag two things into the lanes, then drop them from 1.5 m. Which lands first?" }), pal, el("div", { class: "pd-stage" }, laneEls), el("div", { class: "mrow" }, go), res, NOTE("Times are typical values; flat paper flutters and varies."));
+    root.auto = async () => { const items = pal.children; await D.auto(items[0], laneEls[0]); await D.auto(items[2], laneEls[1]); await drop(); await sleep(700); await D.auto(items[3], laneEls[0]); await drop(); };
+    return root;
+  },
+
+  /* ===== CHEMISTRY ===== */
+  balloongas(e, o){
+    let ml = P(o, "vinegar", 100, 25, 250), scoops = 0;
+    const res = RES();
+    const box = svgEl(300, 330, "", "tall");
+    const draw = d => {
+      const r = Math.min(52, (d || 0) * .75);
+      box.querySelector("svg").innerHTML = '<g transform="translate(0,80)">' +
+        '<ellipse cx="150" cy="' + (78 - r * 0.9) + '" rx="' + (10 + r) + '" ry="' + (12 + r * 1.15) + '" fill="#d1495b" opacity=".9"/>' +
+        '<rect x="138" y="86" width="24" height="18" fill="#d1495b"/><path d="M120 104 h60 v20 q24 12 24 40 v70 q0 10 -10 10 h-88 q-10 0 -10 -10 v-70 q0 -28 24 -40z" fill="#e6f2ff" stroke="#5b6470" stroke-width="3"/>' +
+        '<rect x="99" y="' + (234 - Math.min(90, ml * 0.36)) + '" width="102" height="' + Math.min(90, ml * 0.36) + '" fill="#f3e2b0" opacity=".9"/>' +
+        (scoops ? '<text x="150" y="226" text-anchor="middle" font-size="13" fill="#5b6470">' + scoops + ' tsp baking soda</text>' : "") + "</g>";
+    };
+    const sV = slider("Vinegar in the bottle", 25, 250, 25, ml, v => v + " ml", v => { ml = v; draw(); });
+    const D = dnd(() => { scoops = Math.min(8, scoops + 1); draw(); res.textContent = scoops + " teaspoon" + (scoops > 1 ? "s" : "") + " of baking soda in the balloon. Now tip it in!"; });
+    const spoon = D.item("soda", chip("🥄", "1 tsp baking soda"));
+    const bottle = D.slot(el("div", { class: "drop-target" }, box));
+    const mix = async () => {
+      if (!scoops){ res.textContent = "Drag at least one spoonful of baking soda onto the bottle first."; return; }
+      const acid = ml * 0.05 / 60.05, soda = scoops * 4.6 / 84.0, co2 = Math.min(acid, soda), liters = co2 * 24.5;
+      const d = Math.cbrt(liters * 1000 * 6 / Math.PI); // balloon diameter in cm
+      const target = Math.min(70, d * 3.2);
+      for (let k = 0; k <= 30; k++){ draw(target * k / 30); await sleep(40); }
+      res.textContent = "Fizz! About " + liters.toFixed(2) + " liters of carbon dioxide gas, enough for a balloon about " + d.toFixed(0) + " cm across. " +
+        (acid < soda ? "The vinegar ran out first, so extra baking soda didn't help. Add more vinegar!" : "The baking soda ran out first. Add more spoonfuls for a bigger balloon.");
+      markDone(e, "Made " + liters.toFixed(2) + " L of CO₂");
+    };
+    const go = el("button", { class: "btn", type: "button", text: "🎈 Tip the baking soda in!" }); go.onclick = mix;
+    const clr = el("button", { class: "small-btn", type: "button", text: "Start over" }); clr.onclick = () => { scoops = 0; draw(); res.textContent = ""; };
+    draw();
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag spoonfuls of baking soda onto the bottle, then tip them in. How big will the balloon get?" }), el("div", { class: "parts" }, spoon), bottle, sV.el, el("div", { class: "mrow" }, go, clr), res,
+      NOTE("Simplified model: household vinegar is about 5% acetic acid; 1 tsp of baking soda is about 4.6 g. Real balloons come out a bit smaller because some gas dissolves and stretching rubber takes pressure."));
+    root.auto = async () => { for (let k = 0; k < 3; k++) await D.auto(spoon, bottle); await mix(); await sleep(600); await glide(sV, 250); scoops = 0; for (let k = 0; k < 4; k++) await D.auto(spoon, bottle); await mix(); };
+    return root;
+  },
+  milkswirl(e){
+    const W = 320, H = 220; const cv = el("canvas", { width: String(W), height: String(H), class: "mk-cv" }); const ctx = cv.getContext("2d");
+    let milk = "whole", parts = [], raf = 0; const res = RES();
+    const COLORS = ["#d62828", "#1d4ed8", "#15803d", "#f4c20d"];
+    const seed = () => { parts = []; COLORS.forEach((c, i) => { const cx = W / 2 + (i % 2 ? 26 : -26), cy = H / 2 + (i < 2 ? -22 : 22); for (let k = 0; k < 140; k++){ const a = Math.random() * 6.283, r = Math.random() * 12; parts.push({ x: cx + Math.cos(a) * r, y: cy + Math.sin(a) * r, vx: 0, vy: 0, c }); } }); paint(); };
+    const paint = () => { ctx.fillStyle = milk === "whole" ? "#fffdf6" : "#f4f7fb"; ctx.fillRect(0, 0, W, H); parts.forEach(p => { ctx.fillStyle = p.c; ctx.globalAlpha = .55; ctx.beginPath(); ctx.arc(p.x, p.y, 4, 0, 6.283); ctx.fill(); }); ctx.globalAlpha = 1; };
+    const soap = (sx, sy) => {
+      cancelAnimationFrame(raf); const power = milk === "whole" ? 1 : 0.35;
+      parts.forEach(p => { const dx = p.x - sx, dy = p.y - sy, d = Math.hypot(dx, dy) + 15; const f = 900 * power / d; p.vx = dx / d * f / 10 - dy / d * 1.2 * power; p.vy = dy / d * f / 10 + dx / d * 1.2 * power; });
+      const t0 = performance.now();
+      const step = now => { parts.forEach(p => { p.x += p.vx; p.y += p.vy; p.vx *= .965; p.vy *= .965; if (p.x < 4 || p.x > W - 4) p.vx *= -1; if (p.y < 4 || p.y > H - 4) p.vy *= -1; p.x = Math.min(W - 4, Math.max(4, p.x)); p.y = Math.min(H - 4, Math.max(4, p.y)); });
+        paint(); ctx.fillStyle = "#1f2a44"; ctx.beginPath(); ctx.arc(sx, sy, 5, 0, 6.283); ctx.fill();
+        if (now - t0 < 5000) raf = requestAnimationFrame(step); };
+      raf = requestAnimationFrame(step);
+      res.textContent = milk === "whole" ? "Whoosh! The soap lowers the milk's surface tension and grabs onto the fat, so the colors race away from the swab and swirl." : "Skim milk has almost no fat, so the swirl is much weaker. Try whole milk!";
+      if (milk === "whole") markDone(e, "Made the milk rainbow swirl");
+    };
+    const D = dnd((k, slot, node) => { const r = cv.getBoundingClientRect(); soap(W / 2 + (Math.random() - .5) * 30, H / 2 + (Math.random() - .5) * 20); });
+    const swab = D.item("soap", chip("🧼", "Soapy cotton swab"));
+    D.slot(cv);
+    cv.addEventListener("click", ev => { if (cv.classList.contains("dg-over")) return; });
+    const t1 = el("button", { class: "small-btn on", type: "button", text: "Whole milk" }), t2 = el("button", { class: "small-btn", type: "button", text: "Skim milk" });
+    t1.onclick = () => { milk = "whole"; t1.classList.add("on"); t2.classList.remove("on"); seed(); res.textContent = ""; };
+    t2.onclick = () => { milk = "skim"; t2.classList.add("on"); t1.classList.remove("on"); seed(); res.textContent = ""; };
+    const again = el("button", { class: "small-btn", type: "button", text: "🔄 Fresh plate" }); again.onclick = () => { cancelAnimationFrame(raf); seed(); res.textContent = ""; };
+    seed();
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag the soapy swab onto the milk. What will the colors do?" }), el("div", { class: "parts" }, swab, t1, t2, again), cv, res);
+    root.auto = async () => { t1.click(); await D.auto(swab, cv); };
+    return root;
+  },
+  crystalgrow(e, o){
+    const SOL = [[0, 179], [10, 190], [20, 200], [30, 216], [40, 238], [50, 260], [60, 287], [70, 320], [80, 362], [90, 415], [100, 487]];
+    const sol = T => { for (let i = 0; i < SOL.length - 1; i++){ const [a, x] = SOL[i], [b, y] = SOL[i + 1]; if (T <= b) return x + (y - x) * (T - a) / (b - a); } return 487; };
+    let T = P(o, "temp", 20, 20, 100), sugar = 0, crystals = 0; const res = RES();
+    const box = svgEl(300, 230, "");
+    const draw = () => {
+      const s = sol(T), dis = Math.min(sugar, s), pile = Math.max(0, sugar - s);
+      let g = '<rect x="90" y="40" width="120" height="170" rx="10" fill="#f2f8ff" stroke="#5b6470" stroke-width="3"/>';
+      g += '<rect x="93" y="70" width="114" height="137" fill="' + (T > 50 ? "#ffe9e0" : "#e6f2ff") + '" opacity=".9"/>';
+      g += '<line x1="150" y1="20" x2="150" y2="180" stroke="#8b5a2b" stroke-width="2"/><rect x="110" y="16" width="80" height="6" fill="#8b5a2b"/>';
+      for (let k = 0; k < Math.min(30, Math.round(crystals / 10)); k++){ const y = 90 + (k * 37) % 85, x = 150 + ((k % 2) ? 1 : -1) * (3 + (k * 7) % 12); g += '<rect x="' + (x - 5) + '" y="' + (y - 5) + '" width="' + (8 + k % 4) + '" height="' + (8 + k % 3) + '" transform="rotate(' + (k * 23) + " " + x + " " + y + ')" fill="#fff" stroke="#9fb3c8"/>'; }
+      if (pile) g += '<path d="M95 207 Q150 ' + (207 - Math.min(40, pile / 6)) + ' 205 207 Z" fill="#fff" stroke="#c9d3dc"/>';
+      g += '<text x="150" y="226" text-anchor="middle" font-size="12" fill="#5b6470">' + T + "°C water · " + Math.round(dis) + " g sugar dissolved</text>";
+      box.querySelector("svg").innerHTML = g;
+    };
+    const sT = slider("Water temperature", 20, 100, 5, T, v => v + "°C", v => { T = v; crystals = 0; draw(); });
+    const D = dnd(() => { sugar += 50; crystals = 0; draw(); const s = sol(T); res.textContent = sugar <= s ? "All " + sugar + " g dissolved in 100 ml of " + T + "°C water. (It can hold about " + Math.round(s) + " g.)" : "Full! Only about " + Math.round(s) + " g can dissolve at " + T + "°C. The rest sits on the bottom. Try hotter water."; });
+    const cupS = D.item("sugar", chip("🍚", "¼ cup sugar (50 g)"));
+    const jar = D.slot(el("div", { class: "drop-target" }, box));
+    const cool = async () => {
+      const dis = Math.min(sugar, sol(T)), extra = dis - 200;
+      if (extra <= 0){ res.textContent = "Nothing grew. Room-temperature water can hold about 200 g, and there's only " + Math.round(dis) + " g dissolved. Dissolve more sugar in hotter water first."; return; }
+      const steps = 20; for (let k = 1; k <= steps; k++){ crystals = extra * k / steps; T = Math.round(sT.v - (sT.v - 20) * k / steps); draw(); await sleep(70); }
+      res.textContent = "Crystals! As the water cooled to room temperature it could only hold about 200 g, so up to " + Math.round(extra) + " g of sugar came out of the water and built crystals on the string. (Real jars take about a week.)";
+      markDone(e, "Grew up to " + Math.round(extra) + " g of crystals");
+    };
+    const go = el("button", { class: "btn", type: "button", text: "❄️ Let it cool for a week" }); go.onclick = cool;
+    const clr = el("button", { class: "small-btn", type: "button", text: "Fresh jar" }); clr.onclick = () => { sugar = 0; crystals = 0; draw(); res.textContent = ""; };
+    draw();
+    const root = el("div", {}, el("p", { class: "pred", text: "Heat the water, drag in sugar until no more dissolves, then let it cool. Hotter water = bigger crystals?" }), el("div", { class: "parts" }, cupS), jar, sT.el, el("div", { class: "mrow" }, go, clr), res,
+      NOTE("Solubility of table sugar in 100 ml of water: about 200 g at 20°C and about 487 g at 100°C."));
+    root.auto = async () => { await glide(sT, 90); for (let k = 0; k < 8; k++) await D.auto(cupS, jar); await cool(); };
+    return root;
+  },
+
+  /* ===== EARTH ===== */
+  cloudjar(e){
+    const have = { warm: false, ice: false, smoke: false }; const res = RES();
+    const box = svgEl(300, 240, "");
+    const draw = () => {
+      const cloud = have.warm && have.ice && have.smoke;
+      let g = '<rect x="90" y="50" width="120" height="170" rx="12" fill="#f2f8ff" stroke="#5b6470" stroke-width="3"/>';
+      g += have.ice ? '<rect x="84" y="36" width="132" height="16" rx="4" fill="#c7e3ff" stroke="#5b6470"/><text x="150" y="49" text-anchor="middle" font-size="13">🧊🧊🧊</text>' : '<rect x="84" y="36" width="132" height="16" rx="4" fill="none" stroke="#c9d3dc" stroke-dasharray="4 4"/>';
+      if (have.warm) g += '<rect x="93" y="170" width="114" height="47" fill="#7fb3f0" opacity=".8"/>' + [0, 1, 2].map(k => '<path d="M' + (120 + k * 30) + ' 165 q6 -10 0 -20 q-6 -10 0 -20" stroke="#bcd4f0" fill="none" stroke-width="2"/>').join("");
+      if (have.smoke && !cloud) g += '<circle cx="150" cy="120" r="10" fill="#9aa0a6" opacity=".3"/>';
+      if (cloud) g += '<g opacity=".85"><circle cx="125" cy="95" r="22" fill="#fff"/><circle cx="155" cy="85" r="28" fill="#fff"/><circle cx="182" cy="100" r="20" fill="#fff"/><circle cx="150" cy="110" r="24" fill="#fff"/></g>';
+      box.querySelector("svg").innerHTML = g;
+      const n = Object.values(have).filter(Boolean).length;
+      res.textContent = cloud ? "A cloud! Warm water made moist air, the ice cooled it, and the smoke gave the water vapor tiny specks to condense on." :
+        n === 0 ? "" : !have.warm ? "No moisture yet: add warm water." : !have.ice ? "The air is moist but not cooled. Add ice on the lid." : "Moist, cool air, but water vapor needs tiny particles to gather on. Add a puff of smoke.";
+      if (cloud) markDone(e, "Made a cloud in a jar");
+    };
+    const D = dnd((k) => { have[k] = true; draw(); items.forEach(i => i.classList.toggle("used", have[i._data])); });
+    const items = [["warm", "🌡️", "Warm water"], ["ice", "🧊", "Ice on the lid"], ["smoke", "💨", "A puff of smoke"]].map(([k, em, l]) => D.item(k, chip(em, l)));
+    const jar = D.slot(el("div", { class: "drop-target" }, box));
+    const clr = el("button", { class: "small-btn", type: "button", text: "Empty the jar" }); clr.onclick = () => { Object.keys(have).forEach(k => have[k] = false); items.forEach(i => i.classList.remove("used")); draw(); };
+    draw();
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag the ingredients into the jar. Which ones does a cloud need?" }), el("div", { class: "parts" }, items, clr), jar, res);
+    root.auto = async () => { for (const i of items){ await D.auto(i, jar); await sleep(500); } };
+    return root;
+  },
+  greenhouse(e){
+    const lid = [false, false]; let temps = [22, 22]; const res = RES();
+    const jars = [0, 1].map(i => el("div", { class: "gh-jar" }, el("div", { class: "gh-lid" }), el("div", { class: "gh-glass" }, el("div", { class: "gh-th" }, el("i"))), el("div", { class: "gh-t", text: "22.0°C" }), el("div", { class: "gh-lab", text: i ? "Jar B" : "Jar A" })));
+    const paint = () => jars.forEach((j, i) => { j.querySelector(".gh-lid").classList.toggle("on", lid[i]); j.querySelector(".gh-t").textContent = temps[i].toFixed(1) + "°C"; j.querySelector(".gh-th i").style.height = Math.min(100, (temps[i] - 15) * 4) + "%"; });
+    const D = dnd((k, slot) => { const i = +slot.dataset.i; lid[i] = !lid[i]; paint(); });
+    jars.forEach((j, i) => { j.dataset.i = String(i); D.slot(j); });
+    const lidItem = D.item("lid", chip("🫙", "Jar lid"));
+    const run = async () => {
+      if (lid[0] === lid[1]){ res.textContent = "For a fair test, put the lid on just ONE jar."; return; }
+      temps = [22, 22]; const rise = lid.map(l => l ? 9 : 5);
+      for (let m = 0; m <= 20; m++){ temps = rise.map(r => 22 + r * (1 - Math.exp(-m / 7)) / (1 - Math.exp(-20 / 7))); paint(); await sleep(90); }
+      const c = lid[0] ? 0 : 1;
+      res.textContent = "After 20 minutes under the lamp, the closed jar is about " + (temps[c] - temps[1 - c]).toFixed(0) + "°C warmer. The lid traps the warmed air, a lot like how greenhouse gases keep heat near Earth's surface.";
+      markDone(e, "Closed jar warmed more");
+    };
+    const go = el("button", { class: "btn", type: "button", text: "☀️ Lamp on for 20 minutes" }); go.onclick = run;
+    paint();
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag the lid onto one jar, then turn the lamp on. Which jar gets warmer?" }), el("div", { class: "parts" }, lidItem), el("div", { class: "gh-row" }, jars), el("div", { class: "mrow" }, go), res,
+      NOTE("Typical classroom numbers. A jar is a simplified model: it mostly stops warm air from escaping, while Earth's greenhouse effect works by gases absorbing heat."));
+    root.auto = async () => { await D.auto(lidItem, jars[1]); await run(); };
+    return root;
+  },
+  erosion(e, o){
+    const plants = [false, false, false, false, false]; let rain = { light: 1, medium: 2, heavy: 3 }[P(o, "rain", "medium")] || 2; const res = RES();
+    const mk = (planted) => el("div", { class: "er-hill" + (planted ? " planted" : "") }, el("div", { class: "er-slope" }, planted ? plants.map((_, i) => el("span", { class: "er-spot", "data-i": String(i) })) : null), el("div", { class: "er-cup" }, el("i")), el("div", { class: "er-lab", text: planted ? "Hill B: you plant it" : "Hill A: bare soil" }));
+    const A = mk(false), B = mk(true);
+    const D = dnd((k, slot) => { const i = +slot.dataset.i; plants[i] = true; slot.textContent = "🌱"; });
+    B.querySelectorAll(".er-spot").forEach(s => D.slot(s));
+    const plant = D.item("plant", chip("🌱", "Plant clump"));
+    const sR = slider("Rain", 1, 3, 1, rain, v => ["", "Light", "Medium", "Heavy"][v], v => rain = v);
+    const run = async () => {
+      const n = plants.filter(Boolean).length, lossA = rain * 33, lossB = lossA * (1 - 0.17 * n);
+      const st = el("div", { class: "er-rain" }); A.append(st.cloneNode()); B.append(st);
+      for (let k = 0; k <= 25; k++){ A.querySelector(".er-cup i").style.height = (lossA * k / 25) + "%"; B.querySelector(".er-cup i").style.height = (lossB * k / 25) + "%"; await sleep(60); }
+      document.querySelectorAll(".er-rain").forEach(r => r.remove());
+      res.textContent = "Mud washed off: bare hill " + Math.round(lossA) + " units, planted hill " + Math.round(lossB) + " units" + (n ? " (" + Math.round((1 - lossB / lossA) * 100) + "% less)." : ". Plant some clumps on Hill B and compare!");
+      if (n >= 3) markDone(e, "Plants cut erosion by " + Math.round((1 - lossB / lossA) * 100) + "%");
+    };
+    const go = el("button", { class: "btn", type: "button", text: "🌧️ Make it rain" }); go.onclick = run;
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag plant clumps onto Hill B, pick the rain, and compare how much mud washes into each cup." }), el("div", { class: "parts" }, plant), el("div", { class: "er-row" }, A, B), sR.el, el("div", { class: "mrow" }, go), res,
+      NOTE("Simplified model: roots hold soil together and leaves soften the raindrops, so more plants means less mud."));
+    root.auto = async () => { for (const s of B.querySelectorAll(".er-spot")) await D.auto(plant, s); await glide(sR, 3, 400); await run(); };
+    return root;
+  },
+  quakebase(e, o){
+    const base = [null, null]; let shake = P(o, "shake", 6, 1, 10); const res = RES();
+    const LBL = { bolt: "🔩 Bolted to the ground", roll: "🛞 On rollers (base isolation)" };
+    const bld = [0, 1].map(i => el("div", { class: "qk-site" }, el("div", { class: "qk-bld" }, el("div", { class: "qk-top" }), el("div", { class: "qk-floors" })), el("div", { class: "qk-base", "data-i": String(i), text: "Drag a base here" }), el("div", { class: "qk-ground" })));
+    const D = dnd((k, slot) => { const i = +slot.dataset.i; base[i] = k; slot.textContent = LBL[k]; slot.classList.add("set"); });
+    bld.forEach(b => D.slot(b.querySelector(".qk-base")));
+    const items = Object.entries(LBL).map(([k, l]) => D.item(k, chip(l.slice(0, 2), l.slice(3))));
+    const sS = slider("Shaking", 1, 10, 1, shake, v => v + " / 10", v => shake = v);
+    const go = async () => {
+      if (!base[0] || !base[1]){ res.textContent = "Drag a base under both buildings first."; return; }
+      const amp = shake * 2.2;
+      const anims = bld.map((b, i) => {
+        const g = b.querySelector(".qk-ground"), bl = b.querySelector(".qk-bld"), roll = base[i] === "roll";
+        const k = { duration: 260, iterations: 10, direction: "alternate", easing: "ease-in-out" };
+        g.animate([{ transform: "translateX(" + (-amp) + "px)" }, { transform: "translateX(" + amp + "px)" }], k);
+        b.querySelector(".qk-base").animate([{ transform: "translateX(" + (roll ? -amp * .15 : -amp) + "px)" }, { transform: "translateX(" + (roll ? amp * .15 : amp) + "px)" }], k);
+        return bl.animate(roll ? [{ transform: "translateX(" + (-amp * .15) + "px)" }, { transform: "translateX(" + (amp * .15) + "px)" }] : [{ transform: "translateX(" + (-amp) + "px) skewX(" + (shake * 1.6) + "deg)" }, { transform: "translateX(" + amp + "px) skewX(" + (-shake * 1.6) + "deg)" }], k).finished;
+      });
+      await Promise.all(anims);
+      const r = base.includes("roll"), b2 = base.includes("bolt");
+      res.textContent = r && b2 ? "The bolted building rocked with the ground and its top swayed hard. The building on rollers barely moved: the ground slid back and forth underneath it. That's base isolation, used in real buildings in earthquake zones." :
+        base[0] === "roll" ? "Both on rollers: both stayed calm. Try one of each to compare." : "Both bolted down: both took the full shaking. Try rollers under one.";
+      if (r) markDone(e, "Base isolation kept the building steady");
+    };
+    const b = el("button", { class: "btn", type: "button", text: "🌍 Start the earthquake" }); b.onclick = go;
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag a base under each building, then shake. Which building stays steadier?" }), el("div", { class: "parts" }, items), el("div", { class: "qk-row" }, bld), sS.el, el("div", { class: "mrow" }, b), res,
+      NOTE("Simplified model. Real base isolators use rubber-and-steel bearings or sliding pads, which work like the rollers here."));
+    root.auto = async () => { await D.auto(items[0], bld[0].querySelector(".qk-base")); await D.auto(items[1], bld[1].querySelector(".qk-base")); await go(); };
+    return root;
+  },
+
+  /* ===== SPACE ===== */
+  moonphase(e){
+    let ang = 0.0; const seen = new Set(); const res = RES();
+    const NAMES = ["New Moon", "Waxing Crescent", "First Quarter", "Waxing Gibbous", "Full Moon", "Waning Gibbous", "Last Quarter", "Waning Crescent"];
+    const box = svgEl(460, 260, "", "mp-box");
+    const phasePath = (cx, cy, r, el2, waxing) => {
+      // lit part of the Moon as seen from Earth; el2 = angle Sun-Earth-Moon (0 = new, PI = full)
+      const k = Math.cos(el2), rx = Math.abs(k) * r, side = waxing ? 1 : -1;
+      const top = cx + " " + (cy - r), bot = cx + " " + (cy + r);
+      const sweepLimb = waxing ? 1 : 0, sweepTerm = (k > 0) === waxing ? 0 : 1;
+      return '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="#2b3245"/><path d="M' + top + " A" + r + " " + r + " 0 0 " + sweepLimb + " " + bot + " A" + rx + " " + r + " 0 0 " + sweepTerm + " " + top + 'Z" fill="#f5f0dc"/>';
+    };
+    const draw = () => {
+      const cx = 150, cy = 130, R = 92, mx = cx + R * Math.cos(ang), my = cy - R * Math.sin(ang);
+      const el2 = ang % (2 * Math.PI), waxing = el2 < Math.PI, phaseIdx = Math.round(el2 / (Math.PI / 4)) % 8;
+      let s = '<rect width="460" height="260" fill="#0f1526" rx="12"/>';
+      for (let k = 0; k < 5; k++) s += '<line x1="300" y1="' + (40 + k * 45) + '" x2="262" y2="' + (40 + k * 45) + '" stroke="#ffd166" stroke-width="2" marker-end="url(#ar)"/>';
+      s += '<defs><marker id="ar" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#ffd166"/></marker></defs>';
+      s += '<text x="282" y="25" fill="#ffd166" font-size="12" text-anchor="middle">☀️ Sunlight</text>';
+      s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="#3b4663" stroke-dasharray="3 6"/>';
+      s += '<circle cx="' + cx + '" cy="' + cy + '" r="22" fill="#2f6fd0"/><path d="M' + cx + " " + (cy - 22) + " A22 22 0 0 0 " + cx + " " + (cy + 22) + 'Z" fill="#000" opacity=".45"/><text x="' + cx + '" y="' + (cy + 40) + '" fill="#9fb3c8" font-size="11" text-anchor="middle">Earth</text>';
+      s += '<circle cx="' + mx + '" cy="' + my + '" r="14" fill="#2b3245"/><path d="M' + mx + " " + (my - 14) + " A14 14 0 0 1 " + mx + " " + (my + 14) + 'Z" fill="#f5f0dc"/><circle cx="' + mx + '" cy="' + my + '" r="17" fill="none" stroke="#e0a526" stroke-width="2" stroke-dasharray="3 3"/>';
+      s += '<rect x="318" y="20" width="128" height="220" rx="10" fill="#1a2238"/><text x="382" y="42" fill="#cfd8e3" font-size="12" text-anchor="middle">Seen from Earth</text>';
+      s += phasePath(382, 120, 46, el2, waxing);
+      s += '<text x="382" y="200" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">' + NAMES[phaseIdx] + "</text>";
+      box.querySelector("svg").innerHTML = s;
+      seen.add(phaseIdx);
+      res.textContent = "You've found " + seen.size + " of 8 phases. Half the Moon is always lit by the Sun; we just see different amounts of that lit half as it circles us.";
+      if (seen.size >= 5) markDone(e, "Found " + seen.size + " Moon phases");
+    };
+    const area = box; dragArea(area, (x, y) => { const px = x * 460, py = y * 260; if (px > 310) return; ang = Math.atan2(130 - py, px - 150); if (ang < 0) ang += 2 * Math.PI; draw(); });
+    draw();
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag the Moon around the Earth. When is it full? When does it disappear?" }), box, res, NOTE("Not to scale. Seen from the Northern Hemisphere; from Australia the shapes look flipped."));
+    root.auto = async () => { for (let k = 0; k <= 120; k++){ ang = (k / 120) * 2 * Math.PI * 0.999; draw(); await sleep(45); } };
+    return root;
+  },
+  craterdrop(e, o){
+    const ROCK = { marble: ["🔵", "Marble", 0.005], golf: ["⚪", "Golf ball", 0.046], base: ["⚾", "Baseball", 0.145] };
+    let rock = null, h = P(o, "height", 1, 0.3, 3); const hist = []; const res = RES();
+    const tray = el("div", { class: "cr-tray" }, el("div", { class: "cr-rock" }), el("div", { class: "cr-hole" }));
+    const D = dnd(k => { rock = k; tray.querySelector(".cr-rock").textContent = ROCK[k][0]; res.textContent = ROCK[k][1] + " ready. Set the height and drop it!"; });
+    const items = Object.entries(ROCK).map(([k, [em, l]]) => D.item(k, chip(em, l)));
+    D.slot(tray);
+    const sH = slider("Drop height", 0.3, 3, 0.1, h, v => v.toFixed(1) + " m", v => h = v);
+    const drop = async () => {
+      if (!rock){ res.textContent = "Drag a rock onto the tray first."; return; }
+      const m = ROCK[rock][2], E = m * 9.8 * h, D_cm = 8.5 * Math.pow(E, 0.25), v = Math.sqrt(2 * 9.8 * h);
+      const r = tray.querySelector(".cr-rock"); r.getAnimations().forEach(a => a.cancel());
+      await r.animate([{ transform: "translate(-50%,-140px)" }, { transform: "translate(-50%,0)" }], { duration: 300 + h * 120, easing: "cubic-bezier(.5,0,1,1)", fill: "forwards" }).finished;
+      const hole = tray.querySelector(".cr-hole"); hole.style.width = (D_cm * 9) + "px"; hole.style.height = (D_cm * 4) + "px"; hole.classList.add("on");
+      hist.push(ROCK[rock][1] + " from " + h.toFixed(1) + " m → " + D_cm.toFixed(1) + " cm crater");
+      res.textContent = "Hit at " + v.toFixed(1) + " m/s. " + hist.slice(-3).join(" · ") + ". Heavier and faster rocks carry more energy, so they blast bigger craters and longer rays.";
+      if (hist.length >= 2) markDone(e, hist.slice(-2).join("; "));
+    };
+    const go = el("button", { class: "btn", type: "button", text: "☄️ Drop it" }); go.onclick = drop;
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag a rock onto the flour tray, pick a height and drop. What makes a bigger crater?" }), el("div", { class: "parts" }, items), tray, sH.el, el("div", { class: "mrow" }, go), res,
+      NOTE("Simplified model: crater width grows with the impact energy to about the 1/4 power, a pattern lab studies have found for balls dropped into sand and flour."));
+    root.auto = async () => { await D.auto(items[0], tray); await glide(sH, 0.5, 400); await drop(); await sleep(700); await D.auto(items[2], tray); await glide(sH, 2.5, 500); await drop(); };
+    return root;
+  },
+  scalewalk(e){
+    // NASA JPL's Solar System Scroll: Sun at one end, Pluto at the other, fold to find the planets.
+    const PL = [["Mercury", .387, "#9aa0a6"], ["Venus", .723, "#e0a526"], ["Earth", 1, "#2f6fd0"], ["Mars", 1.524, "#d1495b"], ["Asteroid belt", 2.7, "#8b7d6b"], ["Jupiter", 5.203, "#c98b5a"], ["Saturn", 9.537, "#e5c07b"], ["Uranus", 19.19, "#5bc0be"], ["Neptune", 30.07, "#3a5bd9"]];
+    const END = 39.5; const res = RES(); const placed = new Set(); let folds = 0;
+    const strip = el("div", { class: "ss-strip" }, el("span", { class: "ss-sun", text: "☀️ Sun" }), el("span", { class: "ss-pluto", text: "Pluto" }));
+    const FOLD = [["½", .5], ["¼", .25], ["⅛", .125], ["1/16", .0625]];
+    const fold = () => { if (folds >= 4) return; const [lab, f] = FOLD[folds++]; strip.append(el("div", { class: "ss-crease", style: "left:" + (f * 100) + "%" }, el("span", { text: lab })));
+      res.textContent = "Folded to " + lab + ". " + (folds === 1 ? "Uranus sits right about here!" : folds === 2 ? "This crease is where Saturn goes." : folds === 3 ? "Jupiter lands near this one." : "This is about where the asteroid belt is. Mercury, Venus, Earth and Mars all crowd into the tiny bit before it!"); };
+    const D = dnd(pl => { if (placed.has(pl[0])) return; placed.add(pl[0]);
+      strip.append(el("div", { class: "ss-pl", style: "left:" + (pl[1] / END * 100) + "%;--c:" + pl[2] }, el("i"), el("span", { text: pl[0] })));
+      items.find(n => n._data === pl).classList.add("used");
+      res.textContent = pl[0] + " goes " + (pl[1] / END * 100).toFixed(1) + "% of the way to Pluto (" + pl[1] + " times Earth's distance from the Sun).";
+      if (placed.size === PL.length){ res.textContent = "All placed! The four inner planets fit in the first 4% of the strip. Space really is mostly empty."; markDone(e, "Mapped the solar system to scale"); } });
+    const items = PL.map(pl => D.item(pl, chip("●", pl[0])));
+    items.forEach((n, i) => n.querySelector(".pe").style.color = PL[i][2]);
+    D.slot(strip);
+    const fb = el("button", { class: "btn alt", type: "button", text: "📏 Fold the strip" }); fb.onclick = fold;
+    const root = el("div", {}, el("p", { class: "pred", text: "This paper strip goes from the Sun to Pluto. Fold it to find the creases, then drag each planet onto the strip to see where it really goes." }), el("div", { class: "mrow" }, fb), strip, el("div", { class: "parts" }, items), res,
+      NOTE("Distances to scale (planet sizes are not). Based on NASA JPL's Solar System Scroll activity."));
+    root.auto = async () => { for (let k = 0; k < 4; k++){ fold(); await sleep(500); } for (let i = items.length - 1; i >= 0; i--) await D.auto(items[i], strip); };
+    return root;
+  },
+
+  /* ===== LIVING THINGS ===== */
+  celerydye(e){
+    let dye = null, hours = 0, cut = false; const res = RES();
+    const box = svgEl(300, 250, "");
+    const draw = () => {
+      const c = dye || "#7fb3f0", up = dye ? Math.min(1, hours / 8) : 0, leaf = dye ? Math.min(1, Math.max(0, (hours - 4) / 16)) : 0;
+      let g = '<rect x="95" y="150" width="110" height="90" rx="8" fill="#f2f8ff" stroke="#5b6470" stroke-width="3"/><rect x="98" y="175" width="104" height="62" fill="' + (dye || "#cfe4ff") + '" opacity=".75"/>';
+      g += '<rect x="138" y="40" width="24" height="190" rx="10" fill="#8cc63f"/>';
+      if (up) g += '<rect x="143" y="' + (230 - 190 * up) + '" width="4" height="' + (190 * up) + '" fill="' + c + '"/><rect x="153" y="' + (230 - 190 * up) + '" width="4" height="' + (190 * up) + '" fill="' + c + '"/>';
+      g += '<ellipse cx="125" cy="38" rx="28" ry="16" fill="#8cc63f"/><ellipse cx="178" cy="34" rx="30" ry="15" fill="#8cc63f"/>';
+      if (leaf) g += '<ellipse cx="125" cy="38" rx="28" ry="16" fill="' + c + '" opacity="' + (leaf * .7) + '"/><ellipse cx="178" cy="34" rx="30" ry="15" fill="' + c + '" opacity="' + (leaf * .7) + '"/>';
+      if (cut){ g += '<circle cx="250" cy="70" r="34" fill="#a8d672" stroke="#5b8c2a" stroke-width="2"/>'; for (let k = 0; k < 9; k++){ const a = k / 9 * 6.283; g += '<circle cx="' + (250 + 24 * Math.cos(a)) + '" cy="' + (70 + 24 * Math.sin(a)) + '" r="4" fill="' + (up > .3 ? c : "#e6f3d4") + '"/>'; } g += '<text x="250" y="122" text-anchor="middle" font-size="11" fill="#5b6470">cut stem</text>'; }
+      box.querySelector("svg").innerHTML = g;
+      res.textContent = !dye ? "Drag a food coloring into the water." : hours < 1 ? "Dye is in the water. Move the clock forward." : up < 1 ? "After " + hours + " hours the color is climbing the stem's water tubes (xylem)." : "After " + hours + " hours the dye has reached the leaves. The plant pulled water up as water evaporated from its leaves.";
+      if (dye && hours >= 12) markDone(e, "Dye reached the leaves after " + hours + " hours");
+    };
+    const D = dnd(k => { dye = k; draw(); });
+    const dyes = [["#d62828", "🔴", "Red dye"], ["#1d4ed8", "🔵", "Blue dye"]].map(([c, em, l]) => D.item(c, chip(em, l)));
+    const cup = D.slot(el("div", { class: "drop-target" }, box));
+    const sT = slider("Time", 0, 24, 1, 0, v => v + " hours", v => { hours = v; draw(); });
+    const cb = el("button", { class: "small-btn", type: "button", text: "🔪 Cut the stem and look inside" }); cb.onclick = () => { cut = !cut; draw(); };
+    draw();
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag a dye into the water, then move the clock. Where does the color go?" }), el("div", { class: "parts" }, dyes, cb), cup, sT.el, res, NOTE("Timing is typical; warm, bright, breezy rooms make it faster."));
+    root.auto = async () => { await D.auto(dyes[1], cup); await glide(sT, 24, 2500); cut = true; draw(); };
+    return root;
+  },
+  beanmaze(e){
+    const HOLES = { left: { x: 40, y: 18, path: [[150, 260], [150, 210], [230, 210], [230, 150], [70, 150], [70, 90], [40, 90], [40, 18]] }, right: { x: 260, y: 18, path: [[150, 260], [150, 210], [230, 210], [230, 150], [70, 150], [70, 90], [260, 90], [260, 18]] } };
+    let hole = null, days = 0; const res = RES();
+    const box = svgEl(300, 280, "");
+    const lenOf = p => p.slice(1).reduce((s, q, i) => s + Math.hypot(q[0] - p[i][0], q[1] - p[i][1]), 0);
+    const draw = () => {
+      let g = '<rect x="10" y="10" width="280" height="260" fill="#efe3c8" stroke="#8b5a2b" stroke-width="4"/>';
+      g += '<rect x="10" y="180" width="200" height="10" fill="#8b5a2b"/><rect x="100" y="120" width="190" height="10" fill="#8b5a2b"/><rect x="10" y="60" width="210" height="10" fill="#8b5a2b"/>';
+      g += '<rect x="30" y="6" width="20" height="10" fill="#fff"/><rect x="250" y="6" width="20" height="10" fill="#fff"/>';
+      if (hole){ const H = HOLES[hole]; g += '<text x="' + H.x + '" y="0" font-size="22" text-anchor="middle" dy="-2">☀️</text>'; }
+      g += '<rect x="130" y="255" width="40" height="15" fill="#6b4a2b"/>';
+      if (hole && days){
+        const p = HOLES[hole].path, total = lenOf(p), want = Math.min(total, total * days / 10); let left = want, d = "M" + p[0].join(" ");
+        for (let i = 1; i < p.length && left > 0; i++){ const seg = Math.hypot(p[i][0] - p[i - 1][0], p[i][1] - p[i - 1][1]), t = Math.min(1, left / seg); d += " L" + (p[i - 1][0] + (p[i][0] - p[i - 1][0]) * t) + " " + (p[i - 1][1] + (p[i][1] - p[i - 1][1]) * t); left -= seg; }
+        g += '<path d="' + d + '" fill="none" stroke="#3f9b2b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>';
+      }
+      box.querySelector("svg").innerHTML = '<g transform="translate(0,14)">' + g + "</g>";
+      res.textContent = !hole ? "Drag the sun to a hole in the box." : !days ? "Light is shining in. Move the days forward." : days < 10 ? "Day " + days + ": the stem keeps bending toward the light." : "Day 10: the bean found its way out to the light! Growth hormones (auxins) collect on the shady side, making that side grow longer, so the stem bends toward light.";
+      if (hole && days >= 10) markDone(e, "The bean grew out of the maze");
+    };
+    const D = dnd((k, slot) => { hole = slot.dataset.h; days = 0; sD.set(0); draw(); });
+    const sun = D.item("sun", chip("☀️", "Light"));
+    const holeBtns = ["left", "right"].map(h => D.slot(el("div", { class: "bm-hole", "data-h": h, text: h === "left" ? "Left hole" : "Right hole" })));
+    const sD = slider("Days", 0, 10, 1, 0, v => v + " days", v => { days = v; draw(); });
+    draw();
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag the light to a hole, then let the days pass. Can a bean solve a maze?" }), el("div", { class: "parts" }, sun, holeBtns), box, sD.el, res);
+    root.auto = async () => { await D.auto(sun, holeBtns[1]); await glide(sD, 10, 2500); };
+    return root;
+  },
+  yeasttemp(e){
+    const CARD = { cold: ["🧊", "Cold water + sugar", 5, true], warm: ["🌡️", "Warm water + sugar", 40, true], hot: ["🔥", "Very hot water + sugar", 70, true], nosugar: ["🚫", "Warm water, no sugar", 40, false] };
+    const set = [null, null, null]; const res = RES();
+    const rate = (T, s) => !s ? 0.05 : T >= 60 ? 0 : T <= 0 ? 0 : Math.exp(-Math.pow((T - 38) / 14, 2));
+    const bottles = [0, 1, 2].map(i => el("div", { class: "yt-b", "data-i": String(i) }, el("div", { class: "yt-ball" }), el("div", { class: "yt-glass" }, el("span", { text: "Drag here" }))));
+    const D = dnd((k, slot) => { const i = +slot.dataset.i; set[i] = k; slot.querySelector(".yt-glass span").textContent = CARD[k][0] + " " + CARD[k][1]; slot.querySelector(".yt-ball").style.transform = "scale(.3)"; });
+    bottles.forEach(b => D.slot(b));
+    const items = Object.entries(CARD).map(([k, v]) => D.item(k, chip(v[0], v[1])));
+    const run = async () => {
+      if (set.some(s => !s)){ res.textContent = "Fill all three bottles first."; return; }
+      for (let m = 0; m <= 30; m++){ bottles.forEach((b, i) => { const c = CARD[set[i]], r = rate(c[2], c[3]); b.querySelector(".yt-ball").style.transform = "scale(" + (0.3 + r * 1.1 * m / 30) + ")"; }); await sleep(70); }
+      const best = set.map(k => rate(CARD[k][2], CARD[k][3]));
+      res.textContent = "After 30 minutes: " + set.map((k, i) => CARD[k][1] + " " + (best[i] > .6 ? "blew up big" : best[i] > .05 ? "grew a little" : "stayed flat")).join(" · ") + ". Yeast are alive: they eat sugar and give off carbon dioxide fastest when warm. Cold slows them down, and very hot water kills them.";
+      if (set.includes("warm")) markDone(e, "Warm yeast inflated the balloon");
+    };
+    const go = el("button", { class: "btn", type: "button", text: "⏱️ Wait 30 minutes" }); go.onclick = run;
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag a mix into each bottle with yeast. Which balloon blows up?" }), el("div", { class: "parts" }, items), el("div", { class: "yt-row" }, bottles), el("div", { class: "mrow" }, go), res,
+      NOTE("Simplified model: baker's yeast works best around 35-40°C and dies above about 60°C."));
+    root.auto = async () => { await D.auto(items[0], bottles[0]); await D.auto(items[1], bottles[1]); await D.auto(items[2], bottles[2]); await run(); };
+    return root;
+  },
+  catalase(e){
+    const tried = new Set(); const res = RES();
+    const cups = [0, 1].map(i => el("div", { class: "ct-cup", "data-i": String(i) }, el("div", { class: "ct-foam" }), el("div", { class: "ct-liq" }), el("div", { class: "ct-in", text: "" })));
+    const D = dnd(async (k, slot) => {
+      const foam = slot.querySelector(".ct-foam"); slot.querySelector(".ct-in").textContent = k === "raw" ? "🥔" : "🍟";
+      foam.style.height = "0"; await sleep(50); foam.style.transition = "height 1.8s ease-out"; foam.style.height = k === "raw" ? "85%" : "2%";
+      tried.add(k);
+      res.textContent = k === "raw" ? "Fizz! Raw potato has an enzyme called catalase that splits hydrogen peroxide into water and oxygen bubbles." : "Almost nothing. Boiling changed the shape of the catalase enzyme so it can't work anymore.";
+      if (tried.size === 2){ res.textContent += " Same potato, different result: heat broke the enzyme."; markDone(e, "Raw fizzed, boiled didn't"); }
+    });
+    cups.forEach(c => D.slot(c));
+    const items = [D.item("raw", chip("🥔", "Raw potato")), D.item("boiled", chip("🍟", "Boiled potato"))];
+    const root = el("div", {}, el("p", { class: "pred", text: "Each cup has hydrogen peroxide (3%). Drag a raw potato into one and a boiled potato into the other." }), el("div", { class: "parts" }, items), el("div", { class: "ct-row" }, cups), res);
+    root.auto = async () => { await D.auto(items[0], cups[0]); await sleep(1500); await D.auto(items[1], cups[1]); };
+    return root;
+  },
+
+  /* ===== LIGHT & SOUND ===== */
+  pencilbend(e){
+    let ang = 35, level = 0.6, showReal = true; const res = RES(); let moved = 0;
+    const box = svgEl(300, 260, "");
+    const draw = () => {
+      const top = 40, bot = 230, wy = bot - (bot - top) * level, px = 215, py = 20, a = ang * Math.PI / 180;
+      // pencil tip stops at the glass bottom or the left wall, whichever it reaches first
+      const tB = (bot - 8 - py) / Math.cos(a), tW = (px - 80) / Math.max(1e-6, Math.sin(a)), L = Math.min(tB, tW), ex = px - L * Math.sin(a), ey = py + L * Math.cos(a);
+      let g = '<text x="150" y="14" text-anchor="middle" font-size="12" fill="#5b6470">👁️ looking down into the glass</text>';
+      g += '<rect x="70" y="' + top + '" width="160" height="' + (bot - top) + '" rx="8" fill="#f2f8ff" stroke="#5b6470" stroke-width="3"/><rect x="73" y="' + wy + '" width="154" height="' + (bot - wy - 3) + '" fill="#7fb3f0" opacity=".55"/>';
+      // where the pencil crosses the waterline
+      const t = (wy - py) / (ey - py);
+      if (t > 0 && t < 1){
+        const cx = px + (ex - px) * t;
+        if (showReal) g += '<line x1="' + cx + '" y1="' + wy + '" x2="' + ex + '" y2="' + ey + '" stroke="#e0a526" stroke-width="7" opacity=".35" stroke-dasharray="6 5"/>';
+        const ay = wy + (ey - wy) / 1.33; // apparent depth = real depth / 1.33
+        g += '<line x1="' + px + '" y1="' + py + '" x2="' + cx + '" y2="' + wy + '" stroke="#e0a526" stroke-width="8" stroke-linecap="round"/><line x1="' + cx + '" y1="' + wy + '" x2="' + ex + '" y2="' + ay + '" stroke="#e0a526" stroke-width="8" stroke-linecap="round"/>';
+      } else g += '<line x1="' + px + '" y1="' + py + '" x2="' + ex + '" y2="' + ey + '" stroke="#e0a526" stroke-width="8" stroke-linecap="round"/>';
+      box.querySelector("svg").innerHTML = g;
+    };
+    dragArea(box, (x, y) => { const px = 215, py = 20, X = x * 300, Y = y * 260; ang = Math.max(5, Math.min(55, Math.atan2(px - X, Y - py) * 180 / Math.PI)); draw(); if (++moved > 10) done(); });
+    const sW = slider("Water level", 0, 1, 0.05, level, v => Math.round(v * 100) + "%", v => { level = v; draw(); });
+    const tb = el("button", { class: "small-btn", type: "button", text: "Hide the real pencil" }); tb.onclick = () => { showReal = !showReal; tb.textContent = showReal ? "Hide the real pencil" : "Show the real pencil"; draw(); done(); };
+    const done = () => { res.textContent = "The solid pencil is what you see; the dashed one is where it really is. Light bends as it leaves the water (water's refractive index is 1.33), so the underwater part looks shallower and the pencil looks broken."; markDone(e, "Saw the pencil bend"); };
+    draw();
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag the pencil to tilt it, and change the water level. Why does it look broken?" }), box, sW.el, el("div", { class: "mrow" }, tb), res,
+      NOTE("Simplified view from above: underwater things look about 3/4 as deep as they really are."));
+    root.auto = async () => { for (let k = 0; k <= 30; k++){ ang = 10 + k * 1.5; draw(); await sleep(40); } await glide(sW, 0.85); done(); };
+    return root;
+  },
+  waterglasses(e){
+    const lv = [0.2, 0.4, 0.55, 0.7, 0.85]; let ctx = null; const res = RES();
+    const NOTES = ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"];
+    const freq = h => 1100 / Math.sqrt(1 + 3 * Math.pow(h, 4));
+    const name = f => { const n = Math.round(12 * Math.log2(f / 440)) + 57; return NOTES[((n % 12) + 12) % 12] + Math.floor(n / 12); };
+    const ding = (f, when) => { ctx = ctx || new (window.AudioContext || window.webkitAudioContext)(); const t = ctx.currentTime + (when || 0); const o = ctx.createOscillator(), g = ctx.createGain(); o.type = "sine"; o.frequency.value = f; g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.12, t + .01); g.gain.exponentialRampToValueAtTime(.0005, t + 1.2); o.connect(g).connect(ctx.destination); o.start(t); o.stop(t + 1.3); };
+    const row = el("div", { class: "wg-row" });
+    const glasses = lv.map((_, i) => { const w = el("div", { class: "wg-g" }, el("div", { class: "wg-w" }), el("div", { class: "wg-n" })); row.append(w);
+      dragArea(w, (x, y) => { lv[i] = Math.round((1 - y) * 20) / 20; paint(); });
+      w.addEventListener("dblclick", () => ding(freq(lv[i])));
+      const tap = el("button", { class: "small-btn wg-tap", type: "button", text: "🥄 Tap" }); tap.onclick = () => { ding(freq(lv[i])); w.animate([{ transform: "rotate(-2deg)" }, { transform: "rotate(2deg)" }, { transform: "none" }], 200); };
+      return { w, tap }; });
+    const taps = el("div", { class: "wg-row" }, glasses.map(g => g.tap));
+    const paint = () => glasses.forEach((g, i) => { g.w.querySelector(".wg-w").style.height = (lv[i] * 100) + "%"; g.w.querySelector(".wg-n").textContent = name(freq(lv[i])) + " · " + Math.round(freq(lv[i])) + " Hz"; });
+    const playAll = async () => {
+      lv.forEach((h, i) => { ding(freq(h), i * .38); });
+      for (let i = 0; i < 5; i++){ glasses[i].w.animate([{ transform: "translateY(-6px)" }, { transform: "none" }], 300); await sleep(380); }
+      const f = lv.map(freq), up = f.every((x, i) => !i || x > f[i - 1]);
+      res.textContent = up ? "A rising scale! Less water lets the glass vibrate faster, so the pitch goes up. More water weighs down the glass and lowers the pitch." : "Tip: to make the notes go up from left to right, put the MOST water on the left and the least on the right.";
+      if (up) markDone(e, "Played a rising scale on water glasses");
+    };
+    const pb = el("button", { class: "btn", type: "button", text: "🎵 Play all, left to right" }); pb.onclick = playAll;
+    paint();
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag the water up or down in each glass, then tap. Can you make the notes go up, left to right?" }), row, taps, el("div", { class: "mrow" }, pb), res,
+      NOTE("Simplified model of a tapped glass. (Blowing across a bottle works the opposite way: more water, higher note.)"));
+    root.auto = async () => { const want = [0.9, 0.75, 0.6, 0.42, 0.15]; for (let i = 0; i < 5; i++){ const from = lv[i]; for (let k = 1; k <= 10; k++){ lv[i] = from + (want[i] - from) * k / 10; paint(); await sleep(25); } } await playAll(); };
+    return root;
+  },
+  prism(e){
+    let a = 20; const res = RES();
+    const COL = [["#ff3b30", 1.3311], ["#ff9500", 1.3320], ["#ffd60a", 1.3330], ["#34c759", 1.3352], ["#0a84ff", 1.3371], ["#8e44ff", 1.3428]];
+    const A = [150, 40], B = [80, 160], C = [220, 160];
+    const norm = v => { const l = Math.hypot(v[0], v[1]); return [v[0] / l, v[1] / l]; };
+    const refr = (d, n, eta) => { const ci = -(n[0] * d[0] + n[1] * d[1]); const k = 1 - eta * eta * (1 - ci * ci); if (k < 0) return null; const f = eta * ci - Math.sqrt(k); return norm([eta * d[0] + f * n[0], eta * d[1] + f * n[1]]); };
+    const hit = (p, d, s0, s1) => { const r = [s1[0] - s0[0], s1[1] - s0[1]], den = d[0] * r[1] - d[1] * r[0]; if (Math.abs(den) < 1e-9) return null; const t = ((s0[0] - p[0]) * r[1] - (s0[1] - p[1]) * r[0]) / den, u = ((s0[0] - p[0]) * d[1] - (s0[1] - p[1]) * d[0]) / den; return t > 1e-6 && u >= 0 && u <= 1 ? [p[0] + d[0] * t, p[1] + d[1] * t] : null; };
+    const box = svgEl(320, 220, "");
+    const draw = () => {
+      const M = [115, 100], th = a * Math.PI / 180, d = [Math.cos(th), -Math.sin(th)], src = [M[0] - d[0] * 120, M[1] - d[1] * 120];
+      let g = '<rect width="320" height="220" fill="#111827" rx="10"/><polygon points="' + [A, B, C].map(p => p.join(",")).join(" ") + '" fill="#7fb3f0" opacity=".35" stroke="#cfe8ff"/>';
+      g += '<line x1="' + src[0] + '" y1="' + src[1] + '" x2="' + M[0] + '" y2="' + M[1] + '" stroke="#fff" stroke-width="3"/><circle cx="' + src[0] + '" cy="' + src[1] + '" r="9" fill="#ffd166"/>';
+      const nAB = norm([-120, -70]), nACin = norm([-120, 70]); const exits = [];
+      COL.forEach(([c, n]) => {
+        const t1 = refr(d, nAB, 1 / n); if (!t1) return;
+        const P2 = hit(M, t1, A, C); if (!P2) return;
+        g += '<line x1="' + M[0] + '" y1="' + M[1] + '" x2="' + P2[0] + '" y2="' + P2[1] + '" stroke="' + c + '" stroke-width="1.5" opacity=".7"/>';
+        const t2 = refr(t1, nACin, n); if (!t2) return;
+        exits.push([c, P2, Math.atan2(t2[1], t2[0])]);
+      });
+      const out = exits.length, mean = out ? exits.reduce((s2, x) => s2 + x[2], 0) / out : 0;
+      exits.forEach(([c, P2, an]) => { const a2 = mean + (an - mean) * 8; g += '<line x1="' + P2[0] + '" y1="' + P2[1] + '" x2="' + (P2[0] + Math.cos(a2) * 400) + '" y2="' + (P2[1] + Math.sin(a2) * 400) + '" stroke="' + c + '" stroke-width="3"/>'; });
+      box.querySelector("svg").innerHTML = g;
+      res.textContent = out === 6 ? "A rainbow! Water bends violet light a little more than red light, so white light fans out into its colors. That's dispersion, the same thing raindrops do." : out ? "Some colors are getting trapped inside the glass. Tilt the light to free them all." : "The light is bouncing around inside the glass. Tilt the light (drag it).";
+      if (out === 6) markDone(e, "Split white light into a rainbow");
+    };
+    dragArea(box, (x, y) => { a = Math.max(-25, Math.min(50, (0.5 - y) * 140)); draw(); });
+    draw();
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag up or down on the picture to tilt the white light. Can you spread it into a rainbow?" }), box, res, NOTE("A wedge of water, like the edge of a glass of water, using real refraction values for water. The fan of colors is drawn 8 times wider so you can see it."));
+    root.auto = async () => { for (let k = 0; k <= 30; k++){ a = -20 + k * 1.6; draw(); await sleep(50); } };
+    return root;
+  },
+
+  /* ===== TECH ===== */
+  lemonbattery(e){
+    const cells = [null, null, null, null]; let metals = "zc"; const res = RES();
+    const V = { zc: 0.9, cc: 0 };
+    const row = el("div", { class: "lb-row" }, cells.map((_, i) => el("div", { class: "lb-cell", "data-i": String(i), text: "+" })));
+    const led = el("div", { class: "lb-led" }), meter = el("div", { class: "lb-meter", text: "0.00 V" });
+    const upd = () => {
+      const n = cells.filter(Boolean).length, v = n * V[metals];
+      meter.textContent = v.toFixed(2) + " V"; led.classList.toggle("on", v >= 1.8); led.style.opacity = v >= 1.8 ? Math.min(1, .45 + (v - 1.8) * .5) : 1;
+      res.textContent = metals === "cc" && n ? "0 volts! With copper on both sides, there's no difference between the metals, so no electrons flow. You need two DIFFERENT metals." :
+        !n ? "Drag lemons into the chain." : v < 1.8 ? n + " lemon" + (n > 1 ? "s" : "") + " in a row: " + v.toFixed(1) + " V. A red LED needs about 1.8 V. Add more!" : n + " lemons in a row: " + v.toFixed(1) + " V. The LED glows (dimly: lemons make only a tiny current).";
+      if (v >= 1.8) markDone(e, n + " lemons lit the LED");
+    };
+    const D = dnd((k, slot) => { const i = +slot.dataset.i; cells[i] = cells[i] ? null : k; slot.textContent = cells[i] ? "🍋" : "+"; slot.classList.toggle("full", !!cells[i]); upd(); });
+    row.querySelectorAll(".lb-cell").forEach(c => D.slot(c, s => { const i = +s.dataset.i; if (cells[i]){ cells[i] = null; s.textContent = "+"; s.classList.remove("full"); upd(); } }));
+    const lemon = D.item("lemon", chip("🍋", "Lemon cell"));
+    const m1 = el("button", { class: "small-btn on", type: "button", text: "Zinc nail + copper coin" }), m2 = el("button", { class: "small-btn", type: "button", text: "Copper + copper" });
+    m1.onclick = () => { metals = "zc"; m1.classList.add("on"); m2.classList.remove("on"); upd(); }; m2.onclick = () => { metals = "cc"; m2.classList.add("on"); m1.classList.remove("on"); upd(); };
+    upd();
+    const root = el("div", {}, el("p", { class: "pred", text: "Each lemon has two metals stuck in it. Drag lemons into the chain. How many does it take to light the LED?" }), el("div", { class: "parts" }, lemon, m1, m2), row, el("div", { class: "lb-out" }, meter, led, el("span", { text: "Red LED" })), res,
+      NOTE("Simplified model: one lemon with zinc and copper makes about 0.9 volts. Tap a lemon to remove it."));
+    root.auto = async () => { const s = row.querySelectorAll(".lb-cell"); for (let i = 0; i < 3; i++) await D.auto(lemon, s[i]); };
+    return root;
+  },
+  electromagnet(e, o){
+    let wraps = P(o, "wraps", 10, 5, 60), batt = [false, false], core = null; const res = RES();
+    const coreSlot = el("div", { class: "em-core", text: "Drag a core here" });
+    const bats = [0, 1].map(i => el("div", { class: "em-bat", "data-i": String(i), text: "🔋?" }));
+    const clips = el("div", { class: "em-clips" });
+    const D = dnd((k, slot) => { if (slot === coreSlot){ core = k; coreSlot.textContent = k === "nail" ? "🔩 Iron nail" : "✏️ Pencil"; } else { const i = +slot.dataset.i; batt[i] = true; slot.textContent = "🔋 1.5 V"; slot.classList.add("full"); } });
+    D.slot(coreSlot); bats.forEach(b => D.slot(b, s => { const i = +s.dataset.i; batt[i] = false; s.textContent = "🔋?"; s.classList.remove("full"); }));
+    const items = [D.item("nail", chip("🔩", "Iron nail")), D.item("pencil", chip("✏️", "Pencil")), D.item("bat", chip("🔋", "AA battery"))];
+    const sW = slider("Wire wraps", 5, 60, 5, wraps, v => v + " turns", v => wraps = v);
+    const test = async () => {
+      const nb = batt.filter(Boolean).length;
+      if (!core || !nb){ res.textContent = "Add a core and at least one battery."; return; }
+      const n = Math.floor(0.12 * wraps * nb * (core === "nail" ? 1 : 0.04));
+      clips.innerHTML = ""; for (let k = 0; k < n; k++){ clips.append(el("span", { text: "📎" })); await sleep(60); }
+      res.textContent = "Picked up " + n + " paperclip" + (n === 1 ? "" : "s") + ". " + (core === "pencil" ? "A pencil core barely works: iron concentrates the magnetic field, wood doesn't." : "More wraps and more batteries mean a stronger magnet.") + " Disconnect it after a few seconds: the wire gets warm.";
+      if (n >= 5) markDone(e, "Picked up " + n + " paperclips");
+    };
+    const go = el("button", { class: "btn", type: "button", text: "⚡ Connect and test" }); go.onclick = test;
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag in a core and batteries, set the wraps, then test. How many paperclips can it lift?" }), el("div", { class: "parts" }, items), el("div", { class: "em-row" }, coreSlot, bats), sW.el, el("div", { class: "mrow" }, go), clips, res,
+      NOTE("Simplified model: the field grows with the number of wraps times the current."));
+    root.auto = async () => { await D.auto(items[0], coreSlot); await D.auto(items[2], bats[0]); await test(); await sleep(600); await D.auto(items[2], bats[1]); await glide(sW, 50, 500); await test(); };
+    return root;
+  },
+  compassneedle(e){
+    let strokes = 0, floated = false, rot = 70; const res = RES();
+    const bar = el("div", { class: "cn-needle" }, el("span", { class: "cn-mag", text: "🧲" }));
+    let stroking = false;
+    bar.addEventListener("pointerdown", ev => { ev.preventDefault(); stroking = true; const r = bar.getBoundingClientRect(); const x0 = ev.clientX;
+      const mv = m => { const p = (m.clientX - r.left) / r.width; bar.querySelector(".cn-mag").style.left = Math.max(0, Math.min(100, p * 100)) + "%"; };
+      const up = u => { window.removeEventListener("pointermove", mv); if (u.clientX - x0 > r.width * .6){ strokes++; upd(); } bar.querySelector(".cn-mag").style.left = "0%"; };
+      window.addEventListener("pointermove", mv); window.addEventListener("pointerup", up, { once: true }); });
+    const bowl = el("div", { class: "cn-bowl" }, el("div", { class: "cn-n", text: "N" }), el("div", { class: "cn-float" }, el("i")));
+    const D = dnd(async () => { floated = true; bowl.classList.add("on"); const f = bowl.querySelector(".cn-float");
+      const target = strokes >= 10 ? 0 : rot + (Math.random() - .5) * 20;
+      for (let k = 0; k < 40; k++){ rot = target + (rot - target) * 0.88 + (strokes >= 10 ? Math.sin(k / 3) * (40 - k) * 0.4 : 0); f.style.transform = "rotate(" + rot + "deg)"; await sleep(40); }
+      res.textContent = strokes >= 10 ? "It swung around and points north! Stroking lined up tiny magnetic regions in the steel, and Earth's magnetic field turns the floating needle." : "It just drifts. Stroke the needle with the magnet at least 10 times, always in the same direction.";
+      if (strokes >= 10) markDone(e, "Needle compass pointed north after " + strokes + " strokes"); });
+    const needleItem = D.item("needle", chip("🪡", "Magnetized needle on cork"));
+    D.slot(bowl);
+    const count = el("div", { class: "pred" });
+    const upd = () => { count.textContent = "Strokes: " + strokes + (strokes >= 10 ? " ✓ magnetized" : " (drag the magnet along the needle, left to right, 10 times)"); };
+    upd();
+    const root = el("div", {}, el("p", { class: "pred", text: "1) Drag the magnet along the needle, always left to right. 2) Drag the needle into the water bowl." }), bar, count, el("div", { class: "parts" }, needleItem), bowl, res);
+    root.auto = async () => { const m = bar.querySelector(".cn-mag"); for (let k = 0; k < 10; k++){ await m.animate([{ left: "0%" }, { left: "100%" }], 180).finished; strokes++; upd(); } await D.auto(needleItem, bowl); };
+    return root;
+  },
+
+  /* ===== STEM WORKSHOP ===== */
+  circuit(e){
+    const PARTS = { battery: ["🔋", "Battery", "battery"], bulb: ["💡", "Bulb", "load"], buzzer: ["🔔", "Buzzer", "load"], wire: ["〰️", "Wire", "cond"], switch: ["🎚️", "Switch", "switch"], clip: ["📎", "Paperclip", "cond"], foil: ["🥈", "Foil strip", "cond"], band: ["➰", "Rubber band", "ins"], straw: ["🥤", "Plastic straw", "ins"] };
+    const slots = [null, null, null, null]; let closed = false; const res = RES();
+    const board = el("div", { class: "ci-board" }, el("div", { class: "ci-loop" }), slots.map((_, i) => el("div", { class: "ci-slot s" + i, "data-i": String(i), text: "drop part" })));
+    const check = () => {
+      const t = slots.map(k => k && PARTS[k][2]);
+      const nb = t.filter(x => x === "battery").length, loads = t.filter(x => x === "load").length, ins = t.includes("ins"), empty = t.includes(null) || t.includes(undefined), sw = t.includes("switch");
+      const on = nb >= 1 && loads >= 1 && !ins && !empty && (!sw || closed);
+      board.classList.toggle("lit", on);
+      board.querySelectorAll(".ci-slot").forEach((s, i) => { s.classList.toggle("glow", on && (slots[i] === "bulb")); s.classList.toggle("buzz", on && slots[i] === "buzzer"); });
+      res.textContent = empty ? "Fill all four spots to close the loop." : !nb ? "No battery, no push. Add a battery." : ins ? "The " + slots.map(k => k && PARTS[k][2] === "ins" ? PARTS[k][1].toLowerCase() : null).filter(Boolean)[0] + " is an insulator: it blocks electricity, so the loop is broken." : sw && !closed ? "The switch is open. Tap the switch to close it." :
+        !loads ? "⚠️ Short circuit! Battery plus conductors and nothing to power. In real life the wires and battery get hot. Add a bulb or buzzer." :
+        "It works! Electricity flows from the battery, around the complete loop of conductors, through the " + slots.filter(k => k && PARTS[k][2] === "load").map(k => PARTS[k][1].toLowerCase()).join(" and ") + " and back.";
+      if (on) markDone(e, "Built a working circuit");
+    };
+    const D = dnd((k, slot) => { const i = +slot.dataset.i; slots[i] = k; slot.textContent = PARTS[k][0] + " " + PARTS[k][1]; slot.classList.add("full"); if (k === "switch"){ closed = false; slot.textContent += " (open)"; } check(); });
+    board.querySelectorAll(".ci-slot").forEach(s => D.slot(s, n => { const i = +n.dataset.i; if (slots[i] === "switch"){ closed = !closed; n.textContent = "🎚️ Switch (" + (closed ? "closed" : "open") + ")"; check(); } else if (slots[i]){ slots[i] = null; n.textContent = "drop part"; n.classList.remove("full"); check(); } }));
+    const items = Object.entries(PARTS).map(([k, [em, l]]) => D.item(k, chip(em, l)));
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag parts into the four spots to make a loop. Tap a part to remove it (or flip the switch)." }), el("div", { class: "parts" }, items), board, res);
+    root.auto = async () => { const s = board.querySelectorAll(".ci-slot"); await D.auto(items[0], s[0]); await D.auto(items[7], s[1]); await D.auto(items[1], s[2]); await D.auto(items[3], s[3]); await sleep(900); await D.auto(items[6], s[1]); await sleep(600); await D.auto(items[4], s[3]); await sleep(500); s[3].click(); };
+    return root;
+  },
+  bridge(e, o){
+    const BEAM = { flat: ["▭", "Flat paper", 3], fold: ["〰️", "Folded (accordion)", 25], tube: ["◯", "Rolled tubes", 15], truss: ["△", "Triangle truss", 40] };
+    const deck = [null, null, null], piers = [false, false]; let load = P(o, "load", 20, 1, 100); const res = RES();
+    const bridge = el("div", { class: "br-stage" }, el("div", { class: "br-bank l" }), el("div", { class: "br-bank r" }), el("div", { class: "br-water" }),
+      el("div", { class: "br-deck" }, deck.map((_, i) => el("div", { class: "br-sec", "data-i": String(i), text: "beam?" }))),
+      piers.map((_, i) => el("div", { class: "br-pier p" + i, "data-p": String(i) })), el("div", { class: "br-load", text: "" }));
+    const D = dnd((k, slot) => {
+      if (slot.dataset.p != null){ if (k === "pier"){ piers[+slot.dataset.p] = true; slot.classList.add("on"); } return; }
+      if (k === "pier") return; const i = +slot.dataset.i; deck[i] = k; slot.textContent = BEAM[k][0]; slot.className = "dg-slot br-sec t-" + k; slot.dataset.i = String(i);
+    });
+    bridge.querySelectorAll(".br-sec").forEach(s => D.slot(s)); bridge.querySelectorAll(".br-pier").forEach(s => D.slot(s, n => { piers[+n.dataset.p] = false; n.classList.remove("on"); }));
+    const items = [...Object.entries(BEAM).map(([k, [em, l]]) => D.item(k, chip(em, l))), D.item("pier", chip("▮", "Support pier"))];
+    const sL = slider("Load in the middle", 1, 100, 1, load, v => v + " pennies", v => load = v);
+    const test = async () => {
+      if (deck.includes(null)){ res.textContent = "Fill all three sections of the deck first."; return; }
+      // The middle section carries the load; the span is the stretch between supports around it.
+      let lo = 0, hi = 2; if (piers[0]) lo = 1; if (piers[1]) hi = 1;
+      const span = hi - lo + 1, secs = deck.slice(lo, hi + 1), weakest = Math.min(...secs.map(k => BEAM[k][2])), cap = Math.round(weakest * 3 / span);
+      const L = bridge.querySelector(".br-load"); L.textContent = "🪙×" + load; bridge.classList.remove("broke");
+      await L.animate([{ transform: "translate(-50%,-60px)", opacity: 0 }, { transform: "translate(-50%,0)", opacity: 1 }], { duration: 500, fill: "forwards" }).finished;
+      const dk = bridge.querySelector(".br-deck");
+      if (load <= cap){
+        dk.style.setProperty("--sag", (6 * load / cap) + "px"); dk.classList.add("sag");
+        res.textContent = "It held! This bridge can carry about " + cap + " pennies. " + (span < 3 ? "The pier shortened the span, which makes it much stronger." : "Try adding a pier, or a stronger shape, and load it heavier.");
+        markDone(e, "Bridge held " + load + " pennies");
+      } else {
+        bridge.querySelectorAll(".br-sec").forEach((s, i) => { s.classList.toggle("weak", i >= lo && i <= hi && BEAM[deck[i]][2] === weakest); });
+        bridge.classList.add("broke");
+        res.textContent = "Snap! It could only hold about " + cap + " pennies. The red section failed first. Try folding it, adding a truss, or a support pier.";
+      }
+    };
+    const reset = () => { bridge.classList.remove("broke"); bridge.querySelector(".br-deck").classList.remove("sag"); bridge.querySelector(".br-load").textContent = ""; bridge.querySelectorAll(".br-sec").forEach(s => s.classList.remove("weak")); };
+    const go = el("button", { class: "btn", type: "button", text: "🧪 Test the bridge" }); go.onclick = () => { reset(); test(); };
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag a beam into each section and add support piers if you want. Then load it up!" }), el("div", { class: "parts" }, items), bridge, sL.el, el("div", { class: "mrow" }, go), res,
+      NOTE("Simplified model: shape matters as much as material, and a shorter span between supports is stronger."));
+    root.auto = async () => { const s = bridge.querySelectorAll(".br-sec"); for (const x of s) await D.auto(items[0], x); await test(); await sleep(900); reset(); for (const x of s) await D.auto(items[1], x); await test(); await sleep(700); reset(); await D.auto(items[4], bridge.querySelector(".br-pier.p0")); await glide(sL, 30, 400); await test(); };
+    return root;
+  },
+  boat(e, o){
+    const foil = P(o, "foil", 15, 10, 30), salt = P(o, "liquid", "fresh") === "salt", dens = salt ? 1.025 : 1.0;
+    let h = 2, L = foil - 4, W = foil - 4, pennies = 0; const res = RES();
+    const box = svgEl(320, 200, "");
+    const cap = () => L * W * h * dens - 0.4; // grams before water reaches the rim (0.4 g of foil)
+    const fix = () => { h = Math.min(h, (foil - Math.max(L, W)) / 2); };
+    const draw = (sinking) => {
+      const sc = 9, bw = L * sc * .9, bh = h * sc * 2.2, load = pennies * 2.5 + 0.4, frac = Math.min(1.15, load / Math.max(1, L * W * h * dens));
+      const waterY = 150, boatBottom = waterY - bh + bh * frac + (sinking ? 60 : 0);
+      let g = '<rect width="320" height="200" fill="#eaf4ff"/><rect x="0" y="' + waterY + '" width="320" height="50" fill="' + (salt ? "#5fa8d3" : "#7fb3f0") + '"/>';
+      g += '<path d="M' + (160 - bw / 2) + " " + (boatBottom - bh) + " L" + (160 - bw / 2) + " " + boatBottom + " L" + (160 + bw / 2) + " " + boatBottom + " L" + (160 + bw / 2) + " " + (boatBottom - bh) + '" fill="#d9dde3" stroke="#8b939e" stroke-width="2"/>';
+      for (let k = 0; k < Math.min(pennies, 60); k++) g += '<circle cx="' + (160 - bw / 2 + 8 + (k * 9) % Math.max(10, bw - 14)) + '" cy="' + (boatBottom - 4 - Math.floor(k * 9 / Math.max(10, bw - 14)) * 3) + '" r="4" fill="#c27b3a"/>';
+      g += '<text x="10" y="20" font-size="12" fill="#1f2a44">Boat ' + L + "×" + W + "×" + h.toFixed(1) + " cm · holds about " + Math.max(0, Math.floor(cap() / 2.5)) + " pennies</text>";
+      box.querySelector("svg").innerHTML = g;
+    };
+    const sLen = slider("Length", 3, foil - 1, 0.5, L, v => v + " cm", v => { L = v; fix(); sH.set(h); draw(); });
+    const sWid = slider("Width", 3, foil - 1, 0.5, W, v => v + " cm", v => { W = v; fix(); sH.set(h); draw(); });
+    const sH = slider("Wall height", 0.5, (foil - 3) / 2, 0.25, h, v => v + " cm", v => { h = Math.min(v, (foil - Math.max(L, W)) / 2); if (h !== v) setTimeout(() => sH.input.value = String(h), 0); draw(); });
+    const add = async n => {
+      for (let k = 0; k < n; k++){ pennies++; draw();
+        if (pennies * 2.5 > cap()){ draw(true); res.textContent = "Glub glub! It sank with penny #" + pennies + ". It held " + (pennies - 1) + " pennies (" + ((pennies - 1) * 2.5).toFixed(1) + " g). The boat floats as long as it pushes aside water weighing as much as the boat and its load."; if (pennies - 1 >= 60) markDone(e, "Foil boat held " + (pennies - 1) + " pennies"); return true; }
+        await sleep(n > 1 ? 25 : 0); }
+      res.textContent = pennies + " pennies aboard (" + (pennies * 2.5).toFixed(1) + " g). Still floating!"; return false;
+    };
+    const D = dnd(() => add(1));
+    const penny = D.item("penny", chip("🪙", "Penny (2.5 g)"));
+    const target = D.slot(el("div", { class: "drop-target" }, box));
+    const b10 = el("button", { class: "small-btn", type: "button", text: "+10 pennies" }); b10.onclick = () => add(10);
+    const clr = el("button", { class: "small-btn", type: "button", text: "Empty the boat" }); clr.onclick = () => { pennies = 0; draw(); res.textContent = ""; };
+    draw();
+    const root = el("div", {}, el("p", { class: "pred", text: "Shape your " + foil + " cm square of foil" + (salt ? " (floating in salt water)" : "") + ", then drag pennies in until it sinks. Which shape holds the most?" }),
+      sLen.el, sWid.el, sH.el, el("div", { class: "parts" }, penny, b10, clr), target, res,
+      NOTE("Simplified model: capacity ≈ the boat's volume in cm³ × the water's density, minus the foil. Pennies are 2.5 g (US cents since 1982). Real foil boats hold fewer because they leak, bend and tip when pennies pile up."));
+    root.auto = async () => { await glide(sLen, 5, 400); await glide(sWid, 5, 400); pennies = 0; for (let k = 0; k < 8 && !(await add(5)); k++); await sleep(900); await glide(sLen, foil - 5, 400); await glide(sWid, foil - 5, 400); await glide(sH, 2.5, 400); pennies = 0; for (let k = 0; k < 30 && !(await add(5)); k++); };
+    return root;
+  },
+  rocket(e, o){
+    let nose = null, fins = null, angle = 45, power = P(o, "power", 6, 1, 10); const target = P(o, "target", 8, 2, 15); const res = RES();
+    const NOSE = { cone: ["🔺", "Pointed nose cone", 1.12], flat: ["⬜", "Flat taped end", 0.9] }, FINS = { none: ["∅", "No fins", 0.35], two: ["✌️", "2 fins", 0.8], three: ["🔱", "3 fins", 1.0] };
+    const box = svgEl(340, 200, "");
+    const rk = el("div", { class: "rk-rocket" }, el("div", { class: "rk-nose", "data-k": "nose", text: "nose?" }), el("div", { class: "rk-body", text: "🥤 straw rocket" }), el("div", { class: "rk-fins", "data-k": "fins", text: "fins?" }));
+    const D = dnd((k, slot) => { if (slot.dataset.k === "nose" && NOSE[k]){ nose = k; slot.textContent = NOSE[k][0]; } if (slot.dataset.k === "fins" && FINS[k]){ fins = k; slot.textContent = FINS[k][0]; } });
+    rk.querySelectorAll("[data-k]").forEach(s => D.slot(s));
+    const items = [...Object.entries(NOSE), ...Object.entries(FINS)].map(([k, [em, l]]) => D.item(k, chip(em, l)));
+    const sA = slider("Launch angle", 10, 80, 1, angle, v => v + "°", v => { angle = v; draw([]); });
+    const sP = slider("Puff strength", 1, 10, 1, power, v => v + " / 10", v => power = v);
+    const sc = 340 / 16;
+    const draw = (path, land) => {
+      let g = '<rect width="340" height="200" fill="#eef6ff"/><rect y="180" width="340" height="20" fill="#9bc86b"/>';
+      for (let m = 0; m <= 16; m += 2) g += '<text x="' + (10 + m * sc * 0.95) + '" y="196" font-size="9" fill="#2d4a1e">' + m + "m</text>";
+      g += '<text x="' + (10 + target * sc * .95) + '" y="178" font-size="18" text-anchor="middle">🎯</text>';
+      const a = angle * Math.PI / 180; g += '<line x1="10" y1="180" x2="' + (10 + 26 * Math.cos(a)) + '" y2="' + (180 - 26 * Math.sin(a)) + '" stroke="#5b6470" stroke-width="4"/>';
+      if (path.length) g += '<polyline points="' + path.map(p => (10 + p[0] * sc * .95) + "," + (180 - p[1] * sc * .95)).join(" ") + '" fill="none" stroke="#d1495b" stroke-width="2" stroke-dasharray="4 3"/>';
+      if (land != null) g += '<text x="' + (10 + land * sc * .95) + '" y="176" font-size="16" text-anchor="middle">🚀</text>';
+      box.querySelector("svg").innerHTML = g;
+    };
+    const launch = async () => {
+      if (!nose || !fins){ res.textContent = "Drag a nose and a fin choice onto the rocket first."; return; }
+      const v = 4 + power * 1.2, eff = NOSE[nose][2] * FINS[fins][2], a = angle * Math.PI / 180, g = 9.8;
+      const R = v * v * Math.sin(2 * a) / g * eff, T = 2 * v * Math.sin(a) / g, path = [];
+      for (let k = 0; k <= 40; k++){ const t = T * k / 40, x = v * Math.cos(a) * t * eff, y = Math.max(0, (v * Math.sin(a) * t - .5 * g * t * t) * (fins === "none" ? .6 : 1)); path.push([x, y]); draw(path); await sleep(25); }
+      draw(path, R);
+      const miss = R - target, hitIt = Math.abs(miss) <= 0.6;
+      res.textContent = "It flew " + R.toFixed(1) + " m. " + (hitIt ? "🎯 Bullseye!" : miss < 0 ? "Short by " + (-miss).toFixed(1) + " m." : "Long by " + miss.toFixed(1) + " m.") + (fins === "none" ? " With no fins it tumbled and lost distance: fins keep it pointed straight." : angle !== 45 && !hitIt ? " Tip: about 45° goes farthest." : "");
+      if (hitIt) markDone(e, "Hit the " + target + " m target");
+    };
+    const go = el("button", { class: "btn", type: "button", text: "💨 Launch!" }); go.onclick = launch;
+    draw([]);
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag a nose and fins onto the rocket, set the angle and puff strength, and try to hit the target at " + target + " m." }), el("div", { class: "parts" }, items), rk, box, sA.el, sP.el, el("div", { class: "mrow" }, go), res,
+      NOTE("Simplified model of a launched object with some air drag. Real straw rockets wobble, so test several times."));
+    root.auto = async () => { await D.auto(items[1], rk.querySelector(".rk-nose")); await D.auto(items[2], rk.querySelector(".rk-fins")); await launch(); await sleep(700);
+      await D.auto(items[0], rk.querySelector(".rk-nose")); await D.auto(items[4], rk.querySelector(".rk-fins")); await glide(sA, 45, 300);
+      // find the puff strength that lands closest to the target
+      let best = 1, bd = 1e9; for (let p = 1; p <= 10; p++){ const v = 4 + p * 1.2, R = v * v / 9.8 * 1.12; if (Math.abs(R - target) < bd){ bd = Math.abs(R - target); best = p; } }
+      sP.set(best); if (bd > .6){ const v = 4 + best * 1.2; const need = Math.asin(Math.min(1, target * 9.8 / (v * v * 1.12))) / 2 * 180 / Math.PI; await glide(sA, Math.round(need), 300); } await launch(); };
+    return root;
+  },
+  lander(e, o){
+    const GEAR = { chute: ["🪂", "Parachute", 0], pad: ["🧽", "Padding (2 cm)", 2], straws: ["🥢", "Straw crumple zone (4 cm)", 4], bags: ["🎈", "Balloon airbags (6 cm)", 6] };
+    const on = new Set(); let H = P(o, "height", 3, 1, 20); const res = RES();
+    const cap = el("div", { class: "ld-cap" }, el("div", { class: "ld-gear" }), el("div", { class: "ld-egg", text: "🥚" }));
+    const paint = () => { cap.querySelector(".ld-gear").textContent = [...on].map(k => GEAR[k][0]).join(" ") || "Drag gear here"; };
+    const D = dnd(k => { on.has(k) ? on.delete(k) : on.add(k); paint(); });
+    D.slot(cap);
+    const items = Object.entries(GEAR).map(([k, [em, l]]) => D.item(k, chip(em, l)));
+    const sH = slider("Drop height", 1, 20, 0.5, H, v => v + " m (about " + Math.max(1, Math.round(v / 3)) + " floor" + (v >= 4.5 ? "s" : "") + ")", v => H = v);
+    const drop = async () => {
+      const vf = Math.sqrt(2 * 9.8 * H), v = on.has("chute") ? Math.min(vf, 3) : vf;
+      const d = Math.max(0.1, [...on].reduce((s, k) => s + GEAR[k][2], 0)) / 100; // meters to stop
+      const gs = v * v / (2 * d * 9.8), ok = gs <= 50;
+      const stage = cap.parentElement; cap.getAnimations().forEach(a => a.cancel());
+      await cap.animate([{ transform: "translateY(-150px)" }, { transform: "translateY(0)" }], { duration: 500 + (on.has("chute") ? 900 : 0), easing: on.has("chute") ? "linear" : "cubic-bezier(.5,0,1,1)", fill: "forwards" }).finished;
+      cap.querySelector(".ld-egg").textContent = ok ? "🥚" : "🍳";
+      res.textContent = "Hit the ground at " + v.toFixed(1) + " m/s" + (on.has("chute") ? " (the parachute slowed it)" : "") + " and stopped in " + (d * 100).toFixed(1) + " cm, about " + Math.round(gs) + " g's of force. " +
+        (ok ? "The egg survived! Slowing the egg down gently, over a longer distance, keeps the force low." : "Crack! Too much force. Add padding to stop it over a longer distance, or a parachute to land slower.");
+      if (ok) markDone(e, "Egg survived a " + H + " m drop");
+      setTimeout(() => cap.querySelector(".ld-egg").textContent = "🥚", 2500);
+    };
+    const go = el("button", { class: "btn", type: "button", text: "⬇ Drop the egg" }); go.onclick = drop;
+    paint();
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag protective gear onto the egg capsule (tap gear on the capsule to remove it), pick a height and drop. Will it survive?" }), el("div", { class: "parts" }, items), el("div", { class: "ld-stage" }, cap, el("div", { class: "ld-floor" })), sH.el, el("div", { class: "mrow" }, go), res,
+      NOTE("Simplified model: force depends on landing speed and stopping distance. Here an egg cracks above about 50 g's; real eggs vary with how they land."));
+    root.auto = async () => { on.clear(); paint(); await drop(); await sleep(1200); await D.auto(items[0], cap); await D.auto(items[3], cap); await drop(); };
+    return root;
+  },
+  robotpath(e){
+    const LEVELS = [
+      { s: [0, 4, 0], g: [0, 1], walls: [] },
+      { s: [0, 4, 0], g: [3, 4], walls: [[0, 2], [1, 2]] },
+      { s: [0, 4, 0], g: [4, 0], walls: [[1, 4], [1, 3], [3, 1], [3, 0], [2, 2]] },
+      { s: [2, 4, 0], g: [2, 0], walls: [[2, 2], [1, 2], [3, 2], [0, 1], [4, 1]] }
+    ];
+    const DIRS = [[0, -1], [1, 0], [0, 1], [-1, 0]]; // up, right, down, left
+    let lvl = 0, prog = []; const res = RES();
+    const grid = el("div", { class: "rp-grid" }), bar = el("div", { class: "rp-bar" }), lvlLab = el("b");
+    const T = { f: ["⬆️", "Forward"], l: ["↩️", "Turn left"], r: ["↪️", "Turn right"] };
+    const drawGrid = (rb) => {
+      const L = LEVELS[lvl], r = rb || L.s; grid.innerHTML = "";
+      for (let y = 0; y < 5; y++) for (let x = 0; x < 5; x++){
+        const wall = L.walls.some(w => w[0] === x && w[1] === y), goal = L.g[0] === x && L.g[1] === y, bot = r[0] === x && r[1] === y;
+        grid.append(el("div", { class: "rp-c" + (wall ? " wall" : "") }, goal ? el("span", { text: "⭐" }) : null, bot ? el("span", { class: "rp-bot", style: "transform:rotate(" + (r[2] * 90) + "deg)", text: "🤖" }) : null));
+      }
+      lvlLab.textContent = "Level " + (lvl + 1) + " of " + LEVELS.length;
+    };
+    const drawBar = () => { bar.innerHTML = ""; prog.forEach((c, i) => { const t = el("button", { class: "rp-t", type: "button", text: T[c][0], title: "Tap to remove" }); t.onclick = () => { prog.splice(i, 1); drawBar(); }; bar.append(t); }); if (prog.length < 14) bar.append(D.slot(el("div", { class: "rp-t empty", text: "+" }))); };
+    const D = dnd(k => { if (prog.length < 14){ prog.push(k); drawBar(); } });
+    const items = Object.entries(T).map(([k, [em, l]]) => D.item(k, chip(em, l)));
+    const run = async () => {
+      const L = LEVELS[lvl]; let r = [...L.s]; drawGrid(r); await sleep(300);
+      for (let i = 0; i < prog.length; i++){
+        bar.children[i] && bar.children[i].classList.add("now");
+        const c = prog[i];
+        if (c === "l") r[2] = (r[2] + 3) % 4; else if (c === "r") r[2] = (r[2] + 1) % 4;
+        else { const nx = r[0] + DIRS[r[2]][0], ny = r[1] + DIRS[r[2]][1]; if (nx < 0 || ny < 0 || nx > 4 || ny > 4 || L.walls.some(w => w[0] === nx && w[1] === ny)){ drawGrid(r); res.textContent = "Bonk! Step " + (i + 1) + " hits a wall. That's a bug: fix that step and run it again."; bar.children[i].classList.add("bug"); return; } r[0] = nx; r[1] = ny; }
+        drawGrid(r); await sleep(380);
+        bar.children[i] && bar.children[i].classList.remove("now");
+      }
+      if (r[0] === L.g[0] && r[1] === L.g[1]){
+        res.textContent = "⭐ The robot reached the star in " + prog.length + " steps!" + (lvl < LEVELS.length - 1 ? " On to the next level." : " You beat every level!");
+        markDone(e, "Programmed the robot through level " + (lvl + 1));
+        if (lvl < LEVELS.length - 1){ await sleep(1400); lvl++; prog = []; drawBar(); drawGrid(); res.textContent = ""; }
+      } else res.textContent = "The robot stopped before the star. Add more steps, or check the turns. (Turns spin the robot in place.)";
+    };
+    const solve = () => { // shortest program by breadth-first search
+      const L = LEVELS[lvl], key = r => r.join(","), q = [[L.s, []]], seen = new Set([key(L.s)]);
+      while (q.length){ const [r, p] = q.shift(); if (r[0] === L.g[0] && r[1] === L.g[1]) return p;
+        for (const c of ["f", "l", "r"]){ let n = [...r]; if (c === "l") n[2] = (n[2] + 3) % 4; else if (c === "r") n[2] = (n[2] + 1) % 4; else { n[0] += DIRS[n[2]][0]; n[1] += DIRS[n[2]][1]; if (n[0] < 0 || n[1] < 0 || n[0] > 4 || n[1] > 4 || L.walls.some(w => w[0] === n[0] && w[1] === n[1])) continue; }
+          if (!seen.has(key(n))){ seen.add(key(n)); q.push([n, [...p, c]]); } } }
+      return [];
+    };
+    const go = el("button", { class: "btn", type: "button", text: "▶ Go" }); go.onclick = run;
+    const clr = el("button", { class: "small-btn", type: "button", text: "Clear program" }); clr.onclick = () => { prog = []; drawBar(); drawGrid(); res.textContent = ""; };
+    drawGrid(); drawBar();
+    const root = el("div", {}, el("p", { class: "pred" }, "Drag arrow tiles into the program, then press Go. Get the 🤖 to the ⭐. ", lvlLab), el("div", { class: "parts" }, items), grid, el("div", { class: "rp-lab", text: "Program:" }), bar, el("div", { class: "mrow" }, go, clr), res);
+    root.auto = async () => { prog = []; drawBar(); const p = solve(); for (const c of p){ const it = items[["f", "l", "r"].indexOf(c)]; await D.auto(it, bar.lastChild); } await run(); };
+    return root;
+  },
+
+  /* ===== AI ENGINES (fill-in experiments) ===== */
+  engine_compare(e){
+    const s = e.setup, res = RES(); let pick = null;
+    const lanes = [s.a, s.b].map((x, i) => el("div", { class: "eg-lane", "data-i": String(i) }, el("span", { class: "eg-em", text: x.emoji || "●" }), el("b", { text: x.label }), el("div", { class: "eg-track" }, el("i")), el("span", { class: "eg-val" })));
+    const D = dnd((k, slot) => { pick = +slot.dataset.i; lanes.forEach((l, i) => l.classList.toggle("picked", i === pick)); });
+    lanes.forEach(l => D.slot(l));
+    const flag = D.item("flag", chip("🚩", "My prediction"));
+    const go = async () => {
+      const vals = [s.a.value, s.b.value], max = Math.max(...vals), win = s.lower_wins ? (vals[0] <= vals[1] ? 0 : 1) : (vals[0] >= vals[1] ? 0 : 1);
+      await Promise.all(lanes.map((l, i) => { const bar = l.querySelector("i"), dur = s.lower_wins ? 600 + 2200 * vals[i] / max : 2400;
+        l.querySelector(".eg-val").textContent = vals[i].toLocaleString() + " " + (s.unit || "");
+        return bar.animate([{ width: "0%" }, { width: (s.lower_wins ? 100 : 100 * vals[i] / max) + "%" }], { duration: dur, fill: "forwards", easing: "ease-out" }).finished; }));
+      res.textContent = (win === 0 ? s.a.label : s.b.label) + " wins (" + (s.metric || "") + "). " + (pick == null ? "" : pick === win ? "You predicted it! 🎉" : "Surprise! Not what you predicted.");
+      markDone(e, (win === 0 ? s.a.label : s.b.label) + " won");
+    };
+    const b = el("button", { class: "btn", type: "button", text: "▶ Go!" }); b.onclick = go;
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag the flag onto the one you think wins (" + (s.metric || "") + "), then press Go." }), el("div", { class: "parts" }, flag), lanes, el("div", { class: "mrow" }, b), res);
+    root.auto = async () => { await D.auto(flag, lanes[0]); await go(); };
+    return root;
+  },
+  engine_slider(e){
+    const s = e.setup, pts = s.points, res = RES(); const seen = new Set();
+    const yAt = x => { for (let i = 0; i < pts.length - 1; i++){ const [a, ya] = pts[i], [b, yb] = pts[i + 1]; if (x <= b) return ya + (yb - ya) * (x - a) / (b - a || 1); } return pts[pts.length - 1][1]; };
+    const ymax = Math.max(...pts.map(p => p[1])), ymin = Math.min(0, ...pts.map(p => p[1]));
+    const gauge = el("div", { class: "eg-gauge" }, el("i"), el("span", { class: "eg-em big", text: s.emoji || "📈" }));
+    const read = el("div", { class: "ph-read" });
+    const step = (s.x.max - s.x.min) / 100;
+    const sl = slider(s.x.label, s.x.min, s.x.max, step, s.x.min, v => (+v.toFixed(2)).toLocaleString() + " " + (s.x.unit || ""), v => {
+      const y = yAt(v); gauge.querySelector("i").style.height = (100 * (y - ymin) / ((ymax - ymin) || 1)) + "%";
+      read.textContent = s.y.label + ": " + (+y.toFixed(2)).toLocaleString() + " " + (s.y.unit || "");
+      seen.add(Math.round((v - s.x.min) / ((s.x.max - s.x.min) || 1) * 4));
+      if (seen.size >= 4) markDone(e, "Explored " + s.x.label);
+    });
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag the slider and watch what happens to " + s.y.label.toLowerCase() + "." }), el("div", { class: "eg-sl" }, gauge, el("div", {}, read, sl.el)), res,
+      NOTE("Points between the measured values are filled in smoothly."));
+    root.auto = async () => { await glide(sl, s.x.max, 2500); await glide(sl, s.x.min + (s.x.max - s.x.min) / 2, 900); };
+    return root;
+  },
+  engine_sort(e){
+    const s = e.setup, res = RES(); const placed = new Map();
+    const bins = s.groups.map(g => el("div", { class: "eg-bin", "data-g": g }, el("b", { text: g }), el("div", { class: "eg-in" })));
+    const D = dnd((it, bin, node) => { placed.set(it.label, bin.dataset.g); bin.querySelector(".eg-in").append(node); node.classList.toggle("right", it.group === bin.dataset.g); node.classList.toggle("wrong", it.group !== bin.dataset.g); check(); });
+    bins.forEach(b => D.slot(b));
+    const items = s.items.map(it => D.item(it, chip(it.emoji || "•", it.label)));
+    const pool = el("div", { class: "parts" }, items);
+    const check = () => {
+      if (placed.size < s.items.length){ res.textContent = placed.size + " of " + s.items.length + " sorted."; return; }
+      const wrong = s.items.filter(it => placed.get(it.label) !== it.group);
+      res.textContent = wrong.length ? wrong.length + " in the wrong group (marked red). " + wrong.map(w => w.label + ": " + (w.why || "belongs in " + w.group)).join(" · ") : "All sorted correctly! " + s.items.map(i => i.label + ": " + i.why).filter(x => !x.endsWith(": ")).slice(0, 4).join(" · ");
+      if (!wrong.length) markDone(e, "Sorted all " + s.items.length);
+    };
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag each item into the group where it belongs." }), pool, el("div", { class: "eg-bins" }, bins), res);
+    root.auto = async () => { for (const n of items){ const b = bins.find(x => x.dataset.g === n._data.group); await D.auto(n, b); } };
+    return root;
+  },
+  engine_build(e){
+    const s = e.setup, res = RES(); const got = new Map();
+    const slots = s.slots.map((x, i) => el("div", { class: "eg-slot", "data-i": String(i) }, el("small", { text: x.label }), el("b", { text: "?" })));
+    const D = dnd((p, slot) => { const i = +slot.dataset.i; got.set(i, p.label); slot.querySelector("b").textContent = (p.emoji || "") + " " + p.label; slot.classList.add("full"); slot.classList.remove("bad"); });
+    slots.forEach(x => D.slot(x));
+    const items = s.parts.map(p => D.item(p, chip(p.emoji || "•", p.label)));
+    const test = () => {
+      const bad = s.slots.map((x, i) => got.get(i) !== x.part ? i : -1).filter(i => i >= 0);
+      slots.forEach((x, i) => x.classList.toggle("bad", bad.includes(i)));
+      res.textContent = bad.length ? "Not quite: " + bad.length + " spot" + (bad.length > 1 ? "s" : "") + " need a different part (marked red)." : "It works! " + (s.success || "");
+      if (!bad.length) markDone(e, "Built it right");
+    };
+    const b = el("button", { class: "btn", type: "button", text: "🧪 Test it" }); b.onclick = test;
+    const root = el("div", {}, el("p", { class: "pred", text: "Goal: " + (s.goal || "make it work") + ". Drag the right part into each spot, then test." }), el("div", { class: "parts" }, items), el("div", { class: "eg-slots" }, slots), el("div", { class: "mrow" }, b), res);
+    root.auto = async () => { for (let i = 0; i < s.slots.length; i++){ const n = items.find(it => it._data.label === s.slots[i].part); await D.auto(n, slots[i]); } test(); };
+    return root;
+  },
+  engine_order(e){
+    const s = e.setup, res = RES(); const n = s.steps.length; const order = new Array(n).fill(null);
+    const shuffled = s.steps.map((t, i) => ({ t, i })).sort(() => Math.random() - .5);
+    const slots = s.steps.map((_, i) => el("div", { class: "eg-ord", "data-i": String(i) }, el("span", { class: "eg-num", text: String(i + 1) }), el("span", { class: "eg-txt", text: "drop a step" })));
+    const D = dnd((st, slot, node) => { const i = +slot.dataset.i; order[i] = st.i; slot.querySelector(".eg-txt").textContent = st.t; slot.classList.add("full"); node.classList.add("used"); check(); });
+    slots.forEach(x => D.slot(x, sl => { const i = +sl.dataset.i; if (order[i] != null){ const k = order[i]; order[i] = null; sl.querySelector(".eg-txt").textContent = "drop a step"; sl.classList.remove("full", "bad"); items.find(it => it._data.i === k).classList.remove("used"); } }));
+    const items = shuffled.map(st => D.item(st, el("button", { class: "part step", type: "button", text: st.t })));
+    const check = () => {
+      if (order.includes(null)) return;
+      const bad = order.map((k, i) => k !== i);
+      slots.forEach((x, i) => x.classList.toggle("bad", bad[i]));
+      res.textContent = bad.some(Boolean) ? "Some steps are out of order (marked red). Tap a step to take it out and try again." : "Perfect order! 🎉";
+      if (!bad.some(Boolean)) markDone(e, "Put all " + n + " steps in order");
+    };
+    const root = el("div", {}, el("p", { class: "pred", text: "Drag the steps into the right order. Tap a placed step to remove it." }), el("div", { class: "parts col" }, items), el("div", { class: "eg-ords" }, slots), res);
+    root.auto = async () => { for (let i = 0; i < n; i++){ const it = items.find(x => x._data.i === i); await D.auto(it, slots[i]); } };
+    return root;
+  }
+};
+
+Object.assign(MACHINES, SIMS);
+// "Watch Mr. Paul do it" for the original on-screen experiments
+const wrapAuto = (name, fn) => { const orig = MACHINES[name]; MACHINES[name] = (e, o) => { const n = orig(e, o); n.auto = () => fn(n); return n; }; };
+wrapAuto("moondrop", async n => { const b = n.querySelectorAll(".mrow button"); b[0].click(); await sleep(3600); b[1].click(); await sleep(2600); });
+wrapAuto("phslider", async n => { const r = n.querySelector("input"); for (const v of [7, 6, 5, 4, 3, 2, 3, 5, 7, 8, 9, 10, 11, 12, 10, 8]){ r.value = String(v); r.oninput(); await sleep(230); } });
+wrapAuto("planetjump", async n => { n.querySelector(".pj-in button").click(); });
+wrapAuto("binary", async n => {
+  for (let round = 0; round < 2; round++){
+    const m = (n.querySelector(".pred").textContent.match(/(\d+)/) || [])[1]; if (!m) return; const t = +m;
+    for (let i = 0; i < 5; i++){ const want = !!(t & [16, 8, 4, 2, 1][i]); const c = n.querySelectorAll(".bn-cards button")[i]; const isOn = !c.classList.contains("off"); if (want !== isOn){ c.click(); await sleep(450); } }
+    await sleep(1800);
+  }
+});
+
 /* ---------- The Science Report ---------- */
 async function openReport(e){
   const box = $("#reportBlock"); box.classList.remove("hidden"); box.innerHTML = "";
@@ -997,15 +2367,15 @@ async function openReport(e){
   box.scrollIntoView({ behavior: "smooth", block: "start" });
   say("Putting together your full science report: key facts, timeline, scientists, terms and diagrams. Give me about a minute!");
   const key = e.id + "|" + state.level;
-  let rep = state.reports[key] || (!e.live && store.get("lab_rep_" + key, null));
+  let rep = state.reports[key] || (!e.live && store.get("lab_rep2_" + key, null));
   if (rep && rep.t && rep.t < Date.now() - 30 * 864e5) rep = null;
   try {
     if (!rep){
       const lv = L(e);
       rep = await api({ mode: "report", level: state.level, exp: { id: e.id, title: e.title, hook: e.hook, why: lv.why } });
-      if (rep.confirmed){ rep.t = Date.now(); state.reports[key] = rep; if (!e.live) store.set("lab_rep_" + key, rep); }
+      if (rep.confirmed){ rep.t = Date.now(); state.reports[key] = rep; if (!e.live) store.set("lab_rep2_" + key, rep); }
     }
-    renderReport(e, rep);
+    renderReport(e, cleanAI(rep));
   } catch(err){ box.innerHTML = ""; box.append(el("div", { class: "status st-unconfirmed", text: err.message })); }
 }
 function renderReport(e, r){
@@ -1089,13 +2459,14 @@ async function init(){
   $("#lvGrown").onclick = () => setLevel("grown"); $("#lvKids").onclick = () => setLevel("kids");
   $("#toLobby").onclick = showLobby;
   $("#moreBtn").onclick = () => fetchIdeas("", null);
+  $("#tabScreen").onclick = () => showTab("screen"); $("#tabHome").onclick = () => showTab("home");
   $("#createBtn").onclick = createExp;
   $("#nbBtn").onclick = openNb; $("#nbClose").onclick = () => $("#nbModal").classList.add("hidden");
   $("#nbModal").onclick = ev => { if (ev.target.id === "nbModal") $("#nbModal").classList.add("hidden"); };
   $("#mp").onclick = () => say(lastLine || "Hi! I'm Mr. Paul. Pick a door and let's experiment!");
   const q = new URLSearchParams(location.search);
   const x = q.get("x") && state.data.experiments.find(e => e.id === q.get("x"));
-  if (x){ openRoom(x.room, false); openExp(x, true); }
+  if (x){ openRoom(x.room, false, isOnline(x) && !q.get("home") ? "screen" : "home"); openExp(x, true); }
   else if (q.get("room") && roomInfo(q.get("room"))) openRoom(q.get("room"), true);
   else say("Welcome to my lab! Pick a door. Every experiment comes with the real science, and the sources.");
 }
