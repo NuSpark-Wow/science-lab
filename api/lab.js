@@ -71,11 +71,48 @@ WRITING:
 - "kids" = fun and playful (ages 7-12), short sentences, accurate. Fun never changes the facts.
 - National examples only (no local landmarks). No markdown, no asterisks. Never call the tool "free."
 
-OUTPUT: After your research, reply with ONLY a JSON object wrapped in <json> and </json> tags in the exact shape requested.`;
+OUTPUT: Never put citation tags or markup (like <cite ...>) inside the JSON text; write plain sentences. After your research, reply with ONLY a JSON object wrapped in <json> and </json> tags in the exact shape requested.`;
 
 const EXP_SHAPE = `{"title": "short catchy title", "hook": "one surprising 'I didn't know that' sentence", "needs": ["household item", "..."], "steps": ["step 1", "step 2", "step 3 (3-6 steps)"], "predict": "a question asking the visitor to predict what will happen", "reveal": "what most people actually observe", "why_grown": "2-4 sentences, the real science with numbers where helpful", "why_kids": "2-3 fun sentences", "realworld": "one sentence: where this shows up in everyday life", "grownup": true or false, "safety": "short safety note or empty", "sources": [{"title": "Publisher: page title", "url": "https://..."}]}`;
 
+
+const ENGINE_SHAPES = `Pick ONE engine per experiment and fill its "setup" exactly:
+- "compare": two things race or are measured side by side. setup = {"metric": "what is measured, e.g. seconds to melt", "unit": "s", "lower_wins": true or false, "a": {"label": "...", "emoji": "one emoji", "value": number}, "b": {"label": "...", "emoji": "...", "value": number}}. Values must be real measured or sourced numbers.
+- "slider": move one variable and watch a result change. setup = {"x": {"label": "...", "unit": "...", "min": n, "max": n}, "y": {"label": "...", "unit": "..."}, "points": [[x, y], [x, y], [x, y], ...3-8 real data points from your sources, sorted by x], "emoji": "one emoji for the thing that changes"}.
+- "sort": drag items into the right group. setup = {"groups": ["Group A", "Group B"] (2-3 groups), "items": [{"label": "...", "emoji": "...", "group": "exact group name", "why": "one short reason"}] (6-9 items)}.
+- "build": drag the right parts into the right slots to make something work. setup = {"goal": "what works when built right", "slots": [{"label": "slot name", "part": "exact part label"}] (2-5 slots), "parts": [{"label": "...", "emoji": "..."}] (all correct parts plus 1-3 wrong ones), "success": "what happens when it works"}.
+- "order": put steps of a natural process in order. setup = {"steps": ["first", "second", "..."] (4-7 steps, in the correct order)}.`;
+const SIM_SHAPE = `{"title": "short catchy title", "hook": "one surprising sentence", "engine": "compare|slider|sort|build|order", "setup": {...}, "predict": "a question to predict before trying", "why_grown": "2-4 sentences of real science with numbers", "why_kids": "2-3 fun sentences", "realworld": "one sentence", "sources": [{"title": "Publisher: page title", "url": "https://..."}]}`;
+
 function modePrompt(mode, b) {
+  if (mode === "sims") {
+    const room = ROOMS[b.room] ? b.room : "body";
+    const avoid = (b.exclude || []).slice(-150).reverse().map(x => "- " + String(x).slice(0, 100)).join("\n");
+    const n = Math.max(1, Math.min(4, parseInt(b.count, 10) || 4));
+    return `Create ${n} NEW on-screen interactive experiments for the room: ${ROOMS[room]}.
+Focus this batch on: ${b.angle}. These run on screen (no materials): the visitor drags, slides or presses Go and sees a real result. Every number, group, part and step must come from your sources.
+${ENGINE_SHAPES}
+Use a mix of engines. Do NOT repeat or closely copy any of these:
+${avoid || "- (none)"}
+
+Reply shape:
+<json>{"experiments": [${SIM_SHAPE}]}</json>`;
+  }
+  if (mode === "scenarios") {
+    const x = b.exp || {};
+    const avoid = (b.exclude || []).slice(-60).map(t => "- " + String(t).slice(0, 100)).join("\n");
+    return `An on-screen experiment called "${String(x.title || "").slice(0, 160)}" shows: ${String(x.hook || "").slice(0, 400)}
+Science: ${String(x.why || "").slice(0, 900)}
+The on-screen simulator has these settings you can choose (use only these keys, values inside the ranges): ${String(b.params || "none: give a challenge to try with the controls on screen").slice(0, 600)}
+
+Create 4 NEW scenarios: fresh real-world twists on this same experiment that the visitor can try in the simulator (for example a different place, object, size, or condition). Each must teach a true fact backed by your sources.
+Do NOT repeat these scenarios:
+${avoid || "- (none)"}
+
+Reply shape:
+<json>{"scenarios": [{"title": "short title", "challenge": "1-2 sentences: what to try on screen", "set": {"key": value}, "predict": "a question to predict first", "why_grown": "2-4 sentences with real numbers", "why_kids": "2-3 fun sentences", "sources": [{"title": "Publisher: page title", "url": "https://..."}]}]}</json>`;
+  }
+
   if (mode === "ideas") {
     const room = ROOMS[b.room] ? b.room : "body";
     const avoid = (b.exclude || []).slice(-150).reverse().map(s => "- " + String(s).slice(0, 100)).join("\n");
@@ -189,7 +226,9 @@ function extractJson(text) {
   raw = raw.trim().replace(/^```(?:json)?/i, "").replace(/```$/, "").trim();
   try { return JSON.parse(raw); } catch (e) { return null; }
 }
-const clip = (s, n) => String(s || "").replace(/\*\*/g, "").slice(0, n);
+// Remove citation tags the model sometimes writes into its answers (e.g. <cite index="21-8">...</cite>), plus markdown bold.
+const cleanText = s => String(s || "").replace(/<\/?cite\b[^>]*>/gi, "").replace(/<\/?(antml:)?[a-z_]+:?[a-z_]*\b[^>]*>/gi, m => /^<\/?(b|i|u|br)\b/i.test(m) ? m : "").replace(/\*\*/g, "").replace(/[ \t]{2,}/g, " ").trim();
+const clip = (s, n) => cleanText(s).slice(0, n);
 // const okVerdict = v => (["true", "partly", "busted", "none"].includes(v) ? v : "none");
 
 async function anthropic(messages, maxSearches) {
@@ -264,6 +303,57 @@ const clean = (e, retrieved) => {
   };
 };
 
+
+const num = v => (typeof v === "number" && isFinite(v)) ? v : (isFinite(parseFloat(v)) ? parseFloat(v) : null);
+function cleanSetup(engine, s) {
+  if (!s || typeof s !== "object") return null;
+  const L = (v, n) => clip(v, n || 60);
+  if (engine === "compare") {
+    const side = o => o && num(o.value) !== null ? { label: L(o.label), emoji: L(o.emoji, 8), value: num(o.value) } : null;
+    const a = side(s.a), b = side(s.b);
+    if (!a || !b || !a.label || !b.label || a.value <= 0 || b.value <= 0) return null;
+    return { metric: L(s.metric, 80), unit: L(s.unit, 16), lower_wins: !!s.lower_wins, a, b };
+  }
+  if (engine === "slider") {
+    const pts = (Array.isArray(s.points) ? s.points : []).map(p => Array.isArray(p) ? [num(p[0]), num(p[1])] : [null, null]).filter(p => p[0] !== null && p[1] !== null).sort((p, q) => p[0] - q[0]);
+    if (pts.length < 3 || !s.x || !s.y) return null;
+    return { x: { label: L(s.x.label), unit: L(s.x.unit, 16), min: pts[0][0], max: pts[pts.length - 1][0] }, y: { label: L(s.y.label), unit: L(s.y.unit, 16) }, points: pts.slice(0, 10), emoji: L(s.emoji, 8) };
+  }
+  if (engine === "sort") {
+    const groups = (Array.isArray(s.groups) ? s.groups : []).slice(0, 3).map(g => L(g, 40)).filter(Boolean);
+    const items = (Array.isArray(s.items) ? s.items : []).slice(0, 10).map(i => i && ({ label: L(i.label), emoji: L(i.emoji, 8), group: L(i.group, 40), why: L(i.why, 200) })).filter(i => i && i.label && groups.includes(i.group));
+    if (groups.length < 2 || items.length < 4) return null;
+    return { groups, items };
+  }
+  if (engine === "build") {
+    const parts = (Array.isArray(s.parts) ? s.parts : []).slice(0, 9).map(p => p && ({ label: L(p.label), emoji: L(p.emoji, 8) })).filter(p => p && p.label);
+    const labels = parts.map(p => p.label);
+    const slots = (Array.isArray(s.slots) ? s.slots : []).slice(0, 5).map(x => x && ({ label: L(x.label), part: L(x.part) })).filter(x => x && x.label && labels.includes(x.part));
+    if (slots.length < 2) return null;
+    return { goal: L(s.goal, 200), slots, parts, success: L(s.success, 300) };
+  }
+  if (engine === "order") {
+    const steps = (Array.isArray(s.steps) ? s.steps : []).slice(0, 8).map(x => L(x, 160)).filter(Boolean);
+    return steps.length >= 3 ? { steps } : null;
+  }
+  return null;
+}
+function cleanSim(e, retrieved) {
+  if (!e || typeof e !== "object") return null;
+  const engine = ["compare", "slider", "sort", "build", "order"].includes(e.engine) ? e.engine : null;
+  if (!engine) return null;
+  const setup = cleanSetup(engine, e.setup); if (!setup) return null;
+  const sources = verifySources(e.sources, retrieved); if (!sources.length) return null;
+  if (!clip(e.title, 5)) return null;
+  return {
+    id: "live-sim-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 7),
+    live: true, online: true, machine: "engine_" + engine, setup,
+    title: clip(e.title, 120), hook: clip(e.hook, 300), predict: clip(e.predict, 300),
+    grown: { try: "", why: clip(e.why_grown, 1200) }, kids: { try: "", why: clip(e.why_kids, 800) },
+    realworld: clip(e.realworld, 300), sources
+  };
+}
+
 // ---------- diagrams: searched on Wikimedia Commons (freely licensed), with credit and license
 const stripTags = h => String(h || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
 async function commonsDiagrams(list) {
@@ -304,17 +394,38 @@ module.exports = async (req, res) => {
   if (overLimit(ip, DAILY_LIMIT)) return res.status(429).json({ error: "limit", message: "You've reached today's limit for new experiments from Mr. Paul. All the built-in experiments still work. Come back tomorrow for more!" });
 
   const b = req.body || {};
-  const mode = ["create", "report"].includes(b.mode) ? b.mode : "ideas";
+  const mode = ["create", "report", "sims", "scenarios"].includes(b.mode) ? b.mode : "ideas";
   const repKey = mode === "report" && b.exp && b.exp.id && !String(b.exp.id).startsWith("live-") ? b.exp.id + "|" + (b.level === "kids" ? "kids" : "grown") : null;
   if (repKey && reportCache.has(repKey)) return res.status(200).json(reportCache.get(repKey));
   if (mode === "create" && String(b.idea || "").trim().length < 4) return res.status(400).json({ error: "Please describe your experiment idea." });
-  if (mode === "ideas") {
+  if (mode === "ideas" || mode === "sims") {
     const list = ANGLES[ROOMS[b.room] ? b.room : "body"];
     if (!list.includes(b.angle)) b.angle = list[Math.floor(Math.random() * list.length)];
   }
   try {
-    const { text, retrieved } = await callClaude(modePrompt(mode, b), mode === "create" ? 4 : mode === "report" ? 6 : 5);
+    const { text, retrieved } = await callClaude(modePrompt(mode, b), mode === "create" ? 4 : mode === "report" ? 6 : mode === "scenarios" ? 5 : 6);
     const j = extractJson(text) || {};
+    if (mode === "sims") {
+      const out = [];
+      for (const e of Array.isArray(j.experiments) ? j.experiments : []) {
+        if (tooSimilar(e && e.title, b.exclude || [])) continue;
+        const c = cleanSim(e, retrieved); if (c) out.push(c);
+      }
+      return res.status(200).json({ experiments: out.slice(0, 4), angle: b.angle });
+    }
+    if (mode === "scenarios") {
+      const out = [];
+      for (const sc of Array.isArray(j.scenarios) ? j.scenarios : []) {
+        if (!sc || tooSimilar(sc.title, b.exclude || [])) continue;
+        const sources = verifySources(sc.sources, retrieved); if (!sources.length) continue;
+        const set = {};
+        if (sc.set && typeof sc.set === "object") for (const [k, v] of Object.entries(sc.set).slice(0, 8)) { if (/^[a-z_]{1,20}$/i.test(k) && (typeof v === "number" || typeof v === "string" || typeof v === "boolean")) set[k] = typeof v === "string" ? clip(v, 40) : v; }
+        if (!clip(sc.title, 5)) continue;
+        out.push({ id: "live-sc-" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), title: clip(sc.title, 120), challenge: clip(sc.challenge, 400), set, predict: clip(sc.predict, 300),
+          grown: { why: clip(sc.why_grown, 1200) }, kids: { why: clip(sc.why_kids, 800) }, sources });
+      }
+      return res.status(200).json({ scenarios: out.slice(0, 4) });
+    }
     if (mode === "ideas") {
       const out = [];
       for (const e of Array.isArray(j.experiments) ? j.experiments : []) {
