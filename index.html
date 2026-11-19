@@ -54,8 +54,10 @@ h1{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:clamp(36px,6vw,6
 .feat .big{font-size:22px;font-weight:800;color:var(--navy);margin:6px 0}
 .feat .hook{font-size:18px;line-height:1.5;margin:0 0 14px}
 .feat-art{background:#fff;border:2px dashed var(--line);border-radius:14px;height:180px;position:relative}
-.feat-art .plus{position:absolute;left:18%;top:50%;transform:translate(-50%,-50%);font-size:40px;font-weight:900}
-.feat-art .dot{position:absolute;left:78%;top:50%;width:30px;height:30px;border-radius:50%;background:#e0312b;transform:translate(-50%,-50%)}
+.feat-art{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;border-style:solid;overflow:hidden}
+.feat-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9}
+.feat-art .fi{font-size:64px;position:relative}
+.feat-art .fr{position:relative;background:rgba(31,42,68,.85);color:#fff;font-weight:800;font-size:13px;padding:5px 12px;border-radius:999px}
 @media (max-width:760px){.feat{grid-template-columns:1fr}}
 .tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;color:#fff}
 .btn{background:var(--navy);color:#fff;border:0;border-radius:999px;padding:12px 22px;font-weight:800;font-size:16px;box-shadow:0 4px 0 #0e1527}
@@ -80,7 +82,9 @@ h1{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:clamp(36px,6vw,6
 .room-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between}
 .room-head h2{font-family:Fraunces,Georgia,serif;font-size:30px;margin:0;color:var(--navy)}
 .linkish{background:none;border:0;color:var(--navy);font-weight:800;text-decoration:underline;font-size:15px;padding:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:16px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+@media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.grid{grid-template-columns:1fr}}
 .tile{border:2px solid var(--line);background:#fff;border-radius:14px;padding:16px;text-align:left;position:relative;transition:border-color .2s,transform .2s}
 .tile:hover{border-color:var(--c);transform:translateY(-2px)}
 .tile .tt{font-weight:800;font-size:17px;color:var(--navy);margin:6px 0}
@@ -145,6 +149,36 @@ h1{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:clamp(36px,6vw,6
 .reveal{background:#fff7e0;border-radius:10px;padding:12px 14px;margin-top:12px;line-height:1.5}
 .result{margin-top:12px;font-weight:800;color:var(--green);font-size:17px}
 
+.md-stage{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.md-col{position:relative;height:260px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.md-earth{background:linear-gradient(#bfe3ff,#e8f6ff 70%,#7cc576 70%)}
+.md-moon{background:linear-gradient(#05070d,#1a1f2e 70%,#b9b9b9 70%)}
+.md-col .lab{position:absolute;top:8px;left:10px;font-weight:800;font-size:13px;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.85);color:var(--navy)}
+.md-obj{position:absolute;top:30px;width:34px;height:34px}
+.md-time{position:absolute;bottom:8px;left:0;right:0;text-align:center;font-weight:800;font-size:14px;color:var(--navy)}
+.md-moon .md-time{color:#fff}
+.ph-wrap{display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:center}
+.ph-beaker{width:120px;height:150px;border:4px solid #8aa;border-top:0;border-radius:0 0 26px 26px;position:relative;overflow:hidden;background:#f6fbff}
+.ph-liq{position:absolute;left:0;right:0;bottom:0;height:70%;transition:background .4s}
+.ph-wrap input[type=range]{width:100%}
+.ph-scale{height:14px;border-radius:999px;background:linear-gradient(90deg,#d7263d,#9b2fae,#7b4fd6,#2f6fd0,#1fa38a,#c5d333);margin:6px 0}
+.ph-read{font-size:22px;font-weight:900;color:var(--navy)}
+.pj-row{display:grid;grid-template-columns:90px 1fr 120px;gap:10px;align-items:center;margin:6px 0;font-size:14px}
+.pj-bar{height:16px;border-radius:999px;background:var(--c);min-width:3px;transition:width .6s}
+.pj-in{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.pj-in input,.pj-in select{font:inherit;font-size:16px;padding:8px 10px;border:2px solid var(--line);border-radius:10px;width:110px}
+.tn-read{font-size:34px;font-weight:900;color:var(--navy);text-align:center;margin:6px 0}
+.tn-wrap input[type=range]{width:100%}
+.bn-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:10px 0}
+.bn-card{border:2px solid var(--navy);border-radius:12px;background:#fff;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:8px 4px;cursor:pointer;font-weight:800;color:var(--navy)}
+.bn-card.off{background:#1f2a44;color:#1f2a44}
+.bn-card .dots{display:flex;flex-wrap:wrap;gap:3px;justify-content:center;max-width:70px}
+.bn-card .dots i{width:9px;height:9px;border-radius:50%;background:var(--gold)}
+.bn-card.off .dots i{background:#2c3a5c}
+.bn-card .bit{font-size:22px;color:var(--navy)}
+.bn-card.off .bit{color:#fff}
+.bn-total{text-align:center;font-size:20px;font-weight:800;color:var(--navy)}
+
 /* create */
 .create label{display:block;font-weight:800;color:var(--navy);margin-bottom:4px}
 .create .ex{font-size:14px;color:#5a6480;margin:0 0 8px}
@@ -156,6 +190,31 @@ h1{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:clamp(36px,6vw,6
 .plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0}
 .plan div{background:#f4f7fa;border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.45}
 .plan b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#5a6480;margin-bottom:2px}
+
+/* science report */
+.report h2{font-family:Fraunces,Georgia,serif;font-size:30px;color:var(--navy);margin:6px 0 4px}
+.report .kick{display:inline-block;background:#1f2a44;color:#ffd166;font-weight:800;font-size:12px;letter-spacing:.12em;padding:5px 12px;border-radius:999px}
+.report h3{font-family:Fraunces,Georgia,serif;font-size:21px;color:var(--navy);margin:22px 0 8px;border-bottom:2px solid var(--line);padding-bottom:6px}
+.report p{line-height:1.65;margin:0 0 12px;font-size:16px}
+.report .ov{font-size:18px;background:#f4f7fa;border-radius:12px;padding:14px 16px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.facts div{background:#fff7e0;border-radius:10px;padding:10px 12px;line-height:1.45;font-weight:600}
+.tl{list-style:none;margin:0;padding:0 0 0 18px;border-left:4px solid var(--gold)}
+.tl li{position:relative;margin:0 0 14px;line-height:1.5}
+.tl li:before{content:"";position:absolute;left:-27px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--gold);border:3px solid #fff;box-shadow:0 0 0 2px var(--gold)}
+.tl b{display:block;color:var(--navy)}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.people div{border:2px solid var(--line);border-radius:10px;padding:10px 12px;line-height:1.45}
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px 16px}
+.terms div{border-bottom:1px dashed var(--line);padding:6px 0;line-height:1.45}
+.terms b{color:var(--navy)}
+.diagrams{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.diagrams figure{margin:0;border:2px solid var(--line);border-radius:12px;padding:10px;background:#fff}
+.diagrams img{width:100%;height:auto;max-height:340px;object-fit:contain;display:block;background:#fff}
+.diagrams figcaption{font-size:14px;margin-top:6px;line-height:1.4}
+.diagrams .cr{font-size:12px;color:#5a6480}
+.rep-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+@media print{body *{visibility:hidden}#reportBlock,#reportBlock *{visibility:visible}#reportBlock{position:absolute;left:0;top:0;width:100%;border:0;box-shadow:none}.rep-actions,.host{display:none!important}}
 
 /* notebook */
 .modal{position:fixed;inset:0;background:rgba(15,20,35,.55);display:flex;align-items:center;justify-content:center;z-index:60;padding:16px}
@@ -210,7 +269,7 @@ footer b{color:var(--navy)}
           <p class="hook" id="featHook"></p>
           <button class="btn" id="featGo" type="button">Try It Now</button>
         </div>
-        <div class="feat-art" aria-hidden="true"><span class="plus">+</span><span class="dot"></span></div>
+        <div class="feat-art" id="featArt" aria-hidden="true"></div>
       </div>
     </div>
 
@@ -233,7 +292,7 @@ footer b{color:var(--navy)}
       <div class="grid" id="expGrid"></div>
 
       <div class="ideas">
-        <button class="btn" id="moreBtn" type="button">Show Me 6 More</button>
+        <button class="btn" id="moreBtn" type="button">Show Me 4 More</button>
         <p class="ideas-lab">💡 Suggest New Ideas: point Mr. Paul in a direction</p>
         <div class="idea-chips" id="ideaChips"></div>
         <div class="msg" id="moreMsg"></div>
@@ -249,6 +308,8 @@ footer b{color:var(--navy)}
       <div class="mrow"><button class="btn gold" id="createBtn" type="button">Check My Experiment</button></div>
       <div id="createOut"></div>
     </div>
+
+    <div class="block report hidden" id="reportBlock"></div>
   </section>
 
   <footer>
@@ -417,7 +478,7 @@ const store = {
 };
 const state = {
   data: null, level: store.get("lab_level", "grown"), room: null, current: null,
-  done: store.get("lab_done", {}), saved: store.get("lab_saved", []), liveHeads: store.get("lab_live_heads", {}), live: {}
+  done: store.get("lab_done", {}), saved: store.get("lab_saved", []), liveHeads: store.get("lab_live_heads", {}), live: {}, queue: {}, shownBuilt: {}, reports: {}
 };
 const ANGLES = {
   physics: ["Gravity & falling", "Forces & motion", "Energy", "Magnets", "Air pressure", "Spinning & balance"],
@@ -504,7 +565,13 @@ function renderDoors(){
   });
 }
 function renderFeatured(){
-  const f = state.data.experiments.find(e => e.featured) || state.data.experiments[0];
+  const feats = state.data.experiments.filter(e => e.featured);
+  const day = Math.floor((Date.now() - new Date().getTimezoneOffset() * 6e4) / 864e5);
+  const f = feats.length ? feats[day % feats.length] : state.data.experiments[0];
+  const r = roomInfo(f.room);
+  const art = $("#featArt"); art.innerHTML = ""; art.style.background = r.color;
+  art.append(el("span", { class: "fi", text: r.icon }), el("span", { class: "fr", text: r.name }));
+  wikiPhoto(r.photo).then(p => { if (p){ const im = el("img", { src: p.url, alt: "" }); im.onerror = () => im.remove(); art.prepend(im); } });
   $("#featTitle").textContent = f.title;
   $("#featHook").textContent = f.hook;
   $("#featGo").onclick = () => { openRoom(f.room, false); openExp(f, true); };
@@ -523,21 +590,23 @@ function openRoom(id, scroll){
   $("#lobby").classList.add("hidden"); $("#room").classList.remove("hidden");
   $("#roomTitle").textContent = r.icon + " " + r.name;
   $("#expView").classList.add("hidden"); $("#expView").innerHTML = "";
+  $("#reportBlock").classList.add("hidden"); $("#reportBlock").innerHTML = "";
   $("#moreMsg").textContent = "";
   const builtIns = state.data.experiments.filter(e => e.room === id);
   $("#roomNote").textContent = id === "stem"
-    ? "Build it, test it, improve it. Real engineering projects with things you already have at home. More workshop tracks are on the way."
-    : builtIns.length ? "Pick an experiment. Do it right here on screen, then try it at home."
-    : "Mr. Paul's built-in experiments for this room are being set up. Tap \"Show Me 6 More\" and he'll find real, safe experiments for you right now.";
+    ? "Build it, test it, improve it. Real engineering projects with things you already have at home."
+    : builtIns.length ? "Pick an experiment. Try it here, then try it at home."
+    : "Mr. Paul's built-in experiments for this room are being set up. Tap \"Show Me 4 More\" and he'll find real, safe experiments for you right now.";
+  if (!state.shownBuilt[id]){ state.shownBuilt[id] = builtIns.slice(0, 4); state.queue[id] = builtIns.slice(4); }
   renderGrid(); renderChips();
   history.replaceState(null, "", location.pathname + "?room=" + id);
   if (scroll) $("#room").scrollIntoView({ behavior: "smooth", block: "start" });
-  say(builtIns.length ? "Welcome to " + r.name + "! Pick an experiment and let's find out." : "Welcome to " + r.name + "! Tap Show Me 6 More and I'll find brand-new experiments, checked against real sources.");
+  say(builtIns.length ? "Welcome to " + r.name + "! Pick an experiment and let's find out." : "Welcome to " + r.name + "! Tap Show Me 4 More and I'll find brand-new experiments, checked against real sources.");
 }
 function renderGrid(){
   const g = $("#expGrid"); g.innerHTML = "";
   const r = roomInfo(state.room);
-  const list = [...state.data.experiments.filter(e => e.room === state.room), ...(state.live[state.room] || [])];
+  const list = [...(state.shownBuilt[state.room] || []), ...(state.live[state.room] || [])];
   list.forEach(e => {
     const t = el("button", { class: "tile", type: "button", style: "--c:" + r.color },
       state.done[e.id] ? el("span", { class: "done", text: "✓ Done" }) : e.live ? el("span", { class: "new", text: "NEW" }) : null,
@@ -556,15 +625,23 @@ function renderChips(){
 function setBusy(on){ $("#moreBtn").disabled = on; document.querySelectorAll("#ideaChips .idea-chip").forEach(c => c.disabled = on); }
 async function fetchIdeas(angle, chip){
   document.querySelectorAll("#ideaChips .idea-chip").forEach(c => c.classList.toggle("on", c === chip));
-  const msg = $("#moreMsg"); msg.innerHTML = ""; setBusy(true);
-  msg.append(loadingEl(angle ? "Mr. Paul is finding experiments about " + angle + " and checking the science…" : "Mr. Paul is finding 6 brand-new experiments and checking the science…"));
+  const msg = $("#moreMsg"); msg.innerHTML = "";
+  let need = 4;
+  if (!angle && (state.queue[state.room] || []).length){
+    const take = state.queue[state.room].splice(0, 4);
+    state.shownBuilt[state.room] = [...state.shownBuilt[state.room], ...take];
+    need = 4 - take.length; renderGrid();
+    if (!need){ say("Here are 4 more experiments. Pick one!"); return; }
+  }
+  setBusy(true);
+  msg.append(loadingEl(angle ? "Mr. Paul is finding experiments about " + angle + " and checking the science…" : "Mr. Paul is finding " + need + " brand-new experiment" + (need > 1 ? "s" : "") + " and checking the science…"));
   say("Give me a moment. I'm hunting for real experiments and checking every one against the sources.");
   try {
     const room = state.room;
     const built = state.data.experiments.filter(e => e.room === room).map(e => e.title);
     const prev = state.liveHeads[room] || [];
     const exclude = [...new Set([...built, ...prev, ...(state.live[room] || []).map(e => e.title)])];
-    const r = await api({ mode: "ideas", room, angle, level: state.level, exclude });
+    const r = await api({ mode: "ideas", room, angle, count: need, level: state.level, exclude });
     msg.textContent = "";
     const got = (r.experiments || []).map(e => Object.assign(e, { room }));
     if (!got.length){ msg.textContent = "Mr. Paul couldn't confirm new experiments with strong enough sources this time, so he won't guess. Try again or pick another direction."; say("I couldn't confirm any with strong sources that time. Try again, or pick a direction!"); }
@@ -593,6 +670,9 @@ function markDone(e, result){
 }
 function openExp(e, scroll){
   state.current = e;
+  if (!e.live && state.shownBuilt[e.room] && !state.shownBuilt[e.room].includes(e)){
+    state.shownBuilt[e.room].push(e); state.queue[e.room] = (state.queue[e.room] || []).filter(x => x !== e); renderGrid();
+  }
   const r = roomInfo(e.room) || roomInfo(state.room);
   const v = $("#expView"); v.innerHTML = ""; v.classList.remove("hidden");
   const lv = L(e);
@@ -607,6 +687,8 @@ function openExp(e, scroll){
     e.home.needs && e.home.needs.length ? el("div", {}, el("b", { text: "You need: " }), e.home.needs.join(", ")) : null,
     el("ol", {}, (e.home.steps || []).map(s => el("li", { text: s }))),
     e.home.safety ? el("div", { class: "safety", text: "⚠️ " + e.home.safety }) : null) : null;
+  const deeper = el("button", { class: "btn gold", type: "button", text: "📘 Go Deeper: The Science Report" });
+  deeper.onclick = () => openReport(e);
   const share = el("button", { class: "small-btn", type: "button", text: "📤 Share" });
   share.onclick = () => shareExp(e, share);
   const actions = el("div", { class: "exp-actions" }, share);
@@ -623,7 +705,8 @@ function openExp(e, scroll){
     lv.try ? el("p", { class: "try" }, el("b", { text: "Try this: " }), lv.try) : null,
     el("div", { class: "machine" }, MACHINES[e.machine] ? MACHINES[e.machine](e) : MACHINES.steps(e)),
     state.done[e.id] ? null : showWhy,
-    whyBox, home, footnotes(e.sources), actions));
+    whyBox, el("div", { class: "mrow", style: "margin:0 0 14px" }, deeper, el("span", { class: "intro", style: "margin:0;font-size:14px", text: "The full science: key facts, timeline, scientists, terms and diagrams." })),
+    home, footnotes(e.sources), actions));
   if (scroll) v.scrollIntoView({ behavior: "smooth", block: "start" });
   history.replaceState(null, "", location.pathname + (e.live ? "?room=" + e.room : "?x=" + e.id));
   say(state.level === "kids" ? "Ooh, a good one! Follow the steps and see what happens." : "Try this one. Then I'll show you the science behind it.");
@@ -770,6 +853,128 @@ const MACHINES = {
     reset();
     return el("div", {}, stage, count, el("div", { class: "mrow" }, go, yes));
   },
+  moondrop(e){
+    const hammer = '<svg viewBox="0 0 40 40" width="34" height="34"><rect x="17" y="12" width="6" height="26" rx="2" fill="#8b5a2b"/><rect x="6" y="4" width="28" height="10" rx="2" fill="#5b6470"/></svg>';
+    const feather = '<svg viewBox="0 0 40 40" width="34" height="34"><path d="M8 36 C10 22 20 8 34 4 C30 16 22 28 8 36 Z" fill="#c9a26b" stroke="#7a5a2e" stroke-width="1.5"/><path d="M8 36 L30 8" stroke="#7a5a2e" stroke-width="1.5"/></svg>';
+    const mk = (cls, label) => {
+      const col = el("div", { class: "md-col " + cls }, el("span", { class: "lab", text: label }));
+      const h = el("div", { class: "md-obj", style: "left:28%", html: hammer }), f = el("div", { class: "md-obj", style: "left:58%", html: feather });
+      const t = el("div", { class: "md-time", text: "" }); col.append(h, f, t); return { col, h, f, t };
+    };
+    const E1 = mk("md-earth", "🌎 Earth"), M1 = mk("md-moon", "🌕 Moon");
+    const FLOOR = 150; // px of fall, standing for about 1.6 m
+    const run = (o, gH, featherSpeed, done) => {
+      o.h.style.top = o.f.style.top = "30px"; o.t.textContent = "";
+      const t0 = performance.now(); let hDone = false, fDone = false, th = 0, tf = 0;
+      const step = now => {
+        const t = (now - t0) / 1000;
+        const yh = Math.min(FLOOR, 0.5 * gH * t * t * (FLOOR / 1.6));
+        const yf = featherSpeed ? Math.min(FLOOR, featherSpeed * t * (FLOOR / 1.6)) : yh;
+        o.h.style.top = (30 + yh) + "px";
+        o.f.style.top = (30 + yf) + "px"; o.f.style.transform = featherSpeed ? "rotate(" + Math.sin(t * 6) * 25 + "deg) translateX(" + Math.sin(t * 3) * 10 + "px)" : "none";
+        if (!hDone && yh >= FLOOR){ hDone = true; th = t; }
+        if (!fDone && yf >= FLOOR){ fDone = true; tf = t; }
+        if (hDone && fDone){ o.t.textContent = featherSpeed ? "Hammer " + th.toFixed(2) + "s · Feather " + tf.toFixed(1) + "s" : "Both landed together: " + th.toFixed(2) + "s"; if (done) done(); return; }
+        requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const bE = el("button", { class: "btn alt", type: "button", text: "Drop on Earth" });
+    const bM = el("button", { class: "btn", type: "button", text: "Drop on the Moon" });
+    bE.onclick = () => { run(E1, 9.8, 0.5); say("On Earth, air slows the feather way down. Now try the Moon!"); };
+    bM.onclick = () => run(M1, 1.6, 0, () => markDone(e, "Dropped the hammer and feather on the Moon"));
+    return el("div", {}, el("div", { class: "md-stage" }, E1.col, M1.col), el("div", { class: "mrow" }, bE, bM),
+      el("p", { class: "intro", style: "margin:10px 0 0;font-size:14px", text: "Same 1.6 m drop as Apollo 15. Moon gravity is about 1/6 of Earth's, so things fall slower, but with no air, the feather keeps up with the hammer." }));
+  },
+  phslider(e){
+    const stops = [[2, [215, 38, 61]], [4, [155, 47, 174]], [6, [123, 79, 214]], [8, [47, 111, 208]], [10, [31, 163, 138]], [12, [197, 211, 51]]];
+    const color = v => { for (let i = 0; i < stops.length - 1; i++){ const [a, ca] = stops[i], [b, cb] = stops[i + 1]; if (v <= b){ const t = (v - a) / (b - a); return "rgb(" + ca.map((c, k) => Math.round(c + (cb[k] - c) * t)).join(",") + ")"; } } return "rgb(197,211,51)"; };
+    const liq = el("div", { class: "ph-liq" });
+    const read = el("div", { class: "ph-read" }), desc = el("div", { class: "intro", style: "margin:4px 0 0" });
+    const rng = el("input", { type: "range", min: "2", max: "12", step: "0.5", value: "7", "aria-label": "pH" });
+    let sawAcid = false, sawBase = false;
+    const upd = () => {
+      const v = +rng.value; liq.style.background = color(v);
+      read.textContent = "pH " + v;
+      desc.textContent = v <= 4 ? "Acid: sour things like vinegar and lemon juice turn it red or pink." : v < 7 ? "Slightly acidic: purple to violet." : v < 8 ? "Near neutral: purple-violet, like plain cabbage juice." : v <= 10 ? "Base: things like baking soda turn it blue or blue-green." : "Strong base: greenish-yellow. (Strong bases like drain cleaner are dangerous; never use them at home.)";
+      if (v <= 4) sawAcid = true; if (v >= 9) sawBase = true;
+      if (sawAcid && sawBase && !state.done[e.id]) markDone(e, "Made the cabbage rainbow");
+    };
+    rng.oninput = upd; upd();
+    return el("div", { class: "ph-wrap" }, el("div", { class: "ph-beaker" }, liq),
+      el("div", {}, read, el("div", { class: "ph-scale" }), rng, el("div", { class: "mrow", style: "justify-content:space-between;margin-top:2px;font-size:12px;font-weight:700" }, el("span", { text: "ACID" }), el("span", { text: "NEUTRAL" }), el("span", { text: "BASE" })), desc));
+  },
+  planetjump(e){
+    const R = [["Mercury", .378, "#9aa0a6"], ["Venus", .907, "#e0a526"], ["Earth", 1, "#2f6fd0"], ["Moon", .166, "#b9b9b9"], ["Mars", .377, "#d1495b"], ["Jupiter", 2.36, "#c98b5a"], ["Saturn", .916, "#e5c07b"], ["Uranus", .889, "#5bc0be"], ["Neptune", 1.12, "#3a5bd9"], ["Pluto", .071, "#a68a64"]];
+    const inp = el("input", { type: "number", min: "1", max: "100", step: "0.5", value: "12", "aria-label": "Your jump height on Earth" });
+    const unit = el("select", { "aria-label": "Units" }, el("option", { value: "in", text: "inches" }), el("option", { value: "cm", text: "cm" }), el("option", { value: "ft", text: "feet" }));
+    const out = el("div", {});
+    const fmt = (v, u) => { if (u === "in" && v >= 24) return (v / 12).toFixed(1) + " ft"; if (u === "cm" && v >= 200) return (v / 100).toFixed(1) + " m"; return (v < 10 ? v.toFixed(1) : Math.round(v)) + " " + (u === "in" ? "in" : u); };
+    const go = () => {
+      const h = Math.max(0.1, +inp.value || 0), u = unit.value; out.innerHTML = "";
+      const max = h / .071;
+      R.forEach(([n, g, c]) => {
+        const v = h / g;
+        out.append(el("div", { class: "pj-row" }, el("b", { text: n }), el("div", {}, el("div", { class: "pj-bar", style: "--c:" + c + ";width:" + Math.max(1, v / max * 100) + "%" })),
+          el("span", { text: fmt(v, u) + (["Jupiter", "Saturn", "Uranus", "Neptune"].includes(n) ? " *" : "") })));
+      });
+      out.append(el("p", { class: "intro", style: "font-size:13px;margin:8px 0 0", text: "* Gas giants have no solid ground; NASA measures their gravity at the cloud level where air pressure matches Earth's. You'd also hang in the air longer: on the Moon about 6 times longer than on Earth." }));
+      markDone(e, "Jumped across the solar system (" + h + " " + u + " on Earth)");
+    };
+    const b = el("button", { class: "btn", type: "button", text: "Jump!" }); b.onclick = go;
+    return el("div", {}, el("div", { class: "pj-in" }, el("b", { text: "My jump on Earth:" }), inp, unit, b), out);
+  },
+  tone(e){
+    let ctx = null, osc = null, gain = null, best = 0;
+    const read = el("div", { class: "tn-read", text: "1,000 Hz" });
+    const rng = el("input", { type: "range", min: "0", max: "1000", value: "500", "aria-label": "Pitch" });
+    const hz = () => Math.round(20 * Math.pow(1000, +rng.value / 1000)); // 20 Hz .. 20,000 Hz, log scale
+    const upd = () => { const f = hz(); read.textContent = f.toLocaleString() + " Hz"; if (osc) osc.frequency.setTargetAtTime(f, ctx.currentTime, .02); };
+    rng.oninput = upd;
+    const play = el("button", { class: "btn", type: "button", text: "▶ Play tone" });
+    const stop = () => { if (osc){ try { gain.gain.setTargetAtTime(0, ctx.currentTime, .03); osc.stop(ctx.currentTime + .15); } catch(x){} osc = null; } play.textContent = "▶ Play tone"; };
+    play.onclick = () => {
+      if (osc) return stop();
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+      osc = ctx.createOscillator(); gain = ctx.createGain(); osc.type = "sine"; osc.frequency.value = hz();
+      gain.gain.value = 0; osc.connect(gain).connect(ctx.destination); osc.start(); gain.gain.setTargetAtTime(.05, ctx.currentTime, .05);
+      play.textContent = "■ Stop";
+    };
+    const gone = el("button", { class: "btn gold", type: "button", text: "I can't hear it anymore" });
+    const res = el("div", {});
+    gone.onclick = () => {
+      const f = hz(); stop(); best = Math.max(best, f);
+      res.innerHTML = ""; res.append(el("div", { class: "result", text: "Your highest tone: about " + f.toLocaleString() + " Hz" + (f >= 17000 ? ". Young-ear territory!" : ". Try it with family and compare!") }));
+      markDone(e, "Highest tone heard: " + f.toLocaleString() + " Hz");
+    };
+    upd();
+    return el("div", { class: "tn-wrap" }, el("p", { class: "safety", text: "🔈 Turn your volume LOW first." }), read, rng,
+      el("div", { class: "mrow", style: "justify-content:space-between;font-size:12px;font-weight:700;margin-top:0" }, el("span", { text: "20 Hz (low)" }), el("span", { text: "20,000 Hz (high)" })),
+      el("div", { class: "mrow" }, play, gone), res,
+      el("p", { class: "intro", style: "font-size:13px;margin:8px 0 0", text: "Phone and laptop speakers may not play the very lowest or highest tones, so headphones give a better test." }));
+  },
+  binary(e){
+    const vals = [16, 8, 4, 2, 1]; const on = [false, false, false, false, false];
+    let target = 1 + Math.floor(Math.random() * 31);
+    const tgt = el("div", { class: "pred" });
+    const total = el("div", { class: "bn-total" });
+    const cards = el("div", { class: "bn-cards" });
+    const draw = () => {
+      cards.innerHTML = ""; let sum = 0;
+      vals.forEach((v, i) => {
+        if (on[i]) sum += v;
+        const c = el("button", { class: "bn-card" + (on[i] ? "" : " off"), type: "button", "aria-label": v + " dots, " + (on[i] ? "on" : "off") },
+          el("div", { class: "dots" }, Array.from({ length: v }, () => el("i"))), el("div", { class: "bit", text: on[i] ? "1" : "0" }), el("div", { text: on[i] ? String(v) : "" }));
+        c.onclick = () => { on[i] = !on[i]; draw(); };
+        cards.append(c);
+      });
+      total.textContent = "Binary " + on.map(b => b ? 1 : 0).join("") + " = " + sum;
+      tgt.textContent = "🎯 Challenge: make " + target;
+      if (sum === target){ total.textContent += "  ✓ You did it!"; markDone(e, "Counted in binary"); target = 1 + Math.floor(Math.random() * 31); setTimeout(draw, 1200); }
+    };
+    draw();
+    return el("div", {}, tgt, cards, total);
+  },
   steps(e){
     const out = el("div", {});
     const pred = e.predict || "What do you think will happen?";
@@ -783,6 +988,47 @@ const MACHINES = {
     return el("div", {}, el("p", { class: "pred", text: "🤔 Predict first: " + pred }), steps, el("div", { class: "mrow" }, btn), out);
   }
 };
+
+/* ---------- The Science Report ---------- */
+async function openReport(e){
+  const box = $("#reportBlock"); box.classList.remove("hidden"); box.innerHTML = "";
+  box.append(el("span", { class: "kick", text: "📘 THE SCIENCE REPORT" }), el("h2", { text: e.title }),
+    el("div", { class: "msg", style: "text-align:left" }, loadingEl("Mr. Paul is researching the full science, history and diagrams. This takes about a minute…")));
+  box.scrollIntoView({ behavior: "smooth", block: "start" });
+  say("Putting together your full science report: key facts, timeline, scientists, terms and diagrams. Give me about a minute!");
+  const key = e.id + "|" + state.level;
+  let rep = state.reports[key] || (!e.live && store.get("lab_rep_" + key, null));
+  if (rep && rep.t && rep.t < Date.now() - 30 * 864e5) rep = null;
+  try {
+    if (!rep){
+      const lv = L(e);
+      rep = await api({ mode: "report", level: state.level, exp: { id: e.id, title: e.title, hook: e.hook, why: lv.why } });
+      if (rep.confirmed){ rep.t = Date.now(); state.reports[key] = rep; if (!e.live) store.set("lab_rep_" + key, rep); }
+    }
+    renderReport(e, rep);
+  } catch(err){ box.innerHTML = ""; box.append(el("div", { class: "status st-unconfirmed", text: err.message })); }
+}
+function renderReport(e, r){
+  const box = $("#reportBlock"); box.innerHTML = "";
+  const back = el("button", { class: "small-btn", type: "button", text: "⬆ Back to the experiment" });
+  back.onclick = () => $("#expView").scrollIntoView({ behavior: "smooth", block: "start" });
+  const print = el("button", { class: "small-btn", type: "button", text: "🖨️ Print or save as PDF" });
+  print.onclick = () => window.print();
+  box.append(el("span", { class: "kick", text: "📘 THE SCIENCE REPORT" + (state.level === "kids" ? " · KIDS" : "") }), el("h2", { text: e.title }));
+  if (!r.confirmed){ box.append(el("div", { class: "status st-unconfirmed", text: r.message || "Not confirmed." }), el("div", { class: "rep-actions" }, back)); return; }
+  if (r.overview) box.append(el("p", { class: "ov", text: r.overview }));
+  if (r.science.length) box.append(el("h3", { text: "🔬 How it really works" }), ...r.science.map(p => el("p", { text: p })));
+  if (r.diagrams.length) box.append(el("h3", { text: "🖼️ Diagrams" }), el("div", { class: "diagrams" }, r.diagrams.map(d =>
+    el("figure", {}, el("a", { href: d.page, target: "_blank", rel: "noopener" }, el("img", { src: d.url, alt: d.caption || "Diagram", loading: "lazy" })),
+      el("figcaption", {}, d.caption, el("div", { class: "cr" }, "Diagram: " + d.artist + (d.license ? " · " + d.license : "") + " · ", el("a", { href: d.page, target: "_blank", rel: "noopener", text: "Wikimedia Commons" })))))));
+  if (r.keyfacts.length) box.append(el("h3", { text: "⭐ Key facts" }), el("div", { class: "facts" }, r.keyfacts.map(f => el("div", { text: f }))));
+  if (r.timeline.length) box.append(el("h3", { text: "🕰️ Timeline" }), el("ul", { class: "tl" }, r.timeline.map(t => el("li", {}, el("b", { text: t.when }), t.what))));
+  if (r.scientists.length) box.append(el("h3", { text: "👩‍🔬 The scientists" }), el("div", { class: "people" }, r.scientists.map(p => el("div", {}, el("b", { text: p.name }), el("br"), p.what))));
+  if (r.terms.length) box.append(el("h3", { text: "📖 Key terms" }), el("div", { class: "terms" }, r.terms.map(t => el("div", {}, el("b", { text: t.term + ": " }), t.def))));
+  if (r.stillstudying) box.append(el("h3", { text: "🔭 Still being studied" }), el("p", { text: r.stillstudying }));
+  box.append(footnotes(r.sources), el("div", { class: "rep-actions" }, back, print));
+  say("Your science report is ready! Check out the timeline and the key terms.", "wow");
+}
 
 /* ---------- Create your own ---------- */
 async function createExp(){
