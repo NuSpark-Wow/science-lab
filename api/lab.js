@@ -385,6 +385,7 @@ async function commonsDiagrams(list) {
 const reportCache = new Map();
 
 module.exports = async (req, res) => {
+  if (!(await require("./_lwgate")(req, res, "science-lab"))) return;
   res.setHeader("Cache-Control", "no-store");
   if (req.method !== "POST") return res.status(405).json({ error: "POST only" });
   const origin = req.headers.origin || "";
