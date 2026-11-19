@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Science Lab | Learn...Wow! | NuSparkLearnWow.com</title>
+<meta name="description" content="Real experiments, real science, real sources. Step into Mr. Paul's Science Lab from Learn...Wow!">
+<meta property="og:title" content="The Science Lab | Learn...Wow!">
+<meta property="og:description" content="Real experiments. Real science. Wow...who knew?">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1f2a44;--ink:#1d2433;--paper:#fbfaf6;--tile:#eef3f7;--line:#d6dee6;--gold:#e0a526;--red:#d1495b;--green:#2e8b57}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);padding-bottom:40px}
+button{font-family:inherit;cursor:pointer}
+a{color:inherit}
+.hidden{display:none!important}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* banner of photos */
+.banner{display:grid;grid-template-columns:repeat(9,1fr);gap:0;height:110px;overflow:hidden;background:var(--navy)}
+.bn{position:relative;border:0;padding:0;background:#24304d;overflow:hidden}
+.bn img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.bn:hover img{transform:scale(1.08)}
+.bn .bl{position:absolute;left:0;right:0;bottom:0;padding:16px 6px 5px;font-size:11px;font-weight:800;color:#fff;text-align:center;background:linear-gradient(transparent,rgba(0,0,0,.7))}
+.bn .bi{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:34px}
+@media (max-width:700px){.banner{grid-template-columns:repeat(9,92px);overflow-x:auto;height:86px}.bn .bl{font-size:10px}}
+
+/* lab wall header */
+.lab{background:
+  linear-gradient(90deg,rgba(255,255,255,.0) 0 calc(100% - 1px),var(--line) 0) 0 0/46px 46px,
+  linear-gradient(0deg,rgba(255,255,255,.0) 0 calc(100% - 1px),var(--line) 0) 0 0/46px 46px,
+  var(--tile);border-bottom:10px solid #c9d3dc}
+.head{padding:26px 0 22px;text-align:center}
+.kicker{display:inline-block;background:var(--navy);color:#ffd166;font-weight:800;letter-spacing:.14em;font-size:12px;padding:5px 12px;border-radius:999px}
+h1{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:clamp(36px,6vw,62px);margin:10px 0 4px;color:var(--navy);letter-spacing:-.01em}
+.sub{margin:0;font-size:clamp(15px,2.2vw,19px);color:#3a4560;font-weight:600}
+.controls{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center;margin-top:16px}
+.toggle{display:inline-flex;background:#fff;border:2px solid var(--navy);border-radius:999px;overflow:hidden}
+.toggle button{border:0;background:#fff;color:var(--navy);font-weight:800;padding:8px 16px;font-size:14px}
+.toggle button.on{background:var(--navy);color:#fff}
+.nb-btn{background:#fff;border:2px solid var(--navy);color:var(--navy);border-radius:999px;font-weight:800;padding:8px 16px;font-size:14px}
+.lvl-lab{font-size:13px;font-weight:700;color:#3a4560}
+
+/* sections */
+.block{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin:22px 0;box-shadow:0 2px 0 rgba(31,42,68,.05)}
+.sec-title{font-family:Fraunces,Georgia,serif;font-size:26px;margin:0 0 4px;color:var(--navy)}
+.intro{color:#4a5470;margin:0 0 14px}
+
+/* featured */
+.feat{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:center}
+.feat .big{font-size:22px;font-weight:800;color:var(--navy);margin:6px 0}
+.feat .hook{font-size:18px;line-height:1.5;margin:0 0 14px}
+.feat-art{background:#fff;border:2px dashed var(--line);border-radius:14px;height:180px;position:relative}
+.feat-art .plus{position:absolute;left:18%;top:50%;transform:translate(-50%,-50%);font-size:40px;font-weight:900}
+.feat-art .dot{position:absolute;left:78%;top:50%;width:30px;height:30px;border-radius:50%;background:#e0312b;transform:translate(-50%,-50%)}
+@media (max-width:760px){.feat{grid-template-columns:1fr}}
+.tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;color:#fff}
+.btn{background:var(--navy);color:#fff;border:0;border-radius:999px;padding:12px 22px;font-weight:800;font-size:16px;box-shadow:0 4px 0 #0e1527}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 #0e1527}
+.btn:disabled{opacity:.55;cursor:default}
+.btn.alt{background:#fff;color:var(--navy);border:2px solid var(--navy);box-shadow:none}
+.btn.gold{background:var(--gold);color:var(--navy);box-shadow:0 4px 0 #a97a14}
+
+/* doors */
+.doors{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.door{border:0;background:none;padding:0;text-align:center}
+.door .frame{position:relative;margin:0 auto;width:min(150px,100%);aspect-ratio:3/4.2;border-radius:70px 70px 8px 8px;background:var(--c);box-shadow:inset 0 0 0 7px rgba(0,0,0,.12),0 6px 0 rgba(0,0,0,.15);transition:transform .2s}
+.door:hover .frame{transform:translateY(-4px) rotateY(-8deg)}
+.door .win{position:absolute;left:50%;top:16%;transform:translateX(-50%);width:56%;aspect-ratio:1;border-radius:50%;background:#e9f6ff;border:6px solid rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;font-size:clamp(24px,5vw,38px)}
+.door .knob{position:absolute;right:13%;top:60%;width:12px;height:12px;border-radius:50%;background:#ffd166;box-shadow:0 0 0 3px rgba(0,0,0,.15)}
+.door .panel{position:absolute;left:18%;right:18%;bottom:9%;height:18%;border-radius:6px;box-shadow:inset 0 0 0 4px rgba(0,0,0,.12)}
+.door .plate{display:inline-block;margin-top:10px;background:var(--navy);color:#fff;font-weight:800;font-size:14px;padding:7px 12px;border-radius:8px;line-height:1.2}
+.door .count{display:block;font-size:12px;color:#5a6480;margin-top:5px;font-weight:600}
+@media (max-width:560px){.doors{gap:10px}.door .plate{font-size:11px;padding:5px 7px}.door .knob{width:8px;height:8px}}
+
+/* room */
+.room-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between}
+.room-head h2{font-family:Fraunces,Georgia,serif;font-size:30px;margin:0;color:var(--navy)}
+.linkish{background:none;border:0;color:var(--navy);font-weight:800;text-decoration:underline;font-size:15px;padding:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:16px}
+.tile{border:2px solid var(--line);background:#fff;border-radius:14px;padding:16px;text-align:left;position:relative;transition:border-color .2s,transform .2s}
+.tile:hover{border-color:var(--c);transform:translateY(-2px)}
+.tile .tt{font-weight:800;font-size:17px;color:var(--navy);margin:6px 0}
+.tile .th{font-size:14px;color:#4a5470;line-height:1.45;margin:0}
+.tile .done{position:absolute;top:10px;right:10px;font-size:12px;font-weight:800;color:var(--green)}
+.tile .new{position:absolute;top:10px;right:10px;font-size:11px;font-weight:800;color:#fff;background:var(--gold);padding:3px 8px;border-radius:999px}
+.ideas{margin-top:22px;text-align:center}
+.ideas-lab{font-weight:800;margin:14px 0 8px;color:var(--navy)}
+.idea-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.idea-chip{background:#fff;border:2px solid var(--navy);color:var(--navy);border-radius:999px;padding:7px 14px;font-weight:700;font-size:14px}
+.idea-chip:hover,.idea-chip.on{background:var(--navy);color:#fff}
+.idea-chip:disabled{opacity:.5;cursor:default}
+.msg{text-align:center;color:#4a5470;margin-top:10px}
+.loading{display:inline-flex;align-items:center;gap:10px;font-weight:700;color:var(--navy)}
+.spin{width:18px;height:18px;border:3px solid #c9d3dc;border-top-color:var(--navy);border-radius:50%;animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* experiment view */
+.exp .back{margin-bottom:6px}
+.exp h3{font-family:Fraunces,Georgia,serif;font-size:30px;margin:8px 0 6px;color:var(--navy)}
+.didyou{background:#fff7e0;border-left:6px solid var(--gold);padding:12px 14px;border-radius:8px;font-size:17px;line-height:1.5;margin:10px 0 16px}
+.didyou b{color:#8a5a00}
+.try{font-size:16px;line-height:1.55;margin:0 0 12px}
+.machine{border:2px solid var(--line);border-radius:14px;padding:16px;background:#fbfdff;margin:8px 0 16px}
+.why{background:#eef7f1;border-left:6px solid var(--green);border-radius:8px;padding:12px 14px;line-height:1.55;margin:0 0 12px}
+.why h4,.home h4,.real h4{margin:0 0 6px;font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+.real{background:#eef3fb;border-left:6px solid #2f6fd0;border-radius:8px;padding:12px 14px;line-height:1.5;margin:0 0 12px}
+.home{border:2px dashed #c9d3dc;border-radius:12px;padding:14px;margin:0 0 12px}
+.home ul,.home ol{margin:4px 0 8px 20px;padding:0;line-height:1.5}
+.helper{display:inline-block;background:#ffe4e4;color:#8a1f2b;font-weight:800;font-size:13px;padding:4px 10px;border-radius:999px;margin-bottom:6px}
+.safety{color:#8a1f2b;font-weight:700;font-size:14px}
+.sources{font-size:13px;color:#4a5470;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}
+.sources b{letter-spacing:.08em;font-size:12px}
+.sources ol{margin:6px 0 0 18px;padding:0}
+.sources li{margin:3px 0}
+.exp-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.small-btn{background:#fff;border:2px solid var(--line);border-radius:999px;font-weight:700;font-size:14px;padding:7px 14px;color:var(--navy)}
+.small-btn:hover{border-color:var(--navy)}
+.livenote{display:inline-block;font-size:12px;font-weight:700;background:#eef3fb;color:#1f4d99;padding:4px 10px;border-radius:999px;margin-left:6px}
+
+/* machines */
+.bs-stage{position:relative;height:200px;background:#fff;border-radius:10px;border:1px solid var(--line);overflow:hidden}
+.bs-plus{position:absolute;top:50%;transform:translate(-50%,-50%);font-size:44px;font-weight:900;line-height:1}
+.bs-dot{position:absolute;top:50%;width:34px;height:34px;border-radius:50%;background:#e0312b;transform:translate(-50%,-50%)}
+.bs-line{position:absolute;top:50%;left:0;right:0;height:6px;background:#1f2a44;transform:translateY(-50%)}
+.mrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
+.ct-stage{display:grid;grid-template-columns:1fr 1fr;height:220px;border-radius:10px;overflow:hidden;transition:background .8s}
+.ct-half{display:flex;align-items:center;justify-content:center;transition:background .8s}
+.ct-sq{width:70px;height:70px;background:#808080}
+.rt-box{height:200px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:24px;font-weight:800;color:#fff;user-select:none;-webkit-user-select:none;cursor:pointer;text-align:center;padding:10px}
+.rt-idle{background:var(--navy)}.rt-wait{background:#c0392b}.rt-go{background:#1fa055}.rt-early{background:#7f8c8d}
+.rt-list{font-size:15px;margin-top:10px;color:#3a4560}
+.st-word{font-size:52px;font-weight:900;text-align:center;letter-spacing:.04em;margin:18px 0 12px;min-height:66px}
+.st-btns{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.st-btns button{border:2px solid var(--navy);background:#fff;font-weight:800;padding:12px 4px;border-radius:10px;font-size:15px;color:var(--navy)}
+.st-prog{text-align:center;color:#4a5470;font-weight:700;margin-top:8px}
+.ai-stage{position:relative;height:260px;background:#fff;border-radius:10px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.ai-stage svg{width:min(380px,92%);height:auto}
+.ai-dot{position:absolute;left:50%;top:50%;width:10px;height:10px;border-radius:50%;background:#555;transform:translate(-50%,-50%)}
+.ai-count{font-size:28px;font-weight:900;color:var(--navy);text-align:center;margin-top:8px}
+.pred{font-weight:800;font-size:17px;color:var(--navy);margin:0 0 10px}
+.reveal{background:#fff7e0;border-radius:10px;padding:12px 14px;margin-top:12px;line-height:1.5}
+.result{margin-top:12px;font-weight:800;color:var(--green);font-size:17px}
+
+/* create */
+.create label{display:block;font-weight:800;color:var(--navy);margin-bottom:4px}
+.create .ex{font-size:14px;color:#5a6480;margin:0 0 8px}
+.create textarea{width:100%;min-height:90px;border:2px solid var(--line);border-radius:12px;padding:12px;font:inherit;font-size:16px;resize:vertical}
+.status{border-radius:12px;padding:12px 14px;margin:14px 0;font-weight:600;line-height:1.5}
+.st-ready{background:#eef7f1;border-left:6px solid var(--green)}
+.st-fixed{background:#fff7e0;border-left:6px solid var(--gold)}
+.st-unsafe,.st-not_science,.st-unconfirmed{background:#ffecec;border-left:6px solid var(--red)}
+.plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0}
+.plan div{background:#f4f7fa;border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.45}
+.plan b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#5a6480;margin-bottom:2px}
+
+/* notebook */
+.modal{position:fixed;inset:0;background:rgba(15,20,35,.55);display:flex;align-items:center;justify-content:center;z-index:60;padding:16px}
+.modal .box{background:#fff;border-radius:18px;max-width:640px;width:100%;max-height:85vh;overflow:auto;padding:22px}
+.nb-item{border-bottom:1px solid var(--line);padding:10px 0;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.nb-item .r{font-size:13px;color:var(--green);font-weight:700}
+
+/* Mr. Paul host */
+.host{position:fixed;right:14px;bottom:10px;z-index:50;display:flex;align-items:flex-end;gap:8px;pointer-events:none}
+.host .mp{width:150px;pointer-events:auto;cursor:pointer;filter:drop-shadow(0 6px 10px rgba(0,0,0,.18));transition:transform .3s}
+.host .mp:hover{transform:translateY(-3px)}
+.mp-svg{width:100%;height:auto;display:block}
+#mpWow{display:none}
+.wow #mpWow{display:inline}.wow #mpSmile{display:none}.wow #mpBrows{transform:translateY(-6px)}
+.wow .mp{animation:hop .5s}
+@keyframes hop{30%{transform:translateY(-12px)}}
+.bubble{pointer-events:auto;max-width:280px;background:#fff;border:3px solid var(--navy);border-radius:16px;padding:10px 14px;font-weight:700;font-size:15px;line-height:1.4;color:var(--navy);margin-bottom:70px;position:relative;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.bubble:after{content:"";position:absolute;right:-14px;bottom:18px;border:8px solid transparent;border-left:12px solid var(--navy)}
+.bubble.gone{display:none}
+@media (max-width:700px){.host .mp{width:84px}.bubble{max-width:220px;font-size:13px;margin-bottom:40px}body{padding-bottom:110px}}
+
+footer{text-align:center;font-size:13px;color:#5a6480;padding:10px 16px 20px;line-height:1.6}
+footer b{color:var(--navy)}
+</style>
+</head>
+<body>
+
+<div class="banner" id="banner"></div>
+
+<header class="lab">
+  <div class="wrap head">
+    <span class="kicker">LEARN...WOW!</span>
+    <h1>The Science Lab</h1>
+    <p class="sub">Real experiments. Real science. Real sources. Wow...who knew?</p>
+    <div class="controls">
+      <span class="lvl-lab">Reading level:</span>
+      <div class="toggle"><button id="lvGrown" type="button">Grown-ups</button><button id="lvKids" type="button">Kids</button></div>
+      <button class="nb-btn" id="nbBtn" type="button">📓 My Lab Notebook (<span id="nbCount">0</span>)</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- LOBBY -->
+  <section id="lobby">
+    <div class="block" id="featBlock">
+      <span class="tag" style="background:var(--gold);color:var(--navy)">🧪 New in the Lab</span>
+      <div class="feat">
+        <div>
+          <div class="big" id="featTitle"></div>
+          <p class="hook" id="featHook"></p>
+          <button class="btn" id="featGo" type="button">Try It Now</button>
+        </div>
+        <div class="feat-art" aria-hidden="true"><span class="plus">+</span><span class="dot"></span></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2 class="sec-title">Pick a Door</h2>
+      <p class="intro">Nine rooms, endless experiments. Each one shows you the science, the real-world connection, and the sources.</p>
+      <div class="doors" id="doors"></div>
+    </div>
+  </section>
+
+  <!-- ROOM -->
+  <section id="room" class="hidden">
+    <div class="block">
+      <div class="room-head">
+        <h2 id="roomTitle"></h2>
+        <button class="linkish" id="toLobby" type="button">← Back to all doors</button>
+      </div>
+      <div id="roomNote" class="intro" style="margin-top:8px"></div>
+      <div id="expView" class="hidden"></div>
+      <div class="grid" id="expGrid"></div>
+
+      <div class="ideas">
+        <button class="btn" id="moreBtn" type="button">Show Me 6 More</button>
+        <p class="ideas-lab">💡 Suggest New Ideas: point Mr. Paul in a direction</p>
+        <div class="idea-chips" id="ideaChips"></div>
+        <div class="msg" id="moreMsg"></div>
+      </div>
+    </div>
+
+    <div class="block create" id="createBlock">
+      <h2 class="sec-title">🧑‍🔬 Create Your Own Experiment</h2>
+      <p class="intro">Got an idea? Mr. Paul will check that it's safe, make sure it's a real experiment, fix anything that needs fixing, and look up the science.</p>
+      <label for="ideaInput">Your experiment idea</label>
+      <p class="ex">Examples: "Does music help plants grow?" · "Which paper airplane flies farthest?" · "Does cold soda fizz less than warm soda?"</p>
+      <textarea id="ideaInput" maxlength="600"></textarea>
+      <div class="mrow"><button class="btn gold" id="createBtn" type="button">Check My Experiment</button></div>
+      <div id="createOut"></div>
+    </div>
+  </section>
+
+  <footer>
+    <b>Every experiment comes with its sources.</b> Built-in experiments were checked against the sources shown. New ideas are researched live with AI and real sources; it can still make mistakes, so the footnotes are always there for you to check.<br>
+    Always follow the safety notes, and kids should experiment with a grown-up nearby.<br>
+    Photos from Wikipedia / Wikimedia Commons, credited on hover.<br>
+    The Science Lab is part of <a href="https://nusparklearnwow.com" target="_blank" rel="noopener">NuSparkLearnWow.com</a> from NuSpark Publishing.
+  </footer>
+</main>
+
+<!-- Mr. Paul, lab host -->
+<div class="host" id="host">
+  <div class="bubble" id="bubble"></div>
+  <div class="mp" id="mp" title="Mr. Paul"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 380" class="mp-svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6d2bb"/>
+      <stop offset="1" stop-color="#eebc9f"/>
+    </linearGradient>
+    <linearGradient id="coat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e6ecf2"/>
+    </linearGradient>
+    <linearGradient id="lens" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d8dde0" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#aeb6bc" stop-opacity=".3"/>
+    </linearGradient>
+    <linearGradient id="glens" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6f6ff"/>
+      <stop offset=".6" stop-color="#a9d8f2"/>
+      <stop offset="1" stop-color="#7fbfe3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- lab coat body -->
+  <path d="M40 380 C44 318 78 290 122 282 L160 300 L198 282 C242 290 276 318 280 380 Z" fill="url(#coat)" stroke="#b9c4cf" stroke-width="3"/>
+  <!-- shirt -->
+  <path d="M122 282 L160 300 L198 282 L188 380 L132 380 Z" fill="#2d3442"/>
+  <!-- collar points -->
+  <path d="M138 286 L160 300 L150 316 Z" fill="#3b4354"/>
+  <path d="M182 286 L160 300 L170 316 Z" fill="#3b4354"/>
+  <!-- lapels -->
+  <path d="M122 282 L148 330 L136 380 L112 380 L104 300 Z" fill="#f4f7fa" stroke="#b9c4cf" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M198 282 L172 330 L184 380 L208 380 L216 300 Z" fill="#f4f7fa" stroke="#b9c4cf" stroke-width="3" stroke-linejoin="round"/>
+  <!-- pocket with pens -->
+  <rect x="216" y="326" width="34" height="8" rx="2" fill="#2f6fd0"/>
+  <rect x="226" y="314" width="5" height="22" rx="2" fill="#e0492f"/>
+  <rect x="235" y="317" width="5" height="19" rx="2" fill="#1f2a44"/>
+  <path d="M212 332 H254 V364 Q233 370 212 364 Z" fill="#f4f7fa" stroke="#b9c4cf" stroke-width="3"/>
+  <!-- name tag -->
+  <rect x="68" y="330" width="56" height="22" rx="4" fill="#1f2a44"/>
+  <text x="96" y="345.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#ffd166">Mr. Paul</text>
+
+  <!-- neck -->
+  <path d="M134 240 L136 290 Q160 304 184 290 L186 240 Z" fill="#e8b294"/>
+
+  <!-- side hair (behind head), soft and fluffy -->
+  <g fill="#dedad2">
+    <ellipse cx="82" cy="130" rx="14" ry="22"/><ellipse cx="78" cy="152" rx="18" ry="30"/><ellipse cx="76" cy="182" rx="14" ry="24"/><ellipse cx="88" cy="206" rx="12" ry="16"/>
+    <ellipse cx="238" cy="130" rx="14" ry="22"/><ellipse cx="242" cy="152" rx="18" ry="30"/><ellipse cx="244" cy="182" rx="14" ry="24"/><ellipse cx="232" cy="206" rx="12" ry="16"/>
+  </g>
+  <g stroke="#c2bdb3" stroke-width="1.8" fill="none" stroke-linecap="round">
+    <path d="M70 132 C64 150 64 170 70 190"/><path d="M78 140 C74 160 74 184 82 206"/><path d="M66 124 C62 118 60 112 61 106"/>
+    <path d="M250 132 C256 150 256 170 250 190"/><path d="M242 140 C246 160 246 184 238 206"/><path d="M254 124 C258 118 260 112 259 106"/>
+  </g>
+
+  <!-- ears -->
+  <ellipse cx="82" cy="168" rx="13" ry="20" fill="#eab597"/>
+  <ellipse cx="238" cy="168" rx="13" ry="20" fill="#eab597"/>
+  <path d="M84 158 Q78 168 85 178" stroke="#cf957a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M236 158 Q242 168 235 178" stroke="#cf957a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- head -->
+  <path d="M160 42 C216 42 240 86 240 142 C240 210 214 254 160 254 C106 254 80 210 80 142 C80 86 104 42 160 42 Z" fill="url(#skin)"/>
+  <!-- thinning hair on top -->
+  <path d="M90 118 C88 74 116 46 160 44 C204 46 232 74 230 118 C222 96 206 82 186 80 C176 70 146 70 134 80 C114 82 98 96 90 118 Z" fill="#d6d1c8"/>
+  <g stroke="#b3ada2" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M110 84 C122 62 140 52 160 50"/><path d="M122 78 C134 62 150 56 166 56"/>
+    <path d="M210 84 C198 62 180 52 160 50"/><path d="M198 78 C186 62 170 56 154 58"/>
+    <path d="M96 106 C100 90 108 80 120 72"/><path d="M224 106 C220 90 212 80 200 72"/>
+    <path d="M146 72 C150 64 158 60 166 62"/><path d="M160 70 C164 62 172 58 180 60"/>
+  </g>
+  <ellipse cx="160" cy="58" rx="22" ry="7" fill="#fff" opacity=".22"/>
+
+  <!-- safety goggles pushed up on forehead: big, 3D, one wraparound lens -->
+  <ellipse cx="160" cy="116" rx="70" ry="8" fill="#9a5f45" opacity=".18"/>
+  <path d="M88 100 Q160 82 232 100" stroke="#14438a" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <path d="M90 97 Q160 79 230 97" stroke="#3f80e0" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/>
+  <path d="M100 82 C100 70 112 64 128 64 L192 64 C208 64 220 70 220 82 L220 100 C220 110 212 116 200 116 L178 116 C170 116 166 108 160 108 C154 108 150 116 142 116 L120 116 C108 116 100 110 100 100 Z" fill="#1f5fbf" stroke="#123f80" stroke-width="3"/>
+  <path d="M102 80 C104 70 114 66 128 66 L192 66 C206 66 216 70 218 80" stroke="#6ea6f2" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M110 84 C110 76 118 72 130 72 L190 72 C202 72 210 76 210 84 L210 98 C210 104 205 108 198 108 L180 108 C172 108 168 101 160 101 C152 101 148 108 140 108 L122 108 C115 108 110 104 110 98 Z" fill="url(#glens)" stroke="#0f356b" stroke-width="2"/>
+  <path d="M120 100 L138 76" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".75"/>
+  <path d="M132 102 L146 82" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+  <path d="M182 100 L196 80" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+  <g fill="#123f80"><circle cx="118" cy="69" r="2"/><circle cx="126" cy="67" r="2"/><circle cx="194" cy="67" r="2"/><circle cx="202" cy="69" r="2"/></g>
+
+  <g id="mpBrows">
+  <path d="M108 136 Q126 126 146 132" stroke="#8c847a" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M174 132 Q194 126 212 136" stroke="#8c847a" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+  </g>
+  <!-- eyes -->
+  <ellipse cx="128" cy="158" rx="10" ry="7.5" fill="#fff"/>
+  <ellipse cx="192" cy="158" rx="10" ry="7.5" fill="#fff"/>
+  <circle cx="129" cy="158" r="5.5" fill="#7d9277"/>
+  <circle cx="193" cy="158" r="5.5" fill="#7d9277"/>
+  <circle cx="129" cy="158" r="2.6" fill="#22262b"/>
+  <circle cx="193" cy="158" r="2.6" fill="#22262b"/>
+  <circle cx="131" cy="156" r="1.4" fill="#fff"/>
+  <circle cx="195" cy="156" r="1.4" fill="#fff"/>
+  <!-- smile crinkles -->
+  <path d="M112 164 Q118 170 126 168" stroke="#d29c80" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M208 164 Q202 170 194 168" stroke="#d29c80" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- glasses: dark grey translucent rectangular frames -->
+  <rect x="100" y="138" width="56" height="40" rx="8" fill="url(#lens)" stroke="#555b63" stroke-width="6"/>
+  <rect x="164" y="138" width="56" height="40" rx="8" fill="url(#lens)" stroke="#555b63" stroke-width="6"/>
+  <path d="M156 152 Q160 148 164 152" stroke="#555b63" stroke-width="5" fill="none"/>
+  <path d="M100 148 L84 146" stroke="#555b63" stroke-width="5" stroke-linecap="round"/>
+  <path d="M220 148 L236 146" stroke="#555b63" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="104" cy="142" r="2" fill="#9aa1a9"/>
+  <circle cx="216" cy="142" r="2" fill="#9aa1a9"/>
+
+  <!-- nose -->
+  <path d="M160 168 C156 186 150 196 152 202 C156 208 166 208 170 202" stroke="#cf957a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+  <!-- rosy cheeks -->
+  <ellipse cx="114" cy="200" rx="15" ry="9" fill="#f29a8a" opacity=".45"/>
+  <ellipse cx="206" cy="200" rx="15" ry="9" fill="#f29a8a" opacity=".45"/>
+
+  <!-- light stubble around mouth and chin -->
+  <path d="M122 212 C128 244 192 244 198 212 C198 234 184 252 160 252 C136 252 122 234 122 212 Z" fill="#c9b6a6" opacity=".22"/>
+
+  <g id="mpSmile">
+  <path d="M136 220 Q160 236 184 220" stroke="#b5635a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <path d="M132 218 Q134 222 137 221" stroke="#b5635a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M188 218 Q186 222 183 221" stroke="#b5635a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  <g id="mpWow"><ellipse cx="160" cy="226" rx="13" ry="15" fill="#8a3a35"/><ellipse cx="160" cy="233" rx="8" ry="5" fill="#d9706a"/></g>
+</svg>
+</div>
+</div>
+
+<div class="modal hidden" id="nbModal">
+  <div class="box">
+    <div class="room-head"><h2 class="sec-title" style="margin:0">📓 My Lab Notebook</h2><button class="linkish" id="nbClose" type="button">Close</button></div>
+    <div id="nbList"></div>
+  </div>
+</div>
+
+<script>
+const CONFIG = { shareBase: "", siteName: "NuSparkLearnWow.com", campaign: "science-lab" };
+const $ = s => document.querySelector(s);
+function el(tag, attrs, ...kids){
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})){
+    if (k === "class") e.className = v; else if (k === "text") e.textContent = v; else if (k === "html") e.innerHTML = v;
+    else if (k === "style") e.style.cssText = v; else if (k.startsWith("on")) e[k] = v; else e.setAttribute(k, v);
+  }
+  for (const k of kids.flat()) if (k != null && k !== false) e.append(k.nodeType ? k : document.createTextNode(k));
+  return e;
+}
+const store = {
+  get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } },
+  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+};
+const state = {
+  data: null, level: store.get("lab_level", "grown"), room: null, current: null,
+  done: store.get("lab_done", {}), saved: store.get("lab_saved", []), liveHeads: store.get("lab_live_heads", {}), live: {}
+};
+const ANGLES = {
+  physics: ["Gravity & falling", "Forces & motion", "Energy", "Magnets", "Air pressure", "Spinning & balance"],
+  chemistry: ["Kitchen chemistry", "Acids & bases", "Bubbles & gases", "Crystals", "Color changes", "Mixtures & separating"],
+  earth: ["Weather in a jar", "Water cycle", "Rocks & soil", "Earthquakes", "Erosion", "Climate"],
+  space: ["The Moon", "The Sun & seasons", "Planets", "Stars & light-years", "Rockets", "Gravity in space"],
+  biology: ["Plants", "Seeds & growing", "DNA & cells", "Microbes & mold", "Animals", "Ecosystems"],
+  body: ["Vision tricks", "Hearing", "Touch", "Taste & smell", "Brain & memory", "Heart & lungs"],
+  lightsound: ["Color", "Reflection & mirrors", "Lenses", "Shadows", "Vibration & pitch", "Echoes"],
+  tech: ["Electricity", "Motors", "Phones & screens", "Signals & GPS", "Kitchen tech", "Codes & computers"],
+  stem: ["Bridges & towers", "Simple machines", "Paper rockets", "Marble runs", "Boats that float", "Coding logic (unplugged)"]
+};
+
+/* ---------- Mr. Paul ---------- */
+let bubbleTimer = null, lastLine = "";
+function say(text, mood){
+  lastLine = text;
+  const b = $("#bubble"); b.textContent = text; b.classList.remove("gone");
+  const host = $("#host"); host.classList.remove("wow"); void host.offsetWidth;
+  if (mood === "wow") host.classList.add("wow");
+  clearTimeout(bubbleTimer);
+  bubbleTimer = setTimeout(() => { b.classList.add("gone"); host.classList.remove("wow"); }, window.innerWidth < 700 ? 7000 : 12000);
+}
+
+/* ---------- API ---------- */
+async function api(body){
+  const r = await fetch("/api/lab", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+  let j = {}; try { j = await r.json(); } catch(e){}
+  if (!r.ok) throw new Error(j.message || j.error || "Something went wrong. Please try again.");
+  return j;
+}
+const loadingEl = msg => el("div", { class: "loading" }, el("span", { class: "spin" }), msg);
+
+/* ---------- Photos (Wikipedia / Wikimedia Commons, free + credited) ---------- */
+const stripTags = h => { const d = document.createElement("div"); d.innerHTML = h || ""; return (d.textContent || "").replace(/\s+/g, " ").trim(); };
+async function wikiPhoto(title){
+  const cached = store.get("lab_ph_" + title, null);
+  if (cached && cached.t > Date.now() - 7 * 864e5) return cached.v;
+  try {
+    const u = "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1&prop=pageimages&piprop=name&titles=" + encodeURIComponent(title);
+    const j = await (await fetch(u)).json();
+    const page = Object.values((j.query && j.query.pages) || {})[0];
+    const name = page && page.pageimage; if (!name) return null;
+    const c = "https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=400&titles=" + encodeURIComponent("File:" + name);
+    const cj = await (await fetch(c)).json();
+    const cp = Object.values((cj.query && cj.query.pages) || {})[0];
+    if (!cp || cp.missing !== undefined || !cp.imageinfo) return null;
+    const ii = cp.imageinfo[0], md = ii.extmetadata || {};
+    const v = { url: ii.thumburl || ii.url, page: ii.descriptionurl, artist: stripTags(md.Artist && md.Artist.value).slice(0, 80) || "Unknown", license: stripTags(md.LicenseShortName && md.LicenseShortName.value) || "" };
+    store.set("lab_ph_" + title, { t: Date.now(), v });
+    return v;
+  } catch(e){ return null; }
+}
+function renderBanner(){
+  const b = $("#banner"); b.innerHTML = "";
+  state.data.rooms.forEach(r => {
+    const t = el("button", { class: "bn", type: "button", "aria-label": "Open " + r.name, style: "background:" + r.color },
+      el("span", { class: "bi", text: r.icon }), el("span", { class: "bl", text: r.name }));
+    t.onclick = () => openRoom(r.id, true);
+    b.append(t);
+    wikiPhoto(r.photo).then(p => {
+      if (!p) return;
+      const img = el("img", { src: p.url, alt: r.name, loading: "lazy" });
+      img.onload = () => { t.querySelector(".bi").remove(); };
+      img.onerror = () => img.remove();
+      t.title = "Photo: " + p.artist + (p.license ? " · " + p.license : "") + " · Wikimedia Commons";
+      t.prepend(img);
+    });
+  });
+}
+
+/* ---------- Lobby ---------- */
+const roomInfo = id => state.data.rooms.find(r => r.id === id);
+function renderDoors(){
+  const d = $("#doors"); d.innerHTML = "";
+  state.data.rooms.forEach(r => {
+    const n = state.data.experiments.filter(e => e.room === r.id).length;
+    const btn = el("button", { class: "door", type: "button", style: "--c:" + r.color },
+      el("div", { class: "frame" }, el("div", { class: "win", text: r.icon }), el("div", { class: "knob" }), el("div", { class: "panel" })),
+      el("span", { class: "plate", text: r.name }),
+      el("span", { class: "count", text: n ? n + " experiments + new ideas" : "New ideas from Mr. Paul" }));
+    btn.onclick = () => openRoom(r.id, true);
+    d.append(btn);
+  });
+}
+function renderFeatured(){
+  const f = state.data.experiments.find(e => e.featured) || state.data.experiments[0];
+  $("#featTitle").textContent = f.title;
+  $("#featHook").textContent = f.hook;
+  $("#featGo").onclick = () => { openRoom(f.room, false); openExp(f, true); };
+}
+function showLobby(){
+  $("#room").classList.add("hidden"); $("#lobby").classList.remove("hidden");
+  state.room = null; history.replaceState(null, "", location.pathname);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  say("Welcome to my lab! Pick a door. Every experiment comes with the real science, and the sources.");
+}
+
+/* ---------- Room ---------- */
+function openRoom(id, scroll){
+  const r = roomInfo(id); if (!r) return;
+  state.room = id; state.current = null;
+  $("#lobby").classList.add("hidden"); $("#room").classList.remove("hidden");
+  $("#roomTitle").textContent = r.icon + " " + r.name;
+  $("#expView").classList.add("hidden"); $("#expView").innerHTML = "";
+  $("#moreMsg").textContent = "";
+  const builtIns = state.data.experiments.filter(e => e.room === id);
+  $("#roomNote").textContent = id === "stem"
+    ? "Build it, test it, improve it. Real engineering projects with things you already have at home. More workshop tracks are on the way."
+    : builtIns.length ? "Pick an experiment. Do it right here on screen, then try it at home."
+    : "Mr. Paul's built-in experiments for this room are being set up. Tap \"Show Me 6 More\" and he'll find real, safe experiments for you right now.";
+  renderGrid(); renderChips();
+  history.replaceState(null, "", location.pathname + "?room=" + id);
+  if (scroll) $("#room").scrollIntoView({ behavior: "smooth", block: "start" });
+  say(builtIns.length ? "Welcome to " + r.name + "! Pick an experiment and let's find out." : "Welcome to " + r.name + "! Tap Show Me 6 More and I'll find brand-new experiments, checked against real sources.");
+}
+function renderGrid(){
+  const g = $("#expGrid"); g.innerHTML = "";
+  const r = roomInfo(state.room);
+  const list = [...state.data.experiments.filter(e => e.room === state.room), ...(state.live[state.room] || [])];
+  list.forEach(e => {
+    const t = el("button", { class: "tile", type: "button", style: "--c:" + r.color },
+      state.done[e.id] ? el("span", { class: "done", text: "✓ Done" }) : e.live ? el("span", { class: "new", text: "NEW" }) : null,
+      el("span", { class: "tag", style: "background:" + r.color, text: e.live ? "Fresh idea" : "Experiment" }),
+      el("div", { class: "tt", text: e.title }), el("p", { class: "th", text: e.hook }));
+    t.onclick = () => openExp(e, true);
+    g.append(t);
+  });
+}
+function renderChips(){
+  const box = $("#ideaChips"); box.innerHTML = "";
+  const mk = (label, angle) => { const c = el("button", { class: "idea-chip", type: "button", text: label }); c.onclick = () => fetchIdeas(angle, c); return c; };
+  box.append(mk("🎲 Surprise me", ""));
+  (ANGLES[state.room] || []).forEach(a => box.append(mk(a, a)));
+}
+function setBusy(on){ $("#moreBtn").disabled = on; document.querySelectorAll("#ideaChips .idea-chip").forEach(c => c.disabled = on); }
+async function fetchIdeas(angle, chip){
+  document.querySelectorAll("#ideaChips .idea-chip").forEach(c => c.classList.toggle("on", c === chip));
+  const msg = $("#moreMsg"); msg.innerHTML = ""; setBusy(true);
+  msg.append(loadingEl(angle ? "Mr. Paul is finding experiments about " + angle + " and checking the science…" : "Mr. Paul is finding 6 brand-new experiments and checking the science…"));
+  say("Give me a moment. I'm hunting for real experiments and checking every one against the sources.");
+  try {
+    const room = state.room;
+    const built = state.data.experiments.filter(e => e.room === room).map(e => e.title);
+    const prev = state.liveHeads[room] || [];
+    const exclude = [...new Set([...built, ...prev, ...(state.live[room] || []).map(e => e.title)])];
+    const r = await api({ mode: "ideas", room, angle, level: state.level, exclude });
+    msg.textContent = "";
+    const got = (r.experiments || []).map(e => Object.assign(e, { room }));
+    if (!got.length){ msg.textContent = "Mr. Paul couldn't confirm new experiments with strong enough sources this time, so he won't guess. Try again or pick another direction."; say("I couldn't confirm any with strong sources that time. Try again, or pick a direction!"); }
+    else { say("Here " + (got.length === 1 ? "is 1 new experiment" : "are " + got.length + " new experiments") + "! Each one comes with its sources.", "wow"); }
+    state.live[room] = [...(state.live[room] || []), ...got];
+    state.liveHeads[room] = [...prev, ...got.map(e => e.title)].slice(-400);
+    store.set("lab_live_heads", state.liveHeads);
+    renderGrid();
+  } catch(e){ msg.textContent = e.message; }
+  setBusy(false);
+}
+
+/* ---------- Experiment view ---------- */
+const L = e => (state.level === "kids" ? e.kids : e.grown) || {};
+function footnotes(list){
+  if (!list || !list.length) return null;
+  return el("div", { class: "sources" }, el("b", { text: "SOURCES" }),
+    el("ol", {}, list.map(s => el("li", {}, el("a", { href: s.url, target: "_blank", rel: "noopener", text: s.title })))));
+}
+function markDone(e, result){
+  state.done[e.id] = { t: Date.now(), title: e.title, room: e.room, result: result || "" };
+  store.set("lab_done", state.done); updateNb(); renderGrid();
+  const box = $("#whyBox"); if (box) box.classList.remove("hidden");
+  const sw = $("#showWhy"); if (sw) sw.remove();
+  say("Wow...who knew? " + (state.level === "kids" ? "Check out why it happened!" : "Scroll down for the science behind it."), "wow");
+}
+function openExp(e, scroll){
+  state.current = e;
+  const r = roomInfo(e.room) || roomInfo(state.room);
+  const v = $("#expView"); v.innerHTML = ""; v.classList.remove("hidden");
+  const lv = L(e);
+  const whyBox = el("div", { id: "whyBox", class: state.done[e.id] ? "" : "hidden" },
+    el("div", { class: "why" }, el("h4", { text: "🔬 What just happened?" }), lv.why),
+    e.realworld ? el("div", { class: "real" }, el("h4", { text: "🌎 In the real world" }), e.realworld) : null);
+  const showWhy = el("button", { class: "small-btn", id: "showWhy", type: "button", text: "Show me the science" });
+  showWhy.onclick = () => { whyBox.classList.remove("hidden"); showWhy.remove(); };
+  const home = e.home ? el("div", { class: "home" },
+    el("h4", { text: e.live ? "🧪 Try it at home" : "🏠 Try it at home" }),
+    e.grownup ? el("span", { class: "helper", text: "👩‍🔬 Grown-up helper needed" }) : null,
+    e.home.needs && e.home.needs.length ? el("div", {}, el("b", { text: "You need: " }), e.home.needs.join(", ")) : null,
+    el("ol", {}, (e.home.steps || []).map(s => el("li", { text: s }))),
+    e.home.safety ? el("div", { class: "safety", text: "⚠️ " + e.home.safety }) : null) : null;
+  const share = el("button", { class: "small-btn", type: "button", text: "📤 Share" });
+  share.onclick = () => shareExp(e, share);
+  const actions = el("div", { class: "exp-actions" }, share);
+  if (e.live){
+    const sv = el("button", { class: "small-btn", type: "button", text: state.saved.some(s => s.id === e.id) ? "📓 Saved" : "📓 Save to Notebook" });
+    sv.onclick = () => { if (!state.saved.some(s => s.id === e.id)){ state.saved = [e, ...state.saved].slice(0, 60); store.set("lab_saved", state.saved); updateNb(); } sv.textContent = "📓 Saved"; };
+    actions.append(sv);
+  }
+  v.append(el("div", { class: "exp" },
+    el("button", { class: "linkish back", type: "button", text: "✕ Close experiment", onclick: () => { v.classList.add("hidden"); v.innerHTML = ""; } }),
+    el("div", {}, el("span", { class: "tag", style: "background:" + r.color, text: r.name }), e.live ? el("span", { class: "livenote", text: "🔎 Freshly found and checked against the sources below" }) : null),
+    el("h3", { text: e.title }),
+    el("div", { class: "didyou" }, el("b", { text: "Did you know? " }), e.hook),
+    lv.try ? el("p", { class: "try" }, el("b", { text: "Try this: " }), lv.try) : null,
+    el("div", { class: "machine" }, MACHINES[e.machine] ? MACHINES[e.machine](e) : MACHINES.steps(e)),
+    state.done[e.id] ? null : showWhy,
+    whyBox, home, footnotes(e.sources), actions));
+  if (scroll) v.scrollIntoView({ behavior: "smooth", block: "start" });
+  history.replaceState(null, "", location.pathname + (e.live ? "?room=" + e.room : "?x=" + e.id));
+  say(state.level === "kids" ? "Ooh, a good one! Follow the steps and see what happens." : "Try this one. Then I'll show you the science behind it.");
+}
+function shareExp(e, btn){
+  const base = CONFIG.shareBase || (location.origin + location.pathname);
+  const url = base + (e.live ? "?room=" + e.room : "?x=" + e.id) + "&utm_source=share&utm_medium=share&utm_campaign=" + CONFIG.campaign;
+  const text = "Try this experiment: " + e.title + " — " + e.hook;
+  if (navigator.share) { navigator.share({ title: "The Science Lab", text, url }).catch(() => {}); return; }
+  navigator.clipboard && navigator.clipboard.writeText(text + " " + url).then(() => { btn.textContent = "✓ Link copied"; setTimeout(() => btn.textContent = "📤 Share", 2000); });
+}
+
+/* ---------- Experiment machines ---------- */
+const MACHINES = {
+  blindspot(e){
+    let flipped = false, line = false;
+    const stage = el("div", { class: "bs-stage" });
+    const draw = () => {
+      stage.innerHTML = "";
+      if (line) stage.append(el("div", { class: "bs-line" }));
+      const plusX = flipped ? 80 : 20, dotX = flipped ? 20 : 80;
+      stage.append(el("span", { class: "bs-plus", style: "left:" + plusX + "%", text: "+" }), el("span", { class: "bs-dot", style: "left:" + dotX + "%" }));
+      tip.textContent = flipped ? "Now close your LEFT eye and stare at the + with your right eye." : "Close your RIGHT eye and stare at the + with your left eye.";
+    };
+    const tip = el("p", { class: "pred" });
+    const b1 = el("button", { class: "small-btn", type: "button", text: "🔁 Switch eyes" }); b1.onclick = () => { flipped = !flipped; draw(); };
+    const b2 = el("button", { class: "small-btn", type: "button", text: "Level 2: Add a line" }); b2.onclick = () => { line = !line; b2.textContent = line ? "Remove the line" : "Level 2: Add a line"; draw(); if (line) say("Find the spot where the dot vanishes again. Does the line break, or does your brain fill it in?"); };
+    const ok = el("button", { class: "btn", type: "button", text: "The dot vanished!" }); ok.onclick = () => markDone(e, "Found my blind spot");
+    draw();
+    return el("div", {}, tip, stage, el("div", { class: "mrow" }, ok, b1, b2), el("p", { class: "intro", style: "margin:10px 0 0;font-size:14px", text: "Tip: start about 20 inches from the screen and move in slowly. On a phone, hold it sideways." }));
+  },
+  contrast(e){
+    let plain = false;
+    const left = el("div", { class: "ct-half", style: "background:linear-gradient(90deg,#000,#333)" }, el("div", { class: "ct-sq" }));
+    const right = el("div", { class: "ct-half", style: "background:linear-gradient(90deg,#d9d9d9,#fff)" }, el("div", { class: "ct-sq" }));
+    const stage = el("div", { class: "ct-stage" }, left, right);
+    const btn = el("button", { class: "btn", type: "button", text: "Remove the background" });
+    btn.onclick = () => {
+      plain = !plain;
+      left.style.background = plain ? "#bfbfbf" : "linear-gradient(90deg,#000,#333)";
+      right.style.background = plain ? "#bfbfbf" : "linear-gradient(90deg,#d9d9d9,#fff)";
+      btn.textContent = plain ? "Bring the background back" : "Remove the background";
+      if (plain && !state.done[e.id]) markDone(e, "Saw two identical squares");
+    };
+    return el("div", {}, el("p", { class: "pred", text: "Which square looks lighter: left or right?" }), stage, el("div", { class: "mrow" }, btn));
+  },
+  reaction(e){
+    let phase = "idle", t0 = 0, timer = null; const times = [];
+    const box = el("div", { class: "rt-box rt-idle", text: "Tap here to start" });
+    const list = el("div", { class: "rt-list" });
+    const set = (p, txt) => { phase = p; box.className = "rt-box rt-" + p; box.innerHTML = txt; };
+    const arm = () => { set("wait", "Wait for green…"); timer = setTimeout(() => { set("go", "TAP!"); t0 = performance.now(); }, 1500 + Math.random() * 2500); };
+    const press = ev => {
+      ev.preventDefault();
+      if (phase === "idle" || phase === "early" || phase === "result") { arm(); return; }
+      if (phase === "wait"){ clearTimeout(timer); set("early", "Too soon! 😄<br><small>Tap to try again</small>"); return; }
+      if (phase === "go"){
+        const ms = Math.round(performance.now() - t0); times.push(ms);
+        list.textContent = "Your times: " + times.map(t => t + " ms").join(" · ");
+        if (times.length >= 5){
+          const avg = Math.round(times.reduce((a, b) => a + b, 0) / times.length), best = Math.min(...times);
+          set("result", "Average: " + avg + " ms<br><small>Best: " + best + " ms · tap to go again</small>");
+          const res = "Average " + avg + " ms (best " + best + " ms)";
+          const prevBest = state.done[e.id] && state.done[e.id].best;
+          markDone(e, res); state.done[e.id].best = Math.min(best, prevBest || 99999); store.set("lab_done", state.done);
+          times.length = 0;
+        } else set("result", ms + " ms<br><small>Round " + times.length + " of 5 · tap for the next one</small>");
+      }
+    };
+    box.addEventListener("pointerdown", press);
+    return el("div", {}, box, list, el("p", { class: "intro", style: "margin:10px 0 0;font-size:14px", text: "Lab studies measure about 213 to 231 ms for adults. Screens and phones add a little delay, so most people score somewhat slower here." }));
+  },
+  stroop(e){
+    const C = [["RED", "#d62828"], ["BLUE", "#1d4ed8"], ["GREEN", "#15803d"], ["ORANGE", "#ea580c"]];
+    let round = 0, items = [], i = 0, t0 = 0, errs = 0; const results = [];
+    const word = el("div", { class: "st-word", text: "" });
+    const prog = el("div", { class: "st-prog", text: "" });
+    const btns = el("div", { class: "st-btns" });
+    const startBtn = el("button", { class: "btn", type: "button", text: "Start Round 1" });
+    const out = el("div", {});
+    const build = r => {
+      const list = [];
+      for (let k = 0; k < 8; k++){
+        const ink = Math.floor(Math.random() * 4);
+        let w = ink; if (r === 2) { do { w = Math.floor(Math.random() * 4); } while (w === ink); }
+        list.push({ w, ink });
+      }
+      return list;
+    };
+    const show = () => { const it = items[i]; word.textContent = C[it.w][0]; word.style.color = C[it.ink][1]; prog.textContent = "Round " + round + " · " + (i + 1) + " of " + items.length + " · tap the INK color"; };
+    const start = () => { round++; items = build(round); i = 0; errs = 0; t0 = performance.now(); startBtn.classList.add("hidden"); btns.classList.remove("hidden"); show(); };
+    C.forEach(([name], idx) => {
+      const b = el("button", { type: "button", text: name });
+      b.onclick = () => {
+        if (!items.length) return;
+        if (idx !== items[i].ink) { errs++; word.animate([{ transform: "translateX(-6px)" }, { transform: "translateX(6px)" }, { transform: "none" }], 200); }
+        i++;
+        if (i >= items.length){
+          const secs = (performance.now() - t0) / 1000; results.push({ secs, errs }); items = [];
+          btns.classList.add("hidden"); word.textContent = ""; prog.textContent = "";
+          if (round === 1){ out.textContent = "Round 1: " + secs.toFixed(1) + " seconds, " + errs + " mistakes. Now the tricky round!"; startBtn.textContent = "Start Round 2"; startBtn.classList.remove("hidden"); }
+          else {
+            const a = results[0], b2 = results[1], diff = b2.secs - a.secs, pct = Math.round(diff / a.secs * 100);
+            out.innerHTML = "";
+            out.append(el("div", { class: "result", text: diff > 0 ? "Round 2 took " + diff.toFixed(1) + " seconds longer (" + pct + "% slower) with " + b2.errs + " mistakes. That's the Stroop effect!" : "Wow, you were just as fast in Round 2! Most people are noticeably slower. Try again and see if it holds." }));
+            markDone(e, "Round 1 " + a.secs.toFixed(1) + "s · Round 2 " + b2.secs.toFixed(1) + "s");
+            round = 0; results.length = 0; startBtn.textContent = "Try Again"; startBtn.classList.remove("hidden");
+          }
+        } else show();
+      };
+      btns.append(b);
+    });
+    btns.classList.add("hidden");
+    startBtn.onclick = start;
+    return el("div", {}, word, btns, prog, el("div", { class: "mrow" }, startBtn), out);
+  },
+  afterimage(e){
+    const stage = el("div", { class: "ai-stage" });
+    const count = el("div", { class: "ai-count", text: "" });
+    const flag = () => {
+      let s = '<svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg">';
+      for (let k = 0; k < 13; k++) s += '<rect x="0" y="' + (k * 200 / 13) + '" width="380" height="' + (200 / 13 + .5) + '" fill="' + (k % 2 ? "#000" : "#00e5ff") + '"/>';
+      s += '<rect x="0" y="0" width="152" height="107.7" fill="#ffee00"/>';
+      for (let row = 0; row < 9; row++){ const n = row % 2 ? 5 : 6; for (let c = 0; c < n; c++){ const x = (row % 2 ? 25.3 : 12.7) + c * 25.3, y = 6 + row * 11.5; s += '<circle cx="' + x + '" cy="' + y + '" r="3.6" fill="#000"/>'; } }
+      return s + "</svg>";
+    };
+    const go = el("button", { class: "btn", type: "button", text: "Start the 20-second stare" });
+    const yes = el("button", { class: "btn gold hidden", type: "button", text: "I saw red, white and blue!" });
+    const reset = () => { stage.innerHTML = flag(); stage.append(el("span", { class: "ai-dot" })); count.textContent = ""; };
+    go.onclick = () => {
+      go.disabled = true; let n = 20; count.textContent = n;
+      say("Keep your eyes on the dot. Don't look away!");
+      const iv = setInterval(() => {
+        n--; count.textContent = n > 0 ? n : "";
+        if (n <= 0){
+          clearInterval(iv); stage.innerHTML = ""; stage.append(el("span", { class: "ai-dot" }));
+          count.textContent = "Keep staring at the dot…";
+          setTimeout(() => { yes.classList.remove("hidden"); go.disabled = false; go.textContent = "Do it again"; }, 3500);
+        }
+      }, 1000);
+    };
+    go.addEventListener("click", () => { if (go.textContent === "Do it again") reset(); }, true);
+    yes.onclick = () => { markDone(e, "Saw the afterimage flag"); yes.classList.add("hidden"); };
+    reset();
+    return el("div", {}, stage, count, el("div", { class: "mrow" }, go, yes));
+  },
+  steps(e){
+    const out = el("div", {});
+    const pred = e.predict || "What do you think will happen?";
+    const steps = e.live ? el("p", { class: "intro", style: "margin:0 0 10px", text: "Follow the \"Try it at home\" steps below, then come back and tap the button." }) : null;
+    const btn = el("button", { class: "btn", type: "button", text: "I tried it: show me what usually happens" });
+    btn.onclick = () => {
+      out.innerHTML = ""; btn.remove();
+      out.append(el("div", { class: "reveal" }, el("b", { text: "What most people notice: " }), e.reveal || ""));
+      markDone(e, "Tried it");
+    };
+    return el("div", {}, el("p", { class: "pred", text: "🤔 Predict first: " + pred }), steps, el("div", { class: "mrow" }, btn), out);
+  }
+};
+
+/* ---------- Create your own ---------- */
+async function createExp(){
+  const idea = $("#ideaInput").value.trim(); if (idea.length < 4) return $("#ideaInput").focus();
+  const out = $("#createOut"), btn = $("#createBtn");
+  btn.disabled = true; out.innerHTML = ""; out.append(el("div", { class: "msg" }, loadingEl("Mr. Paul is checking your idea for safety and science…")));
+  say("Ooh, let me look at your idea. I'll make sure it's safe and a real experiment.");
+  try {
+    const r = await api({ mode: "create", idea, level: state.level });
+    out.innerHTML = "";
+    const labels = { ready: "✅ Ready to go!", fixed: "🔧 Great idea. Mr. Paul tuned it up.", unsafe: "⚠️ Not safe as written. Here's a safe version.", not_science: "🔎 That one can't be tested. Here's the closest real experiment.", unconfirmed: "🔎 Not confirmed." };
+    out.append(el("div", { class: "status st-" + r.status }, el("b", { text: (labels[r.status] || "") + " " }), r.feedback || ""));
+    if (r.experiment){
+      const e = Object.assign(r.experiment, { room: state.room || "body" });
+      out.append(el("div", { class: "plan" },
+        el("div", {}, el("b", { text: "Question" }), r.question), el("div", {}, el("b", { text: "Hypothesis" }), r.hypothesis),
+        el("div", {}, el("b", { text: "Change this" }), r.change), el("div", {}, el("b", { text: "Measure this" }), r.measure)));
+      const open = el("button", { class: "btn", type: "button", text: "Open My Experiment" });
+      open.onclick = () => { state.live[e.room] = [...(state.live[e.room] || []), e]; renderGrid(); openExp(e, true); };
+      out.append(el("div", { class: "mrow" }, open));
+      say(r.status === "ready" ? "That's a real experiment! Nice thinking." : "I tuned it up so it's safe and testable. Take a look!", r.status === "ready" ? "wow" : "");
+    }
+  } catch(err){ out.innerHTML = ""; out.append(el("div", { class: "status st-unconfirmed", text: err.message })); }
+  btn.disabled = false;
+}
+
+/* ---------- Notebook ---------- */
+function updateNb(){ $("#nbCount").textContent = Object.keys(state.done).length + state.saved.filter(s => !state.done[s.id]).length; }
+function openNb(){
+  const list = $("#nbList"); list.innerHTML = "";
+  const done = Object.entries(state.done).sort((a, b) => b[1].t - a[1].t);
+  if (!done.length && !state.saved.length) list.append(el("p", { class: "intro", text: "Your notebook is empty. Do an experiment and it will show up here, with your results." }));
+  done.forEach(([id, d]) => {
+    const ex = state.data.experiments.find(e => e.id === id) || state.saved.find(s => s.id === id);
+    const row = el("div", { class: "nb-item" }, el("div", {}, el("b", { text: d.title }), el("div", { class: "r", text: "✓ " + (d.result || "Done") + (d.best ? " · Best ever: " + d.best + " ms" : "") })));
+    if (ex){ const o = el("button", { class: "small-btn", type: "button", text: "Open" }); o.onclick = () => { $("#nbModal").classList.add("hidden"); openRoom(ex.room, false); openExp(ex, true); }; row.append(o); }
+    list.append(row);
+  });
+  const saved = state.saved.filter(s => !state.done[s.id]);
+  if (saved.length){
+    list.append(el("h3", { text: "Saved for later", style: "margin:16px 0 4px;color:var(--navy)" }));
+    saved.forEach(s => { const o = el("button", { class: "small-btn", type: "button", text: "Open" }); o.onclick = () => { $("#nbModal").classList.add("hidden"); openRoom(s.room, false); if (!(state.live[s.room] || []).some(x => x.id === s.id)) state.live[s.room] = [...(state.live[s.room] || []), s]; renderGrid(); openExp(s, true); }; list.append(el("div", { class: "nb-item" }, el("b", { text: s.title }), o)); });
+  }
+  $("#nbModal").classList.remove("hidden");
+}
+
+/* ---------- Level + startup ---------- */
+function setLevel(l){
+  state.level = l; store.set("lab_level", l);
+  $("#lvGrown").classList.toggle("on", l === "grown"); $("#lvKids").classList.toggle("on", l === "kids");
+  if (state.current && !$("#expView").classList.contains("hidden")) openExp(state.current, false);
+}
+async function init(){
+  try { state.data = await (await fetch("experiments.json", { cache: "no-cache" })).json(); }
+  catch(e){ document.querySelector("main").prepend(el("div", { class: "block", text: "The lab couldn't load. Please refresh." })); return; }
+  setLevel(state.level);
+  renderBanner(); renderDoors(); renderFeatured(); updateNb();
+  $("#lvGrown").onclick = () => setLevel("grown"); $("#lvKids").onclick = () => setLevel("kids");
+  $("#toLobby").onclick = showLobby;
+  $("#moreBtn").onclick = () => fetchIdeas("", null);
+  $("#createBtn").onclick = createExp;
+  $("#nbBtn").onclick = openNb; $("#nbClose").onclick = () => $("#nbModal").classList.add("hidden");
+  $("#nbModal").onclick = ev => { if (ev.target.id === "nbModal") $("#nbModal").classList.add("hidden"); };
+  $("#mp").onclick = () => say(lastLine || "Hi! I'm Mr. Paul. Pick a door and let's experiment!");
+  const q = new URLSearchParams(location.search);
+  const x = q.get("x") && state.data.experiments.find(e => e.id === q.get("x"));
+  if (x){ openRoom(x.room, false); openExp(x, true); }
+  else if (q.get("room") && roomInfo(q.get("room"))) openRoom(q.get("room"), true);
+  else say("Welcome to my lab! Pick a door. Every experiment comes with the real science, and the sources.");
+}
+init();
+</script>
+</body>
+</html>

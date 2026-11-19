@@ -1,0 +1,175 @@
+{
+  "version": 1,
+  "updated": "2026-11-19",
+  "rooms": [
+    { "id": "physics", "name": "Physics & Motion", "icon": "🎢", "color": "#2f6fd0", "photo": "Newton's cradle" },
+    { "id": "chemistry", "name": "Chemistry", "icon": "⚗️", "color": "#7b4fd6", "photo": "Erlenmeyer flask" },
+    { "id": "earth", "name": "Earth & Weather", "icon": "🌪️", "color": "#2e8b57", "photo": "Lightning" },
+    { "id": "space", "name": "Space", "icon": "🪐", "color": "#1f2a44", "photo": "Saturn" },
+    { "id": "biology", "name": "Biology", "icon": "🧬", "color": "#3a9d5d", "photo": "Honey bee" },
+    { "id": "body", "name": "Human Body & Senses", "icon": "👁️", "color": "#d1495b", "photo": "Human eye" },
+    { "id": "lightsound", "name": "Light & Sound", "icon": "🌈", "color": "#e08a00", "photo": "Rainbow" },
+    { "id": "tech", "name": "Technology & Inventions", "icon": "💡", "color": "#0f8b8d", "photo": "Integrated circuit" },
+    { "id": "stem", "name": "STEM Workshop", "icon": "🛠️", "color": "#b5651d", "photo": "Robotic arm" }
+  ],
+  "experiments": [
+    {
+      "id": "body-blind-spot",
+      "room": "body",
+      "featured": true,
+      "title": "Find Your Blind Spot",
+      "hook": "Every one of us has a hole in our vision right now, and our brain paints over it so we never notice.",
+      "machine": "blindspot",
+      "grown": {
+        "try": "Close your RIGHT eye. Stare at the + with your left eye only. Slowly move your face toward the screen (or away). At one distance the red dot will vanish completely.",
+        "why": "At the back of each eye, the optic nerve and the retina's blood supply pass through one spot that has no light-detecting cells (no rods or cones). Any image that lands there simply isn't detected. Your brain fills the gap with whatever surrounds it, which is why Level 2's line looks unbroken even when the dot is gone."
+      },
+      "kids": {
+        "try": "Cover your RIGHT eye. Look ONLY at the + . Now slowly lean closer to the screen. Keep looking at the +! At just the right spot... the red dot disappears!",
+        "why": "Poof! Your eye has a tiny spot with no seeing cells, right where the cable to your brain (the optic nerve) plugs in. When the dot lands there, your eye can't see it. Your brain fills in the hole so sneakily that you never notice it in real life!"
+      },
+      "realworld": "You never notice your blind spot in daily life because your brain fills it in, and with both eyes open, each eye sees what the other one misses.",
+      "home": {
+        "needs": ["An index card or paper", "A marker"],
+        "steps": ["Draw a + on the left and a dot about 3 inches to the right.", "Hold the card at arm's length and close your right eye.", "Stare at the + and slowly bring the card closer until the dot vanishes."],
+        "safety": ""
+      },
+      "sources": [
+        { "title": "American Academy of Ophthalmology: Blind Spot", "url": "https://aao.org/eye-health/anatomy/blind-spot" },
+        { "title": "Exploratorium: Blind Spot (Science Snack)", "url": "https://www.exploratorium.edu/snacks/blind-spot" },
+        { "title": "Exploratorium: Seeing Your Blind Spot", "url": "https://annex.exploratorium.edu/wsw/progress_snacks/seeing_blindspot/" }
+      ]
+    },
+    {
+      "id": "body-same-gray",
+      "room": "body",
+      "title": "The Two Squares That Are the Same",
+      "hook": "Your eyes don't measure brightness. They compare it, and that comparison can fool you completely.",
+      "machine": "contrast",
+      "grown": {
+        "try": "Look at the two small squares. One looks clearly lighter than the other. Then tap the button to remove the background.",
+        "why": "Both squares are the exact same gray. This is called simultaneous contrast: how light a patch looks depends on what surrounds it. On a dark background the gray looks lighter; on a light background it looks darker. Your visual system is built to judge things relative to their surroundings, which usually helps you, but here it misleads you."
+      },
+      "kids": {
+        "try": "Which little square is lighter? Decide! Now tap the button to take the background away.",
+        "why": "Surprise! They're the SAME gray! Your eyes compare each square to what's around it. Next to dark, gray looks lighter. Next to light, gray looks darker. Your brain got tricked!"
+      },
+      "realworld": "Designers and painters deal with this constantly: the same paint color can look different depending on the wall or colors next to it.",
+      "home": {
+        "needs": ["Gray paper (or a gray paint chip)", "A sheet of black paper", "A sheet of white paper", "Scissors (grown-up helper for kids)"],
+        "steps": ["Cut two small squares from the same gray paper.", "Put one on the black sheet and one on the white sheet.", "Compare them side by side. Then hold them together off the backgrounds."],
+        "safety": "Kids: ask a grown-up to help with scissors."
+      },
+      "sources": [
+        { "title": "University of Minnesota: Simultaneous Contrast (Sensation and Perception)", "url": "https://pressbooks.umn.edu/sensationandperception/chapter/simultaneous-contrast/" },
+        { "title": "University of British Columbia: Simultaneous Contrast: Luminance", "url": "https://cs.ubc.ca/labs/imager/contributions/flinn/Illusions/BW/bw.html" },
+        { "title": "MIT Brain and Cognitive Sciences: Study sheds light on a classic visual illusion", "url": "https://bcs.mit.edu/news/study-sheds-light-classic-visual-illusion" }
+      ]
+    },
+    {
+      "id": "body-reaction-time",
+      "room": "body",
+      "title": "How Fast Are You, Really?",
+      "hook": "Even a fast reaction takes about a fifth of a second. At highway speed, that's a car length before your foot even moves.",
+      "machine": "reaction",
+      "grown": {
+        "try": "Tap Start. When the box turns GREEN, tap it as fast as you can. Do 5 rounds and see your average.",
+        "why": "Your eyes detect the change, the signal travels to your brain, your brain decides, and a signal travels back down to your finger. A careful 2015 study of 1,469 adults measured an average simple reaction time of 231 milliseconds (213 ms after correcting for computer delay), and it slowly increases with age. Phones and screens add their own delay, so web tests usually read a bit slower than lab tests."
+      },
+      "kids": {
+        "try": "Tap Start. Wait... wait... when the box turns GREEN, tap it super fast! Try 5 times!",
+        "why": "Zoom! Your eyes see green, send a message to your brain, your brain says GO, and a message zips to your finger. All that takes about a quarter of a second for most grown-ups. Blink and you'd miss it!"
+      },
+      "realworld": "At 60 mph a car travels about 88 feet every second, so a quarter-second reaction means roughly 22 feet before a driver even touches the brake.",
+      "home": {
+        "needs": ["A ruler (12 inch)", "A partner"],
+        "steps": ["Your partner holds the ruler at the top; you hold your thumb and finger open around the bottom (at 0).", "Without warning, your partner drops it. Catch it as fast as you can.", "The inch mark where you caught it shows your reaction. Shorter drop = faster!"],
+        "safety": ""
+      },
+      "sources": [
+        { "title": "Frontiers in Human Neuroscience (Woods et al., 2015): Factors influencing the latency of simple reaction time", "url": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2015.00131/full" },
+        { "title": "Encyclopedia.com: Reaction Time", "url": "https://www.encyclopedia.com/social-sciences/applied-and-social-sciences-magazines/reaction-time" }
+      ]
+    },
+    {
+      "id": "body-stroop",
+      "room": "body",
+      "title": "Your Brain Can't Stop Reading",
+      "hook": "Reading is so automatic that your brain does it even when you're trying NOT to, and it costs you time.",
+      "machine": "stroop",
+      "grown": {
+        "try": "Tap the button that matches the INK COLOR of each word, not the word itself. Round 1 is easy. Round 2 is where it gets interesting. Compare your times.",
+        "why": "This is the Stroop effect, published by psychologist John Ridley Stroop in 1935. Reading is automatic and overlearned, while naming a color takes deliberate attention. When the word and ink clash, your brain has to suppress the urge to read, and that conflict slows you down and causes more mistakes. It's one of the most studied effects in psychology and is still used in research and clinical testing."
+      },
+      "kids": {
+        "try": "Tap the button for the COLOR of the letters, not what the word says! Round 1, then Round 2. Which one was harder?",
+        "why": "Gotcha! Your brain reads words automatically, super fast, even when you tell it not to. When the word says RED but the letters are blue, your brain argues with itself, and that slows you down!"
+      },
+      "realworld": "Scientists still use this test today to study attention and how the brain handles distractions.",
+      "home": {
+        "needs": ["Colored markers (red, blue, green)", "Paper", "A timer (phone)"],
+        "steps": ["Write 10 color words in the SAME color as the word (RED in red).", "Write 10 more where the ink doesn't match (RED in blue).", "Time yourself saying the ink colors out loud for each list."],
+        "safety": ""
+      },
+      "sources": [
+        { "title": "Science Buddies: Seeing Science: Exploring Perception with the Stroop Effect", "url": "https://www.sciencebuddies.org/stem-activities/seeing-science-exploring-perception-with-the-stroop-effect" },
+        { "title": "PsyToolkit: The Stroop task", "url": "https://us.psytoolkit.org/lessons/stroop.html" },
+        { "title": "Wikipedia: Stroop effect", "url": "https://en.wikipedia.org/wiki/Stroop_effect" }
+      ]
+    },
+    {
+      "id": "body-afterimage-flag",
+      "room": "body",
+      "title": "The Flag That Changes Color",
+      "hook": "Stare at a strange-colored flag, look away, and your own eyes will paint the real one in red, white and blue.",
+      "machine": "afterimage",
+      "grown": {
+        "try": "Stare at the small dot in the middle of the flag without moving your eyes until the countdown ends. The flag will disappear. Keep staring at the dot.",
+        "why": "Your retina has cone cells tuned to red, green and blue light. Staring at one color fatigues the cones that detect it, so they respond less for a few seconds. When you then look at white, the rested cones dominate and you see the opposite (complementary) colors. Cyan becomes red, black becomes white, and yellow becomes blue."
+      },
+      "kids": {
+        "try": "Stare at the little dot in the middle. Don't move your eyes! When the timer ends, keep staring...",
+        "why": "Whoa! The color-seeing cells in your eyes got tired from staring. When you look at white, the tired cells take a break and the other cells take over, so you see the OPPOSITE colors. Red, white and blue appear out of nowhere!"
+      },
+      "realworld": "This is one reason surgeons wear blue-green scrubs: it reduces the distracting afterimages from staring at red blood.",
+      "home": {
+        "needs": ["A red paper shape (like a bird or heart)", "White paper"],
+        "steps": ["Stare at the red shape for 30 seconds.", "Quickly look at the plain white paper.", "Watch for a blue-green copy of the shape!"],
+        "safety": "Never stare at the Sun or any bright light."
+      },
+      "sources": [
+        { "title": "Science Buddies: Afterimages and cone cell fatigue", "url": "https://www.sciencebuddies.org/science-fair-projects/project_ideas/HumBio_p021.shtml" },
+        { "title": "Exploratorium: Bird in the Cage (Science Snack)", "url": "https://www.exploratorium.edu/snacks/bird-in-cage" },
+        { "title": "Science News Explores: Discover the science behind afterimages", "url": "https://www.snexplores.org/article/vision-eyes-see-color-afterimages" }
+      ]
+    },
+    {
+      "id": "body-nose-taste",
+      "room": "body",
+      "title": "Your Nose Does the Tasting",
+      "hook": "Most of what you call 'taste' is actually smell. Hold your nose and a cherry jelly bean just tastes sweet.",
+      "machine": "steps",
+      "predict": "Hold your nose and eat a jelly bean. Will you still know the flavor?",
+      "reveal": "Most people can tell it's sweet (and maybe sour), but can't name the flavor. The moment they let go of their nose, the flavor suddenly floods in.",
+      "grown": {
+        "try": "Grab two jelly beans of different flavors. Pinch your nose shut, chew one, and try to name the flavor. Then let go and keep chewing.",
+        "why": "Your tongue only detects basic tastes like sweet, sour, salty, bitter and savory. The specific flavor (strawberry, cinnamon, cherry) comes from odor molecules that travel from your mouth up the back of your nose to your smell cells. Pinch your nose and that airflow stops, so all that's left is the basic taste."
+      },
+      "kids": {
+        "try": "Pinch your nose. Chew a jelly bean. What flavor is it? Now let go of your nose!",
+        "why": "Sniff-tastic! Your tongue can only tell sweet, sour, salty and bitter. The real flavor, like cherry or lemon, comes from smells floating up to your nose from the back of your mouth. No smell = no flavor!"
+      },
+      "realworld": "This is why food tastes bland when you have a stuffy nose from a cold.",
+      "home": {
+        "needs": ["Jelly beans in different flavors (or apple and pear slices)", "A partner (optional, for a blindfold test)"],
+        "steps": ["Pinch your nose closed and chew one jelly bean for a few seconds.", "Guess the flavor.", "Let go of your nose and keep chewing. Did the flavor change?"],
+        "safety": "Check for food allergies first."
+      },
+      "sources": [
+        { "title": "Scientific American: How do sight and smell affect taste?", "url": "https://www.scientificamerican.com/article/experts-how-does-sight-smell-affect-taste/" },
+        { "title": "Scientific American / Science Buddies: Jelly Bean Taste Test", "url": "https://www.scientificamerican.com/article/bring-science-home-jelly-bean-taste-smell/" },
+        { "title": "The Franklin Institute: Jelly Bean Taste Test", "url": "https://fi.edu/node/3247" }
+      ]
+    }
+  ]
+}
