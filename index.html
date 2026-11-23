@@ -1012,7 +1012,8 @@ function openExp(e, scroll){
   deeper.onclick = () => openReport(e);
   const share = el("button", { class: "small-btn", type: "button", text: "📤 Share" });
   share.onclick = () => shareExp(e, share);
-  const actions = el("div", { class: "exp-actions" }, share);
+  const nbPrint = el("button", { class: "small-btn", type: "button", text: "📓 Print my lab notebook page", onclick: () => printLabPage(e) });
+  const actions = el("div", { class: "exp-actions" }, share, nbPrint);
   if (e.live){
     const sv = el("button", { class: "small-btn", type: "button", text: state.saved.some(s => s.id === e.id) ? "📓 Saved" : "📓 Save to Notebook" });
     sv.onclick = () => { if (!state.saved.some(s => s.id === e.id)){ state.saved = [e, ...state.saved].slice(0, 60); store.set("lab_saved", state.saved); updateNb(); } sv.textContent = "📓 Saved"; };
@@ -1107,6 +1108,26 @@ function openExp(e, scroll){
   history.replaceState(null, "", location.pathname + (e.live ? "?room=" + e.room : "?x=" + e.id + (homeMode ? "&home=1" : "")));
   say(homeMode ? (state.level === "kids" ? "Ooh, a good one! Follow the steps with a grown-up and see what happens." : "Try this one at home. Then I'll show you the science behind it.")
     : (state.level === "kids" ? "Try it! Or tap Watch Mr. Paul Do It and I'll show you." : "Give it a try, or tap Watch Mr. Paul Do It. Then we'll look at the science."));
+}
+// Lab Notebook page: a printable page with hypothesis, steps, result and the Wow fact (filled in where the lab knows it).
+function printLabPage(e){
+  const lv = (state.level === "kids" ? e.kids : e.grown) || e.grown || e.kids || {};
+  const esc = t => String(t || "").replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" })[c]);
+  const done = state.done[e.id];
+  const steps = e.home && Array.isArray(e.home.steps) ? e.home.steps : [];
+  const lines = n => Array.from({ length: n }, () => '<div class="ln"></div>').join("");
+  const html = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Lab Notebook: ' + esc(e.title) + '</title><style>body{font-family:"Courier New",monospace;max-width:720px;margin:24px auto;padding:0 22px;color:#1d2433;background:#fff}.page{border-left:3px solid #e57373;padding-left:22px;background:repeating-linear-gradient(#fff,#fff 27px,#cfe0f5 28px)}h1{font-family:Georgia,serif;font-size:26px;margin:0 0 2px}.sub{font-size:12px;color:#667}h2{font-family:Georgia,serif;font-size:16px;margin:18px 0 4px;color:#1f4e8c}p,li{font-size:14px;line-height:28px;margin:0}.ln{height:28px}.fill{color:#0b5d2a;font-weight:700}button{margin:0 0 12px;padding:8px 14px;font-size:14px}@media print{button{display:none}}</style></head><body><button onclick="window.print()">🖨 Print</button><div class="page">' +
+    '<h1>🧪 ' + esc(e.title) + '</h1><div class="sub">Lab Notebook · The Science Lab · nusparklearnwow.com · Date: ' + new Date().toLocaleDateString() + '</div>' +
+    '<h2>My question</h2><p>' + esc(e.hook) + '</p>' +
+    '<h2>My hypothesis (what I think will happen)</h2>' + (e.predict ? '<p><i>' + esc(e.predict) + '</i></p>' : "") + lines(2) +
+    '<h2>What I did</h2>' + (lv.try ? '<p>' + esc(lv.try) + '</p>' : "") + (steps.length ? '<ol>' + steps.map(x => '<li>' + esc(x) + '</li>').join("") + '</ol>' : "") +
+    '<h2>What happened (my result)</h2>' + (done && done.result ? '<p class="fill">✓ ' + esc(done.result) + '</p>' + lines(1) : lines(3)) +
+    '<h2>The science (why it happened)</h2><p>' + esc(lv.why) + '</p>' +
+    (e.realworld ? '<h2>Wow fact: where you see it in real life</h2><p>' + esc(e.realworld) + '</p>' : "") +
+    '<h2>Next, I want to find out…</h2>' + lines(2) + '</div></body></html>';
+  const w = window.open("", "_blank");
+  if (!w) { say("Allow pop-ups so I can open your notebook page."); return; }
+  w.document.open(); w.document.write(html); w.document.close();
 }
 function shareExp(e, btn){
   const base = CONFIG.shareBase || (location.origin + location.pathname);
